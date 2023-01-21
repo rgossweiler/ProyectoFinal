@@ -35,7 +35,7 @@ go
 create table Categorias
 (
 	codigoCat varchar(4) check (codigoCat like '[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]') primary key,
-	nombreCat varchar(20) not null
+	nombreCat varchar(20) unique not null
 )
 go
 
