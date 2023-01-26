@@ -1,0 +1,4 @@
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\bin\Debug\Logica.dll
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\bin\Debug\Logica.pdb
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\obj\Debug\Logica.dll
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\obj\Debug\Logica.pdb
