@@ -18,7 +18,7 @@ namespace EntidadesCompartidas
             get { return nomUsuario; }
             set 
             {
-                if (value == "")
+                if (value.Trim() == "")
                     throw new Exception("el nombre de usuario no puede quedar vacío ");
                 nomUsuario = value;
             }
@@ -29,7 +29,7 @@ namespace EntidadesCompartidas
             get { return contraseña; }
             set 
             {
-                if (value == "")
+                if (value.Trim() == "")
                     throw new Exception("La contraseña del usuario no puede quedar vacía");
                 contraseña = value;
             }
@@ -40,7 +40,7 @@ namespace EntidadesCompartidas
             get { return nombreCompleto; }
             set 
             {
-                if (value == "")
+                if (value.Trim() == "")
                     throw new Exception("el nombre completo del usuario no puede quedar vacío");
                 nombreCompleto = value;
             }

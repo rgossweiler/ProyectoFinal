@@ -250,7 +250,7 @@ go
 create procedure ListarJuegosPreguntas --funciona
 as
 begin
-	select nombreJuego, fechaCreado, dificultad
+	select *
 	from Juegos inner join juegoPreguntas on Juegos.codigoJuego = juegoPreguntas.codigoJuego
 	inner join Preguntas on juegoPreguntas.codigoPreg = Preguntas.codigoPreg
 	group by nombreJuego, fechaCreado, dificultad
@@ -438,7 +438,14 @@ begin
 end
 go
 
---exec BuscarCategoria null, 'Geografía'
+create procedure BuscarCategoriaNombre
+@nomCat varchar(20)
+as
+begin
+	select * from Categorias
+	where nombreCat = @nomCat
+end
+go
 
 create procedure EliminarCategoria
 @codCat varchar(4)
@@ -486,8 +493,6 @@ begin
 end
 go
 
-
-
 create proc ListarPreguntasJuego
 @codigoJuego int
 as
@@ -517,20 +522,21 @@ go
 --go
 
 --exec ListarPreguntasSinJuego
---go
+go
 
 ---ELIMINO BUSCAR PREGUNTA y MODIFICAR PREGUNTA 24Ene23
-
 
 --Jugadas-----------------------------------------------------------------------------
 create procedure ListarJugadas
 as
 begin
-	select fechaHoraJugada, nombreJugador, nombreJuego, puntajeTotal
+	select fechaHoraJugada, nombreJugador, nombreJuego, puntajeTotal, jugada.codigoJuego, numeroJugada,
 	from Jugada inner join Juegos
 	on Jugada.codigoJuego = Juegos.codigoJuego
 end
 go
+
+exec ListarJugadas
 
 create procedure AgregarJugadas
 @nombreJugador varchar(20),
@@ -546,4 +552,3 @@ begin
 		return 1 --Se ingreso con exito
 end
 go
-

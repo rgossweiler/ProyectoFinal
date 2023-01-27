@@ -43,6 +43,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="PersistenciasCategorias.cs" />
     <Compile Include="PersistenciasJuegos.cs" />
+    <Compile Include="PersistenciasJugadas.cs" />
     <Compile Include="PersistenciasPreguntas.cs" />
     <Compile Include="PersistenciasUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
