@@ -11,7 +11,7 @@ namespace EntidadesCompartidas
         private int numJugada;
         private string nombreJugador;
         private DateTime fechaHoraJugada;
-        private int puntaje;
+        private int puntajeTotal;
         private Juegos juego;
 
         //PROPIEDADES
@@ -24,7 +24,12 @@ namespace EntidadesCompartidas
         public string NombreJugador
         {
             get { return nombreJugador; }
-            set { nombreJugador = value; }
+            set 
+            {
+                if (value == "")
+                    throw new Exception("El nombre de jugador no puede quedar vacío");
+                nombreJugador = value;
+            }
         }
 
         public DateTime FechaHoraJugada
@@ -39,16 +44,10 @@ namespace EntidadesCompartidas
             }
         }
 
-        public int Puntaje
+        public int PuntajeTotal
         {
-            get { return puntaje; }
-            set
-            {
-                if (value < 1 || value > 10)
-                    throw new Exception("El puntaje debe de estar entre 1 y 10");
-                else
-                    puntaje = value;
-            }
+            get { return puntajeTotal; }
+            set { puntajeTotal = value; }
         }
 
         public Juegos Juego
@@ -58,12 +57,12 @@ namespace EntidadesCompartidas
         }
 
         //CONSTRUCTOR
-        public Jugadas(int pNumJugada, string pNombreJugador, DateTime pFechaHoraJugada, int pPuntaje, Juegos pJuego)
+        public Jugadas(int pNumJugada, string pNombreJugador, DateTime pFechaHoraJugada, int pPuntajeTotal, Juegos pJuego)
         {
             NumJugada = pNumJugada;
             NombreJugador = pNombreJugador;
             FechaHoraJugada = pFechaHoraJugada;
-            Puntaje = pPuntaje;
+            PuntajeTotal = pPuntajeTotal;
             Juego = pJuego;
         }
 

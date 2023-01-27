@@ -21,25 +21,53 @@ namespace EntidadesCompartidas
         public string Preguntas
         {
             get { return preguntas; }
-            set { preguntas = value; }
+            set 
+            {
+                if (value == "")
+                    throw new Exception("La pregunta no puede quedar vacía ");
+                if (value.Length > 200)
+                    throw new Exception("Las preguntas no pueden tener más de 200 caracteres ");
+                preguntas = value;
+            }
         }
 
         public string Respuesta1
         {
             get { return respuesta1; }
-            set { respuesta1 = value; }
+            set 
+            {
+                if (value == "")
+                    throw new Exception("La respuesta no puede quedar vacía");
+                if (value.Length > 200)
+                    throw new Exception("Las respuestas no pueden tener más de 200 caracteres");
+                respuesta1 = value;
+            }
         }
 
         public string Respuesta2
         {
             get { return respuesta2; }
-            set { respuesta2 = value; }
+            set
+            {
+                if (value == "")
+                    throw new Exception("La respuesta no puede quedar vacía");
+                if (value.Length > 200)
+                    throw new Exception("Las respuestas no pueden tener más de 200 caracteres");
+                respuesta2 = value;
+            }
         }
 
         public string Respuesta3
         {
             get { return respuesta3; }
-            set { respuesta3 = value; }
+            set
+            {
+                if (value == "")
+                    throw new Exception("La respuesta no puede quedar vacía");
+                if (value.Length > 200)
+                    throw new Exception("Las respuestas no pueden tener más de 200 caracteres");
+                respuesta3 = value;
+            }
         }
 
         public int Correcta
@@ -59,6 +87,8 @@ namespace EntidadesCompartidas
             get { return codPregunta; }
             set 
             {
+                if (value == "")
+                    throw new Exception("El código de la pregunta no puede quedar vacío");
                 if (value.Length != 5)
                     throw new Exception("El código de cada pregunta debe de ser de 5 caracteres ");
                 else

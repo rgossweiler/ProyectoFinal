@@ -17,6 +17,8 @@ namespace EntidadesCompartidas
             get { return codCat; }
             set
             {
+                if (value == "")
+                    throw new Exception("El código de Categoría no puede quedar vacío");
                 if (value.Length != 4)
                     throw new Exception("El código de Categoría debe tener de 4 Letras");
                 else
@@ -27,7 +29,12 @@ namespace EntidadesCompartidas
         public string NombreCat
         {
             get { return nombreCat; }
-            set { nombreCat = value; }
+            set 
+            {
+                if (value == "")
+                    throw new Exception("El nombre de la Categoría no puede quedar vacío");
+                nombreCat = value;
+            }
         }
 
         //CONSTRUCTOR

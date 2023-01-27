@@ -19,7 +19,12 @@ namespace EntidadesCompartidas
         public string NombreJuego
         {
             get { return nombreJuego; }
-            set { nombreJuego = value; }
+            set 
+            {
+                if (value == "")
+                    throw new Exception("El nombre del juego no puede quedar vacío");
+                nombreJuego = value;
+            }
         }
 
         public int CodigoJuego
@@ -31,13 +36,23 @@ namespace EntidadesCompartidas
         public DateTime FechaCreado
         {
             get { return fechaCreado; }
-            set { fechaCreado = value; }
+            set 
+            {
+                if (fechaCreado > DateTime.Now)
+                    throw new Exception("La fecha de creado el juego no puede ser posterior a la fecha actual");
+                fechaCreado = value;
+            }
         }
 
         public string Dificultad
         {
             get { return dificultad; }
-            set { dificultad = value; }
+            set 
+            {
+                if (value != "Facil" || value != "Medio" || value != "Dificil")
+                    throw new Exception("La dificultad debe ser entre Fácil, Medio o Difícil ");
+                dificultad = value;
+            }
         }
 
         public Usuarios Creador

@@ -52,6 +52,96 @@ namespace Persistencias
             return resultado;
         }
 
+        public static List<Pregunta> ListarPreguntasJuego(int pCodJuego)
+        {
+            SqlDataReader oReader;
+            List<Pregunta> preguntasJuego = null;
+            Pregunta pregunta = null;
+            string textoPregunta, resp1, resp2, resp3, codPre;
+            int puntaje, correcta;
+            Categorias categoria;
 
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("ListarPreguntasJuego", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            oComando.Parameters.AddWithValue("@codigoJuego", pCodJuego);
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    while (oReader.Read())
+                    {
+                        textoPregunta = oReader["textoPregunta"].ToString();
+                        resp1 = oReader["respuesta1"].ToString();
+                        resp2 = oReader["respuesta2"].ToString();
+                        resp3 = oReader["respuesta3"].ToString();
+                        codPre = oReader["codigoPreg"].ToString();
+                        puntaje = (int)oReader["puntaje"];
+                        correcta = (int)oReader["correcta"];
+                        string aux = oReader["categoria"].ToString();
+                        categoria = PersistenciasCategorias.BuscarCategoriaNombre(aux);
+
+                        pregunta = new Pregunta(textoPregunta, resp1, resp2, resp3, correcta, codPre, puntaje, categoria);
+                        preguntasJuego.Add(pregunta);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return preguntasJuego;
+        }
+
+        public static List<Pregunta> ListarPreguntasSinJuego()
+        {
+            SqlDataReader oReader;
+            List<Pregunta> preguntasJuego = null;
+            Pregunta pregunta = null;
+            string textoPregunta, resp1, resp2, resp3, codPre;
+            int puntaje, correcta;
+            Categorias categoria;
+
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("ListarPreguntasSinJuego", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    while (oReader.Read())
+                    {
+                        textoPregunta = oReader["textoPregunta"].ToString();
+                        resp1 = oReader["respuesta1"].ToString();
+                        resp2 = oReader["respuesta2"].ToString();
+                        resp3 = oReader["respuesta3"].ToString();
+                        codPre = oReader["codigoPreg"].ToString();
+                        puntaje = (int)oReader["puntaje"];
+                        correcta = (int)oReader["correcta"];
+                        string aux = oReader["categoria"].ToString();
+                        categoria = PersistenciasCategorias.BuscarCategoria(aux, null);
+
+                        pregunta = new Pregunta(textoPregunta, resp1, resp2, resp3, correcta, codPre, puntaje, categoria);
+                        preguntasJuego.Add(pregunta);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return preguntasJuego;
+        }
     }
 }

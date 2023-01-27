@@ -82,7 +82,7 @@ namespace Persistencias
             return resultado;
         }
 
-        public static Categorias BuscarCategoria(string codCat, string nomCat)
+        public static Categorias BuscarCategoria(string codCat)
         {
             SqlDataReader oReader;
             Categorias oCategoria = null;
@@ -91,11 +91,8 @@ namespace Persistencias
             SqlCommand oComando = new SqlCommand("@BuscarCategoria", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
-            if (codCat != "")
-                oComando.Parameters.AddWithValue("@codCat", codCat);
-            if (nomCat != "")
-                oComando.Parameters.AddWithValue("@nomCat", nomCat);
-
+            oComando.Parameters.AddWithValue("@codCat", codCat);
+            
             try
             {
                 oConexion.Open();
@@ -106,7 +103,43 @@ namespace Persistencias
                     if (oReader.Read())
                     {
                         codCat = oReader["codigoCat"].ToString();
+                        string nomCat = oReader["nombreCat"].ToString();
+
+                        oCategoria = new Categorias(codCat, nomCat);
+                    }
+                }
+                oReader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return oCategoria;
+        }
+
+        public static Categorias BuscarCategoriaNombre(string nomCat)
+        {
+            SqlDataReader oReader;
+            Categorias oCategoria = null;
+
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("@BuscarCategoriaNombre", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            oComando.Parameters.AddWithValue("@nomCat", nomCat);
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    if (oReader.Read())
+                    {
                         nomCat = oReader["nombreCat"].ToString();
+                        string codCat = oReader["codigoCat"].ToString();
 
                         oCategoria = new Categorias(codCat, nomCat);
                     }
