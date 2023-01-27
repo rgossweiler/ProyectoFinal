@@ -1,0 +1,20 @@
+Rodrigo:
+-AltaJuegos
+-AltaPreguntas
+-AltaUsuarios
+-ListadoJuegos
+-Jugar
+-
+Cesar:
+-ABMCategorias
+-Logeo
+-ManejoPreguntasJuego
+-Principal
+-
+-
+Sebastian:
+-ParteGrafica
+-Master Players
+-Master Administrador
+-
+-
