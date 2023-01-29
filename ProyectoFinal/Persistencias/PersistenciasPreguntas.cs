@@ -129,7 +129,7 @@ namespace Persistencias
                         puntaje = (int)oReader["puntaje"];
                         correcta = (int)oReader["correcta"];
                         string aux = oReader["categoria"].ToString();
-                        categoria = PersistenciasCategorias.BuscarCategoria(aux, null);
+                        categoria = PersistenciasCategorias.BuscarCategoria(aux);
 
                         pregunta = new Pregunta(textoPregunta, resp1, resp2, resp3, correcta, codPre, puntaje, categoria);
                         preguntasJuego.Add(pregunta);

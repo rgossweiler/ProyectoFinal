@@ -6,6 +6,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Juegos", "..\..\..\Users\rgoss\OneDrive\Desktop\Programador web.net\3- Programacion Web\Juegos\", "{6F69DB22-8DF8-4483-9290-DDB8598E7603}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{41060B08-6B65-4A00-B370-48BAC8522321}|Logica.dll;{DA0A13F6-49C5-47E1-A66C-8C4D34D2EF28}|EntidadesCompartidas.dll;{CDDC67B2-04E7-4825-A3DA-9F5937B235FD}|Persistencias.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Juegos"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Users\rgoss\OneDrive\Desktop\Programador web.net\3- Programacion Web\Juegos\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Juegos\"

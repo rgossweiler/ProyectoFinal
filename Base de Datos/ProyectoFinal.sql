@@ -209,6 +209,13 @@ go
 --	print 'Inicio de session exitoso'
 go
 
+create procedure ListarUsuarios
+as
+begin
+	select * from Usuarios
+end
+go
+
 --Juegos--------------------------------------------------------------------------------
 create procedure BuscarJuego --funciona
 @codJuego int --Busco solo por el código 24Ene23

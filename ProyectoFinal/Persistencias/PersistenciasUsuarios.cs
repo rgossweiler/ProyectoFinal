@@ -115,5 +115,42 @@ namespace Persistencias
             finally { oConexion.Close(); }
             return resultado;
         }
+
+        public static List<Usuarios> ListarUsuarios()
+        {
+            SqlDataReader oReader;
+            List<Usuarios> users = null;
+            Usuarios user = null;
+            string nombreCompleto, usuario, contraseña;
+
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("ListarUsuarios", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    while (oReader.Read())
+                    {
+                        nombreCompleto = oReader["nombreCompleto"].ToString();
+                        usuario = oReader["nomUsuario"].ToString();
+                        contraseña = oReader["contraseña"].ToString();
+
+                        user = new Usuarios(usuario, contraseña, nombreCompleto);
+                        users.Add(user);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return users;
+        }
     }
 }

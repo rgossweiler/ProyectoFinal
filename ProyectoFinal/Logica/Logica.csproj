@@ -40,7 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogicaCategorias.cs" />
+    <Compile Include="LogicaJuegos.cs" />
+    <Compile Include="LogicaJugadas.cs" />
+    <Compile Include="LogicaPreguntas.cs" />
+    <Compile Include="LogicaUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntidadesCompartidas\EntidadesCompartidas.csproj">
+      <Project>{DA0A13F6-49C5-47E1-A66C-8C4D34D2EF28}</Project>
+      <Name>EntidadesCompartidas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistencias\Persistencias.csproj">
+      <Project>{CDDC67B2-04E7-4825-A3DA-9F5937B235FD}</Project>
+      <Name>Persistencias</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
