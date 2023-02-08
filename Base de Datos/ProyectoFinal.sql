@@ -27,7 +27,7 @@ create table Juegos
 	nombreJuego varchar(200) unique not null,
 	codigoJuego int primary key identity(1,1),
 	fechaCreado datetime default getdate() not null, CHECK (CONVERT(date, fechaCreado) <= CONVERT(date, GETDATE())),-- cambio de = a <= 24Ene23
-	dificultad varchar(20) check (dificultad = 'Facil' or dificultad = 'Medio' or dificultad = 'Dificil') not null,
+	dificultad varchar(20),
 	creador varchar(20) foreign key references Usuarios(nomUsuario) not null
 )
 go
@@ -121,7 +121,7 @@ values
 ('Quien quiere ser millonario','Dificil','Gamer123'),
 ('El imbatible','Medio','Vicio123')
 go
-
+select * from Juegos
 
 insert into juegoPreguntas(codigoJuego,codigoPreg) 
 values
@@ -226,16 +226,34 @@ begin
 end
 go
 
+create procedure BuscarNombreJuego
+@nomJuego varchar(20)
+as
+begin
+	select * from Juegos
+	where @nomjuego = nombreJuego
+end
+go
+
+create procedure ContarJuegosExistentes
+as
+begin
+	select	* from juegos
+end
+go
+
 --exec BuscarJuego null, 1
+select * from Juegos
 
 create Procedure AgregarJuego --funciona
 @nomJuego varchar(20),
-@dificultar varchar(20)
+@dificultad varchar(20),
+@creador varchar(20)
 as
 begin
 	if exists (select * from juegos where @nomJuego = nombreJuego)
 		return -1 --el nombre de juego ya esta asociado
-	insert into Juegos (nombreJuego, fechaCreado, dificultad) values (@nomJuego, GETDATE(), @dificultar)
+	insert into Juegos (nombreJuego, fechaCreado, dificultad,creador) values (@nomJuego, GETDATE(), @dificultad, @creador)
 	if @@ERROR != 0
 		return -2 --Ocurrio un error inesperado
 	else
@@ -257,7 +275,7 @@ go
 create procedure ListarJuegosPreguntas --funciona
 as
 begin
-	select *
+	select nombreJuego, fechaCreado, dificultad
 	from Juegos inner join juegoPreguntas on Juegos.codigoJuego = juegoPreguntas.codigoJuego
 	inner join Preguntas on juegoPreguntas.codigoPreg = Preguntas.codigoPreg
 	group by nombreJuego, fechaCreado, dificultad
@@ -479,6 +497,13 @@ go
 --select * from Categorias
 go
 
+create procedure ListarCategorias
+as
+begin
+	select * from Categorias
+end
+go
+
 -----------------------------------------------------------------
 create proc AgregarPregunta
 @textoPregunta varchar(200),
@@ -497,6 +522,15 @@ begin
 	values (@textoPregunta,@respuesta1,@respuesta2,@respuesta3,@correcta,@codigoPreg,@puntaje,@CodigoCat)
 	if @@ERROR != 0
 	return -2  --Error inesperado
+end
+go
+
+create procedure BuscarCodigoPregunta
+@CodPre varchar(5)
+as
+begin
+	select * from Preguntas
+	where codigoPreg = @CodPre
 end
 go
 
@@ -537,13 +571,13 @@ go
 create procedure ListarJugadas
 as
 begin
-	select fechaHoraJugada, nombreJugador, nombreJuego, puntajeTotal, jugada.codigoJuego, numeroJugada,
+	select fechaHoraJugada, nombreJugador, nombreJuego, puntajeTotal, jugada.codigoJuego, numeroJugada
 	from Jugada inner join Juegos
 	on Jugada.codigoJuego = Juegos.codigoJuego
 end
 go
 
-exec ListarJugadas
+--exec ListarJugadas
 
 create procedure AgregarJugadas
 @nombreJugador varchar(20),

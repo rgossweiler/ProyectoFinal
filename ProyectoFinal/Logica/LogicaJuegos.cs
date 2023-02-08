@@ -15,9 +15,14 @@ namespace Logica
             return PersistenciasJuegos.BuscarJuego(codJuego);
         }
 
-        public static int AgregarJuego(string nomJuego, string dificultad)
+        public static Juegos BuscarJuegoNombre(string nomJuego)
         {
-            return PersistenciasJuegos.AgregarJuego(nomJuego, dificultad);
+            return PersistenciasJuegos.BuscarJuegoNombre(nomJuego);
+        }
+
+        public static int AgregarJuego(Juegos game)
+        {
+            return PersistenciasJuegos.AgregarJuego(game);
         }
 
         public static List<Juegos> ListarJuegosPreguntas()
@@ -43,6 +48,11 @@ namespace Logica
         public static int QuitarPregunta(Juegos juego, Pregunta pregunta)
         {
             return PersistenciasJuegos.QuitarPregunta(juego, pregunta);
+        }
+
+        public static int ContarJuegosExistentes()
+        {
+            return PersistenciasJuegos.ContarJuegosExistentes();
         }
     }
 }

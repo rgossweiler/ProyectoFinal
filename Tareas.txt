@@ -12,9 +12,6 @@ Cesar:
 -Principal
 -
 -
-Sebastian:
--ParteGrafica
--Master Players
--Master Administrador
+
 -
 -

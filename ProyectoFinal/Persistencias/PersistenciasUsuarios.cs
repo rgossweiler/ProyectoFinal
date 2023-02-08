@@ -119,7 +119,7 @@ namespace Persistencias
         public static List<Usuarios> ListarUsuarios()
         {
             SqlDataReader oReader;
-            List<Usuarios> users = null;
+            List<Usuarios> users = new List<Usuarios>();
             Usuarios user = null;
             string nombreCompleto, usuario, contraseña;
 

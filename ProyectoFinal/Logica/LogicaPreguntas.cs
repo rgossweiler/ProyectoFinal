@@ -24,5 +24,10 @@ namespace Logica
         {
             return PersistenciasPreguntas.ListarPreguntasSinJuego();
         }
+
+        public static Pregunta BuscarCodigoPregunta(string pCodPre)
+        {
+            return PersistenciasPreguntas.BuscarPregunta(pCodPre);
+        }
     }
 }

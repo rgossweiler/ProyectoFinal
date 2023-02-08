@@ -34,5 +34,10 @@ namespace Logica
         {
             return PersistenciasCategorias.EliminarCategoria(categoria);
         }
+
+        public static List<Categorias> ListarCategorias()
+        {
+            return PersistenciasCategorias.ListarCategorias();
+        }
     }
 }

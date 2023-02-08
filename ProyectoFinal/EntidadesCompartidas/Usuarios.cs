@@ -51,7 +51,7 @@ namespace EntidadesCompartidas
         {
             NombreCompleto = pNombreCompleto;
             Contraseña = pContraseña;
-            NombreCompleto = pNombreCompleto;
+            NomUsuario = pNomUsuario;
         }
 
         //OPERACIONES
