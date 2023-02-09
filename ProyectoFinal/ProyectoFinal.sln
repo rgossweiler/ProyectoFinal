@@ -21,7 +21,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Juegos", "..\..\..\Users\rg
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "14504"
+		VWDPort = "62382"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
