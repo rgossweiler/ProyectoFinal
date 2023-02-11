@@ -26,8 +26,8 @@ create table Juegos
 (
 	nombreJuego varchar(200) unique not null,
 	codigoJuego int primary key identity(1,1),
-	fechaCreado datetime default getdate() not null, CHECK (CONVERT(date, fechaCreado) = CONVERT(date, GETDATE())),-- igual o menor/igual????
-	dificultad varchar(20) check (dificultad = 'Facil' or dificultad = 'Medio' or dificultad = 'Dificil') not null,
+	fechaCreado datetime default getdate() not null, CHECK (CONVERT(date, fechaCreado) <= CONVERT(date, GETDATE())),-- cambio de = a <= 24Ene23
+	dificultad varchar(20),
 	creador varchar(20) foreign key references Usuarios(nomUsuario) not null
 )
 go
@@ -35,7 +35,7 @@ go
 create table Categorias
 (
 	codigoCat varchar(4) check (codigoCat like '[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]') primary key,
-	nombreCat varchar(20) not null
+	nombreCat varchar(20) unique not null
 )
 go
 
@@ -56,7 +56,7 @@ create table Jugada
 (
 	numeroJugada int primary key identity(1,1),
 	nombreJugador varchar(20) not null,
-	fechaHoraJugada datetime default getdate() not null, CHECK (CONVERT(date, fechaHoraJugada) = CONVERT(date, GETDATE())),
+	fechaHoraJugada datetime default getdate() not null, CHECK (CONVERT(date, fechaHoraJugada) <= CONVERT(date, GETDATE())),-- cambio de = a <= 24Ene23
 	puntajeTotal int not null, ---cambié puntajes por puntajeTotal(es la sumatoria)
 	codigoJuego int foreign key references Juegos(codigoJuego) not null
 )
@@ -121,7 +121,7 @@ values
 ('Quien quiere ser millonario','Dificil','Gamer123'),
 ('El imbatible','Medio','Vicio123')
 go
-
+select * from Juegos
 
 insert into juegoPreguntas(codigoJuego,codigoPreg) 
 values
@@ -139,13 +139,13 @@ values
 ('Javi',3,3)
 go
 
-select * from Usuarios
-select * from Juegos
-select * from Preguntas
-select * from Categorias
-select * from juegoPreguntas
-select * from Jugada
-go
+--select * from Usuarios
+--select * from Juegos
+--select * from Preguntas
+--select * from Categorias
+--select * from juegoPreguntas
+--select * from Jugada
+--go
 
 --Procedimientos-------------------------------------------------------------------------
 --Usuarios-------------------------------------------------------------------------------
@@ -187,7 +187,7 @@ end
 go
 
 --exec BuscarUsuario 'rgoss'
-go
+--go
 
 create procedure LogueUsuario --funciona
 @nomUs varchar(20),
@@ -209,27 +209,51 @@ go
 --	print 'Inicio de session exitoso'
 go
 
+create procedure ListarUsuarios
+as
+begin
+	select * from Usuarios
+end
+go
+
 --Juegos--------------------------------------------------------------------------------
 create procedure BuscarJuego --funciona
-@nomJuego varchar(20),
-@codJuego int
+@codJuego int --Busco solo por el código 24Ene23
 as
 begin
 	select * from Juegos
-	where @nomJuego = nombreJuego or @codJuego = codigoJuego
+	where @codJuego = codigoJuego
+end
+go
+
+create procedure BuscarNombreJuego
+@nomJuego varchar(20)
+as
+begin
+	select * from Juegos
+	where @nomjuego = nombreJuego
+end
+go
+
+create procedure ContarJuegosExistentes
+as
+begin
+	select	* from juegos
 end
 go
 
 --exec BuscarJuego null, 1
+select * from Juegos
 
 create Procedure AgregarJuego --funciona
 @nomJuego varchar(20),
-@dificultar varchar(20)
+@dificultad varchar(20),
+@creador varchar(20)
 as
 begin
 	if exists (select * from juegos where @nomJuego = nombreJuego)
 		return -1 --el nombre de juego ya esta asociado
-	insert into Juegos (nombreJuego, fechaCreado, dificultad) values (@nomJuego, GETDATE(), @dificultar)
+	insert into Juegos (nombreJuego, fechaCreado, dificultad,creador) values (@nomJuego, GETDATE(), @dificultad, @creador)
 	if @@ERROR != 0
 		return -2 --Ocurrio un error inesperado
 	else
@@ -368,38 +392,9 @@ go
 --	print 'Se quito la pregunta con exito'
 --select * from juegoPreguntas
 
-create procedure EliminarJuego --funciona
-@nomJuego varchar(20)
-as
-begin
-	if not exists (select * from juegos where nombreJuego = @nomJuego)
-		return -1 --El juego no existe
-	declare @var int
-	select @var = codigoJuego from Juegos where nombreJuego = @nomJuego
-	if exists (select * from juegoPreguntas where @var = codigoJuego)
-		return -2 --El juego tiene preguntas asociadas
-	delete
-	from Juegos
-	where codigoJuego = @var
-	if @@ERROR != 0
-		return -3 --Ocurrio un error inesperado
-	else
-		return 1 --Se elimino con exito.CONSULTAR
-end
-go
+---ELIMINAR JUEGO NO VA 24Ene23
 
---declare @retorno int
---exec @retorno = EliminarJuego 'matelocs'
---if @retorno = -1
---	print 'el juego no existe'
---else if @retorno = -2
---	print 'el juego tiene preguntas asociadas'
---else if @retorno = -3
---	print 'ocurrio un error inesperado'
---else
---	print 'Se elimino el juego con exito'
---select * from Juegos
-go
+
 
 --Categorias--------------------------------------------------------------------------
 create procedure AgregarCategoria --funciona
@@ -460,16 +455,22 @@ go
 --select * from Categorias
 
 create procedure BuscarCategoria --funciona
-@codCat varchar(4),
+@codCat varchar(4) --Elimino nomCat, busco por PK 24Ene23
+as
+begin
+	select * from Categorias
+	where codigoCat = @codCat
+end
+go
+
+create procedure BuscarCategoriaNombre
 @nomCat varchar(20)
 as
 begin
 	select * from Categorias
-	where codigoCat = @codCat or nombreCat = @nomCat
+	where nombreCat = @nomCat
 end
 go
-
---exec BuscarCategoria null, 'Geografía'
 
 create procedure EliminarCategoria
 @codCat varchar(4)
@@ -496,6 +497,13 @@ go
 --select * from Categorias
 go
 
+create procedure ListarCategorias
+as
+begin
+	select * from Categorias
+end
+go
+
 -----------------------------------------------------------------
 create proc AgregarPregunta
 @textoPregunta varchar(200),
@@ -517,17 +525,14 @@ begin
 end
 go
 
---create proc EliminarPregunta ---Creo que no va,CONSULTAR
---@codigoPreg varchar(5)
---as
---begin
---	if not exists (select * from Preguntas where codigoPreg=@codigoPreg)
---		return -1 --No existe código indicado
---	delete from Preguntas where codigoPreg=@codigoPreg
---	if @@ERROR != 0
---	return -2  --Error inesperado
---end
---go
+create procedure BuscarCodigoPregunta
+@CodPre varchar(5)
+as
+begin
+	select * from Preguntas
+	where codigoPreg = @CodPre
+end
+go
 
 create proc ListarPreguntasJuego
 @codigoJuego int
@@ -558,53 +563,21 @@ go
 --go
 
 --exec ListarPreguntasSinJuego
---go
-
-create proc BuscarPregunta---No se pide. Sería una mejora (CRUD Preguntas)
-@codigoPreg varchar(5)
-as
-begin
-	select* from Preguntas where codigoPreg=@codigoPreg
-end
 go
 
-create proc ModificarPregunta --No se pide. Sería una mejora(CRUD Preguntas)
-@codigoPreg varchar(5),
-@textoPregunta varchar(200),
-@respuesta1 varchar(200),
-@respuesta2 varchar(200),
-@respuesta3 varchar(200),
-@correcta int,
-@puntaje int,
-@CodigoCat varchar(4)
-as
-begin
-	if not exists (select * from Preguntas where codigoPreg=@codigoPreg)
-		return -1 --Codigo no existe
-	update Preguntas
-	set
-	textoPregunta=@textoPregunta,
-	respuesta1=@respuesta1,
-	respuesta2=@respuesta2,
-	respuesta3=@respuesta3,
-	correcta=@correcta,
-	puntaje=@puntaje,
-	CodigoCat=@CodigoCat
-	where codigoPreg=@codigoPreg
-	if (@@ERROR<>0)
-	return -2
-end
-go
+---ELIMINO BUSCAR PREGUNTA y MODIFICAR PREGUNTA 24Ene23
 
 --Jugadas-----------------------------------------------------------------------------
 create procedure ListarJugadas
 as
 begin
-	select fechaHoraJugada, nombreJugador, nombreJuego, puntajeTotal
+	select fechaHoraJugada, nombreJugador, nombreJuego, puntajeTotal, jugada.codigoJuego, numeroJugada
 	from Jugada inner join Juegos
 	on Jugada.codigoJuego = Juegos.codigoJuego
 end
 go
+
+--exec ListarJugadas
 
 create procedure AgregarJugadas
 @nombreJugador varchar(20),
@@ -620,8 +593,3 @@ begin
 		return 1 --Se ingreso con exito
 end
 go
-
-select * from juegos
-go
-
------------sdfsdfsd-----------

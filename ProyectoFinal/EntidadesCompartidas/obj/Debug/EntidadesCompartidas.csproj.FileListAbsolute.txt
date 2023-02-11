@@ -1,0 +1,8 @@
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\EntidadesCompartidas\bin\Debug\EntidadesCompartidas.dll
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\EntidadesCompartidas\bin\Debug\EntidadesCompartidas.pdb
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.dll
+C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\EntidadesCompartidas\bin\Debug\EntidadesCompartidas.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\EntidadesCompartidas\bin\Debug\EntidadesCompartidas.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.pdb

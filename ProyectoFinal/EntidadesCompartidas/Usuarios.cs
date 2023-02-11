@@ -16,19 +16,34 @@ namespace EntidadesCompartidas
         public string NomUsuario
         {
             get { return nomUsuario; }
-            set { nomUsuario = value; }
+            set 
+            {
+                if (value.Trim() == "")
+                    throw new Exception("el nombre de usuario no puede quedar vacío ");
+                nomUsuario = value;
+            }
         }
 
         public string Contraseña
         {
             get { return contraseña; }
-            set { contraseña = value; }
+            set 
+            {
+                if (value.Trim() == "")
+                    throw new Exception("La contraseña del usuario no puede quedar vacía");
+                contraseña = value;
+            }
         }
 
         public string NombreCompleto
         {
             get { return nombreCompleto; }
-            set { nombreCompleto = value; }
+            set 
+            {
+                if (value.Trim() == "")
+                    throw new Exception("el nombre completo del usuario no puede quedar vacío");
+                nombreCompleto = value;
+            }
         }
 
         //CONSTRUCTOR
@@ -36,7 +51,7 @@ namespace EntidadesCompartidas
         {
             NombreCompleto = pNombreCompleto;
             Contraseña = pContraseña;
-            NombreCompleto = pNombreCompleto;
+            NomUsuario = pNomUsuario;
         }
 
         //OPERACIONES

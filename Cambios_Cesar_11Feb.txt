@@ -1,0 +1,26 @@
+ENTIDADES COMPARTIDAS
+
+namespace EntidadesCompartidas
+{
+    public class Pregunta
+    {
+        //ATRIBUTOS
+        private string textoPregunta; //Cambio "preguntas" X "textoPregunta" 11/feb IDEM Propiedad y Constructor
+
+
+LOGICA PREGUNTAS
+
+//Cambio "Listar Preguntas sin juego" x "Listar preguntas"
+
+PERSISTENCIA PREGUNTAS
+
+//Cambio "Listar Preguntas sin juego" x "Listar preguntas", MODIFICO EL SP
+
+
+En SP ListarPreguntas cambio "oReader["categoria"]" x "oReader["CodigoCat"]" según parametro en BD
+En SP ListarPreguntas cambio List<Pregunta> preguntasJuego = null X List<Pregunta> preguntasJuego = new List<Pregunta>();
+
+
+
+
+
