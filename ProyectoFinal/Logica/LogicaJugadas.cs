@@ -19,5 +19,10 @@ namespace Logica
         {
             return PersistenciasJugadas.ListarJugadas();
         }
+
+        public static List<Jugadas> ListarJugadasJuego(Juegos game)
+        {
+            return PersistenciasJugadas.ListarJugadasJuegos(game);
+        }
     }
 }

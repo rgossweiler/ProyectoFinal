@@ -87,5 +87,47 @@ namespace Persistencias
             finally { oConexion.Close(); }
             return records;
         }
+
+        public static List<Jugadas> ListarJugadasJuegos(Juegos game)
+        {
+            SqlDataReader oReader;
+            List<Jugadas> records = new List<Jugadas>();
+            Jugadas jugada;
+            string player;
+            int numJugada, puntajeTotal;
+            DateTime fechaHoraJugada;
+
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("ListarJugadasJuego", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            oComando.Parameters.AddWithValue("@codJuego", game.CodigoJuego);
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    while (oReader.Read())
+                    {
+                        numJugada = (int)oReader["numeroJugada"];
+                        puntajeTotal = (int)oReader["puntajeTotal"];
+                        player = oReader["nombreJugador"].ToString();
+                        fechaHoraJugada = (DateTime)oReader["fechaHoraJugada"];
+
+                        jugada = new Jugadas(numJugada, player, fechaHoraJugada, puntajeTotal, game);
+                        records.Add(jugada);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return records;
+        }
     }
 }

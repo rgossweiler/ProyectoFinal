@@ -124,9 +124,10 @@ go
 select * from Juegos
 
 insert into juegoPreguntas(codigoJuego,codigoPreg) 
-values
+values 
 (1,'gg111'),
-(1,'cc111')
+(1,'cc111'),
+(2,'cc444')
 go
 
 insert into Jugada(nombreJugador,puntajeTotal,codigoJuego)
@@ -275,10 +276,10 @@ go
 create procedure ListarJuegosPreguntas --funciona
 as
 begin
-	select nombreJuego, fechaCreado, dificultad
+	select nombreJuego, fechaCreado, dificultad, Juegos.codigoJuego
 	from Juegos inner join juegoPreguntas on Juegos.codigoJuego = juegoPreguntas.codigoJuego
 	inner join Preguntas on juegoPreguntas.codigoPreg = Preguntas.codigoPreg
-	group by nombreJuego, fechaCreado, dificultad
+	group by nombreJuego, fechaCreado, dificultad, Juegos.codigoJuego
 end
 go
 
@@ -577,6 +578,15 @@ begin
 end
 go
 
+create procedure ListarJugadasJuego
+@codJuego int
+as
+begin
+	select * from Jugada
+	where codigoJuego = @codJuego
+end
+go
+
 --exec ListarJugadas
 
 create procedure AgregarJugadas
@@ -593,3 +603,4 @@ begin
 		return 1 --Se ingreso con exito
 end
 go
+

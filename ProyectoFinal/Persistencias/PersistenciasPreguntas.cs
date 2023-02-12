@@ -102,7 +102,7 @@ namespace Persistencias
         public static List<Pregunta> ListarPreguntasSinJuego()
         {
             SqlDataReader oReader;
-            List<Pregunta> preguntasJuego = null;
+            List<Pregunta> preguntasJuego = new List<Pregunta>();
             Pregunta pregunta = null;
             string textoPregunta, resp1, resp2, resp3, codPre;
             int puntaje, correcta;
@@ -128,7 +128,7 @@ namespace Persistencias
                         codPre = oReader["codigoPreg"].ToString();
                         puntaje = (int)oReader["puntaje"];
                         correcta = (int)oReader["correcta"];
-                        string aux = oReader["categoria"].ToString();
+                        string aux = oReader["codigoCat"].ToString();
                         categoria = PersistenciasCategorias.BuscarCategoria(aux);
 
                         pregunta = new Pregunta(textoPregunta, resp1, resp2, resp3, correcta, codPre, puntaje, categoria);

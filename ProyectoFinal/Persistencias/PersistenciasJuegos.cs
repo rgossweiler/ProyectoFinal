@@ -137,8 +137,8 @@ namespace Persistencias
         public static List<Juegos> ListarJuegosPreguntas()
         {
             SqlDataReader oReader;
-            List<Juegos> JuegosConPreguntas = null;
-            Juegos juegos = null;
+            List<Juegos> JuegosConPreguntas = new List<Juegos>();
+            Juegos juegos;
             int codJuego;
 
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
@@ -177,7 +177,7 @@ namespace Persistencias
             Usuarios creador;
             int codJuego;
             DateTime fechaCreado;
-            Juegos juego = null;
+            Juegos juego;
 
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
             SqlCommand oComando = new SqlCommand("ListarJuegos", oConexion);
@@ -319,7 +319,6 @@ namespace Persistencias
 
         public static int ContarJuegosExistentes()
         {
-            SqlDataReader oReader;
             int cantidad = 1;
             List<Juegos> juegos = ListarJuegos();
 

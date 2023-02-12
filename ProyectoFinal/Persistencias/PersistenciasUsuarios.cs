@@ -72,6 +72,8 @@ namespace Persistencias
                         contraseña = oReader["contraseña"].ToString();
 
                         oUsuario = new Usuarios(pNomUs, contraseña, nombreCompleto);
+                        if (oUsuario == null)
+                            throw new Exception("Usuario no registrado");
                     }
                 }
                 oReader.Close();
@@ -84,14 +86,14 @@ namespace Persistencias
             return oUsuario;
         }
 
-        public static int LogeoUsuario(Usuarios pUsuario)
+        public static int LogeoUsuario(string pUsuario, string pContraseña)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
             SqlCommand oComando = new SqlCommand("LogueUsuario", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
-            oComando.Parameters.AddWithValue("@nomUs", pUsuario.NomUsuario);
-            oComando.Parameters.AddWithValue("contraseña", pUsuario.Contraseña);
+            oComando.Parameters.AddWithValue("@nomUs", pUsuario);
+            oComando.Parameters.AddWithValue("@Pass", pContraseña);
 
             SqlParameter oRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
             oRetorno.Direction = ParameterDirection.ReturnValue;

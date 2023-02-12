@@ -20,9 +20,9 @@ namespace Logica
             return PersistenciasUsuarios.BuscarUsuario(nomUsuario);
         }
 
-        public static int LogeoUsuario(Usuarios usuario)
+        public static int LogeoUsuario(string usuario, string contraseña)
         {
-            return PersistenciasUsuarios.LogeoUsuario(usuario);
+            return PersistenciasUsuarios.LogeoUsuario(usuario, contraseña);
         }
 
         public static List<Usuarios> ListarUsuarios()
