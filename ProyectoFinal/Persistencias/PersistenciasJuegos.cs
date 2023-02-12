@@ -23,7 +23,7 @@ namespace Persistencias
 
             SqlDataReader oReader;
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("@BuscarJuego", oConexion);
+            SqlCommand oComando = new SqlCommand("BuscarJuego", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
             oComando.Parameters.AddWithValue("@codJuego", pCodJuego);
@@ -38,7 +38,6 @@ namespace Persistencias
                     if (oReader.Read())
                     {
                         nombreJuego = oReader["nombreJuego"].ToString();
-                        pCodJuego = (int)oReader["codigoJuego"];
                         fechaCreado = (DateTime)oReader["fechaCreado"];
                         dificultad = oReader["dificultad"].ToString();
                         string aux = oReader["creador"].ToString();
@@ -57,14 +56,59 @@ namespace Persistencias
             return pJuego;
         }
 
-        public static int AgregarJuego(string pNombreJuego, string pDificultad)
+        public static Juegos BuscarJuegoNombre (string pNomJuego)
+        {
+            int codJuego;
+            DateTime fechaCreado;
+            string dificultad;
+            Usuarios creador;
+            List<Pregunta> preguntasJuego;
+            Juegos pJuego = null;
+
+            SqlDataReader oReader;
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("BuscarNombreJuego", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            oComando.Parameters.AddWithValue("@nomJuego", pNomJuego);
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    if (oReader.Read())
+                    {
+                        codJuego = (int)oReader["codigoJuego"];
+                        fechaCreado = (DateTime)oReader["fechaCreado"];
+                        dificultad = oReader["dificultad"].ToString();
+                        string aux = oReader["creador"].ToString();
+                        creador = PersistenciasUsuarios.BuscarUsuario(aux);
+                        preguntasJuego = PersistenciasPreguntas.ListarPreguntasJuego(codJuego);
+
+                        pJuego = new Juegos(pNomJuego, codJuego, fechaCreado, dificultad, creador, preguntasJuego);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return pJuego;
+        }
+
+        public static int AgregarJuego(Juegos game)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
             SqlCommand oComando = new SqlCommand("AgregarJuego", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
-            oComando.Parameters.AddWithValue("@nomJuego", pNombreJuego);
-            oComando.Parameters.AddWithValue("@dificultad", pDificultad);
+            oComando.Parameters.AddWithValue("@nomJuego", game.NombreJuego);
+            oComando.Parameters.AddWithValue("@dificultad", game.Dificultad);
+            oComando.Parameters.AddWithValue("@creador", game.Creador.NomUsuario);
 
             SqlParameter oRetorno = new SqlParameter("@retorno", SqlDbType.Int);
             oRetorno.Direction = ParameterDirection.ReturnValue;
@@ -93,8 +137,8 @@ namespace Persistencias
         public static List<Juegos> ListarJuegosPreguntas()
         {
             SqlDataReader oReader;
-            List<Juegos> JuegosConPreguntas = null;
-            Juegos juegos = null;
+            List<Juegos> JuegosConPreguntas = new List<Juegos>();
+            Juegos juegos;
             int codJuego;
 
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
@@ -133,7 +177,7 @@ namespace Persistencias
             Usuarios creador;
             int codJuego;
             DateTime fechaCreado;
-            Juegos juego = null;
+            Juegos juego;
 
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
             SqlCommand oComando = new SqlCommand("ListarJuegos", oConexion);
@@ -271,6 +315,19 @@ namespace Persistencias
             }
             finally { oConexion.Close(); }
             return resultado;
+        }
+
+        public static int ContarJuegosExistentes()
+        {
+            int cantidad = 1;
+            List<Juegos> juegos = ListarJuegos();
+
+            foreach (Juegos i in juegos)
+            {
+                cantidad++;
+            }
+            
+            return cantidad;
         }
     }
 }

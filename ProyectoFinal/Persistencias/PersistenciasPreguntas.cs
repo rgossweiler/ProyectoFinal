@@ -25,7 +25,7 @@ namespace Persistencias
             oComando.Parameters.AddWithValue("@correcta", pPregunta.Correcta);
             oComando.Parameters.AddWithValue("@codigoPreg", pPregunta.CodPregunta);
             oComando.Parameters.AddWithValue("@puntaje", pPregunta.Puntaje);
-            oComando.Parameters.AddWithValue("@codCat", pPregunta.Categoria.CodCat);
+            oComando.Parameters.AddWithValue("@codigoCat", pPregunta.Categoria.CodCat);
 
             SqlParameter oRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
             oRetorno.Direction = ParameterDirection.ReturnValue;
@@ -55,12 +55,12 @@ namespace Persistencias
         public static List<Pregunta> ListarPreguntasJuego(int pCodJuego)
         {
             SqlDataReader oReader;
-            List<Pregunta> preguntasJuego = null;
+            List<Pregunta> preguntasJuego = new List<Pregunta>();
             Pregunta pregunta = null;
-            string textoPregunta, resp1, resp2, resp3, codPre;
+            string textoPregunta, resp1, resp2, resp3, codPre, aux;
             int puntaje, correcta;
             Categorias categoria;
-
+            
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
             SqlCommand oComando = new SqlCommand("ListarPreguntasJuego", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
@@ -83,8 +83,8 @@ namespace Persistencias
                         codPre = oReader["codigoPreg"].ToString();
                         puntaje = (int)oReader["puntaje"];
                         correcta = (int)oReader["correcta"];
-                        string aux = oReader["categoria"].ToString();
-                        categoria = PersistenciasCategorias.BuscarCategoriaNombre(aux);
+                        aux = oReader["codigoCat"].ToString();
+                        categoria = PersistenciasCategorias.BuscarCategoria(aux);
 
                         pregunta = new Pregunta(textoPregunta, resp1, resp2, resp3, correcta, codPre, puntaje, categoria);
                         preguntasJuego.Add(pregunta);
@@ -102,7 +102,7 @@ namespace Persistencias
         public static List<Pregunta> ListarPreguntasSinJuego()
         {
             SqlDataReader oReader;
-            List<Pregunta> preguntasJuego = null;
+            List<Pregunta> preguntasJuego = new List<Pregunta>();
             Pregunta pregunta = null;
             string textoPregunta, resp1, resp2, resp3, codPre;
             int puntaje, correcta;
@@ -128,8 +128,8 @@ namespace Persistencias
                         codPre = oReader["codigoPreg"].ToString();
                         puntaje = (int)oReader["puntaje"];
                         correcta = (int)oReader["correcta"];
-                        string aux = oReader["categoria"].ToString();
-                        categoria = PersistenciasCategorias.BuscarCategoria(aux, null);
+                        string aux = oReader["codigoCat"].ToString();
+                        categoria = PersistenciasCategorias.BuscarCategoria(aux);
 
                         pregunta = new Pregunta(textoPregunta, resp1, resp2, resp3, correcta, codPre, puntaje, categoria);
                         preguntasJuego.Add(pregunta);
@@ -142,6 +142,47 @@ namespace Persistencias
             }
             finally { oConexion.Close(); }
             return preguntasJuego;
+        }
+
+        public static Pregunta BuscarPregunta(string pCodPre)
+        {
+            Pregunta preg = null;
+
+            SqlDataReader oReader;
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("BuscarCodigoPregunta", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            oComando.Parameters.AddWithValue("codPre", pCodPre);
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+	            {
+		            if (oReader.Read())
+	                {
+		                string pregunta = oReader["textoPregunta"].ToString();
+                        string resp1 = oReader["respuesta1"].ToString();
+                        string resp2 = oReader["respuesta2"].ToString();
+                        string resp3 = oReader["respuesta3"].ToString();
+                        int correcta = (int)oReader["correcta"];
+                        int puntaje = (int)oReader["puntaje"];
+                        string aux = oReader["codigoCat"].ToString();
+                        Categorias cat = PersistenciasCategorias.BuscarCategoria(aux);
+
+                        preg = new Pregunta(pregunta, resp1, resp2, resp3, correcta, pCodPre, puntaje, cat);
+                    }
+	            }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return preg;
         }
     }
 }

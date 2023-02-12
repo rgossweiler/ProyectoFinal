@@ -88,7 +88,7 @@ namespace Persistencias
             Categorias oCategoria = null;
 
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("@BuscarCategoria", oConexion);
+            SqlCommand oComando = new SqlCommand("BuscarCategoria", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
             oComando.Parameters.AddWithValue("@codCat", codCat);
@@ -124,7 +124,7 @@ namespace Persistencias
             Categorias oCategoria = null;
 
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("@BuscarCategoriaNombre", oConexion);
+            SqlCommand oComando = new SqlCommand("BuscarCategoriaNombre", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
             oComando.Parameters.AddWithValue("@nomCat", nomCat);
@@ -183,6 +183,42 @@ namespace Persistencias
             }
             finally { oConexion.Close(); }
             return resultado;
+        }
+
+        public static List<Categorias> ListarCategorias()
+        {
+            SqlDataReader oReader;
+            List<Categorias> categorias = new List<Categorias>();
+            Categorias cat = null;
+            string codCat, nomCat;
+
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("ListarCategorias", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    while (oReader.Read())
+                    {
+                        codCat = oReader["codigoCat"].ToString();
+                        nomCat = oReader["nombreCat"].ToString();
+
+                        cat = new Categorias(codCat, nomCat);
+                        categorias.Add(cat);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally {oConexion.Close();}
+            return categorias;
         }
     }
 }

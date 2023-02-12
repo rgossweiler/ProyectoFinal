@@ -47,12 +47,7 @@ namespace EntidadesCompartidas
         public string Dificultad
         {
             get { return dificultad; }
-            set 
-            {
-                if (value != "Facil" || value != "Medio" || value != "Dificil")
-                    throw new Exception("La dificultad debe ser entre Fácil, Medio o Difícil ");
-                dificultad = value;
-            }
+            set { dificultad = value; }
         }
 
         public Usuarios Creador

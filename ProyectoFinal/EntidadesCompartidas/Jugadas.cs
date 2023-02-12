@@ -35,13 +35,7 @@ namespace EntidadesCompartidas
         public DateTime FechaHoraJugada
         {
             get { return fechaHoraJugada; }
-            set
-            {
-                if (value < DateTime.Now)
-                    throw new Exception("La fecha no puede ser anterior al dia de hoy");
-                else
-                    fechaHoraJugada = value;
-            }
+            set { fechaHoraJugada = value; }
         }
 
         public int PuntajeTotal

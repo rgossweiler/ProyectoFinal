@@ -72,6 +72,8 @@ namespace Persistencias
                         contraseña = oReader["contraseña"].ToString();
 
                         oUsuario = new Usuarios(pNomUs, contraseña, nombreCompleto);
+                        if (oUsuario == null)
+                            throw new Exception("Usuario no registrado");
                     }
                 }
                 oReader.Close();
@@ -84,14 +86,14 @@ namespace Persistencias
             return oUsuario;
         }
 
-        public static int LogeoUsuario(Usuarios pUsuario)
+        public static int LogeoUsuario(string pUsuario, string pContraseña)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
             SqlCommand oComando = new SqlCommand("LogueUsuario", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
-            oComando.Parameters.AddWithValue("@nomUs", pUsuario.NomUsuario);
-            oComando.Parameters.AddWithValue("contraseña", pUsuario.Contraseña);
+            oComando.Parameters.AddWithValue("@nomUs", pUsuario);
+            oComando.Parameters.AddWithValue("@Pass", pContraseña);
 
             SqlParameter oRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
             oRetorno.Direction = ParameterDirection.ReturnValue;
@@ -114,6 +116,43 @@ namespace Persistencias
             }
             finally { oConexion.Close(); }
             return resultado;
+        }
+
+        public static List<Usuarios> ListarUsuarios()
+        {
+            SqlDataReader oReader;
+            List<Usuarios> users = new List<Usuarios>();
+            Usuarios user = null;
+            string nombreCompleto, usuario, contraseña;
+
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("ListarUsuarios", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                oConexion.Open();
+                oReader = oComando.ExecuteReader();
+
+                if (oReader.HasRows)
+                {
+                    while (oReader.Read())
+                    {
+                        nombreCompleto = oReader["nombreCompleto"].ToString();
+                        usuario = oReader["nomUsuario"].ToString();
+                        contraseña = oReader["contraseña"].ToString();
+
+                        user = new Usuarios(usuario, contraseña, nombreCompleto);
+                        users.Add(user);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return users;
         }
     }
 }
