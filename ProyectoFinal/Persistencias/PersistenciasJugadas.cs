@@ -15,7 +15,7 @@ namespace Persistencias
         public static int AgregarJugada(string player, Juegos juego, int puntaje)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("AgregarJugada", oConexion);
+            SqlCommand oComando = new SqlCommand("AgregarJugadas", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
             oComando.Parameters.AddWithValue("@nombreJugador", player);
