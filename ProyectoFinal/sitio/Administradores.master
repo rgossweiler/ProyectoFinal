@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Administradores.master.cs" Inherits="Administradores" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 300px;
+        }
+        .style2
+        {
+            width: 300px;
+            height: 97px;
+        }
+        .style3
+        {
+            height: 100px;
+            text-align: right;
+        }
+        .style4
+        {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <p>
+        <table style="width:100%;">
+            <tr>
+                <td class="style2">
+                    </td>
+                <td class="style3">
+                    </td>
+                <td class="style3">
+                    <span class="style4">bienvenido:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <br class="style4" />
+                    <asp:Label ID="lblUsuario" runat="server" style="font-size: x-large"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
+                    <asp:Button ID="btnSalir" runat="server" onclick="btnSalir_Click" 
+                        Text="Cerrar session" />
+&nbsp;&nbsp;
+                    </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <asp:Button ID="Button1" runat="server" Text="ALTA USUARIOS" Width="300px" 
+                        Height="50px" PostBackUrl="~/AltaUsuarios.aspx" />
+                    </td>
+                <td rowspan="18" colspan="2" style="text-align: center">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                    </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <asp:Button ID="Button2" runat="server" style="text-align: left" 
+                        Text="ABM CATEGORIAS DE PREGUNTAS" Width="300px" Height="50px" 
+                        PostBackUrl="~/ABM_Categorias.aspx" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <asp:Button ID="Button3" runat="server" Text="ALTA PREGUNTAS" Width="300px" 
+                        Height="50px" PostBackUrl="~/AltaPreguntas.aspx" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <asp:Button ID="Button4" runat="server" Text="ALTA JUEGOS" Width="300px" 
+                        Height="50px" PostBackUrl="~/AltaJuegos.aspx" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <asp:Button ID="Button5" runat="server" Text="ASOCIAR PREGUNTAS" 
+                        Width="300px" Height="50px" PostBackUrl="~/ManejoPreguntasJuegos.aspx" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    <asp:Button ID="Button6" runat="server" Text="LISTADO DE JUEGOS" 
+                        Width="300px" Height="50px" PostBackUrl="~/ListadoDeJuegos.aspx" />
+                </td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+        </table>
+    </p>
+    <div>
+    </div>
+    </form>
+</body>
+</html>

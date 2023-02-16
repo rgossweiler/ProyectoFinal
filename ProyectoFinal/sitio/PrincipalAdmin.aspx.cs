@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 
 using System.Drawing;
 using EntidadesCompartidas;
-using Logica; 
+using Logica;
 
-public partial class Principal : System.Web.UI.Page
+public partial class PrincipalAdmin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -18,4 +18,3 @@ public partial class Principal : System.Web.UI.Page
         gvPuntajes.DataBind();
     }
 }
-
