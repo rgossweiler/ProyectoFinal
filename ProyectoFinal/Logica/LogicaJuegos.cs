@@ -14,12 +14,7 @@ namespace Logica
         {
             return PersistenciasJuegos.BuscarJuego(codJuego);
         }
-
-        public static Juegos BuscarJuegoNombre(string nomJuego)
-        {
-            return PersistenciasJuegos.BuscarJuegoNombre(nomJuego);
-        }
-
+        
         public static int AgregarJuego(Juegos game)
         {
             return PersistenciasJuegos.AgregarJuego(game);

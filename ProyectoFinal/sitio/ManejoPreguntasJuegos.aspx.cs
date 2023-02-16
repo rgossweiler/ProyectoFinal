@@ -72,7 +72,6 @@ public partial class ManejoPreguntasJuegos : System.Web.UI.Page
         LimpioFormulario();
     }
 
-
     protected void btnConsultar_Click(object sender, EventArgs e)
     {
         try
@@ -158,6 +157,7 @@ public partial class ManejoPreguntasJuegos : System.Web.UI.Page
 
 
     }
+
     protected void gvPregAsociadas_SelectedIndexChanged(object sender, EventArgs e)
     {
 
@@ -196,6 +196,7 @@ public partial class ManejoPreguntasJuegos : System.Web.UI.Page
         }
 
     }
+
     protected void gvListaPreguntas_SelectedIndexChanged(object sender, EventArgs e)
     {
         try

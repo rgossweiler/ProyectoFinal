@@ -15,7 +15,7 @@
         }
         .style5
         {
-            height: 210px;
+            height: 168px;
             text-align: center;
         }
         .style7
@@ -24,39 +24,50 @@
             font-weight: bolder;
             font-size: xx-large;
         }
+        .Boton
+        {}
+        .style8
+        {
+            width: 150px;
+            height: 46px;
+        }
+        .style9
+        {
+            width: 300px;
+            height: 46px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="2" style="width: 65%; margin-left: 150px;">
+    <table border="2" style="width: 60%; margin-left: 150px;">
         <tr>
             <td class="style7" colspan="2">
                 MANEJO PREGUNTAS JUEGO</td>
         </tr>
         <tr>
-            <td class="style1">
+            <td class="style8">
                 Seleccione juego</td>
-            <td class="style2">
+            <td class="style9">
                 <asp:DropDownList ID="ddlJuego" runat="server">
                 </asp:DropDownList>
-&nbsp;
                 <asp:Button ID="btnConsultar" runat="server" CssClass="Boton" Font-Bold="True" 
-                    onclick="btnConsultar_Click" Text="CONSULTAR" Width="481px" />
+                    onclick="btnConsultar_Click" Text="CONSULTAR" Width="297px" />
             </td>
         </tr>
         <tr>
             <td class="style4" colspan="2">
                 <asp:Label ID="lblJuegoSeleccionado" runat="server" Font-Bold="True" 
                     Font-Size="Large"></asp:Label>
+            &nbsp;
             </td>
         </tr>
         <tr>
             <td class="style5" colspan="2">
-                <br />
                 <asp:GridView ID="gvPregAsociadas" runat="server" AutoGenerateColumns="False" 
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
                     CellPadding="3" 
                     onselectedindexchanged="gvListaPreguntas_SelectedIndexChanged" 
-                    Width="1178px" style="margin-right: 0px">
+                    Width="1178px" style="margin-right: 0px" AllowPaging="True" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="CodPregunta" HeaderText="Código Pregunta" />
                         <asp:BoundField DataField="Preguntas" HeaderText="Pregunta" />
@@ -74,25 +85,22 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#00547E" />
                 </asp:GridView>
-                <br />
             </td>
         </tr>
         <tr>
             <td class="style1" colspan="2">
                 <asp:Label ID="lblPreguntasSistema" runat="server" Font-Bold="True" 
                     Font-Size="Large"></asp:Label>
+            &nbsp;
             </td>
         </tr>
         <tr>
             <td class="style1" colspan="2">
-                <div class="style1">
-                    <br />
-                </div>
                 <asp:GridView ID="gvListaPreguntas" runat="server" AutoGenerateColumns="False" 
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
                     CellPadding="3" 
                     onselectedindexchanged="gvListaPreguntas_SelectedIndexChanged" 
-                    Width="1178px" style="margin-right: 0px">
+                    Width="1178px" style="margin-right: 0px" AllowPaging="True" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="CodPregunta" HeaderText="Código Pregunta" />
                         <asp:BoundField DataField="Preguntas" HeaderText="Pregunta" />
@@ -110,19 +118,19 @@
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#00547E" />
                 </asp:GridView>
-                <br />
             </td>
         </tr>
         <tr>
-            <td class="style1" colspan="2">
+            <td class="style10" colspan="2">
                 <asp:Button ID="btnLimpiar" CssClass="Boton" runat="server" Font-Bold="True" 
                     Text="LIMPIAR" BorderColor="Black" BorderStyle="Groove" Width="270px" 
                     onclick="btnLimpiar_Click" />
             </td>
         </tr>
         <tr>
-            <td class="style1" colspan="2">
+            <td class="style10" colspan="2">
                 <asp:Label ID="lblError" runat="server"></asp:Label>
+                &nbsp;
                 </td>
         </tr>
     </table>

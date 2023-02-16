@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace Persistencias
 {
-    public class Conexion
+    internal class Conexion
     {
         public const string Con = @"Data Source=MSI\SQLEXPRESS01; Initial catalog=ProyectoFinal; Integrated Security=true";
     }

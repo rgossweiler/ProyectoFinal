@@ -14,18 +14,16 @@
         {
             text-align: right;
         }
-        .style31
-        {
-            text-align: center;
-            height: 61px;
-        }
         .style20
         {
             text-align: right;
+            height: 13px;
+            width: 503px;
         }
         .style32
         {
             font-size: xx-large;
+            text-align: center;
         }
         .style35
         {
@@ -36,22 +34,50 @@
         {
             text-align: right;
             height: 45px;
-            width: 350px;
+            width: 351px;
             margin-left: 40px;
         }
         .style40
         {
-            width: 564px;
+            width: 503px;
             text-align: center;
             height: 45px;
-        }
-        .style29
-        {
-            text-align: right;
         }
         .style28
         {
             text-align: left;
+            width: 351px;
+            height: 13px;
+        }
+        .style41
+        {
+            text-align: center;
+            height: 38px;
+            width: 351px;
+        }
+        .style42
+        {
+            text-align: center;
+            height: 38px;
+            width: 503px;
+        }
+        .style43
+        {
+            text-align: right;
+            height: 13px;
+            width: 365px;
+        }
+        .style44
+        {
+            text-align: center;
+            height: 38px;
+            width: 365px;
+        }
+        .style45
+        {
+            text-align: center;
+            height: 45px;
+            width: 365px;
         }
     </style>
 </asp:Content>
@@ -62,14 +88,14 @@
                 JUGAR!</td>
         </tr>
         <tr>
-            <td class="style20">
+            <td class="style43">
                 Elija un juego:
                 <asp:DropDownList ID="ddlJuegos" runat="server" AutoPostBack="True" 
                     onselectedindexchanged="ddlJuegos_SelectedIndexChanged">
                 </asp:DropDownList>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
-            <td class="style29">
+            <td class="style20">
                 Puntaje total:</td>
             <td class="style28">
                 <asp:TextBox ID="txtPuntajeTotal" runat="server" BorderColor="Black" 
@@ -78,20 +104,20 @@
         </tr>
         <tr>
             <td class="style1" colspan="3">
-                &nbsp;<asp:TextBox ID="txtPregunta" runat="server" Height="98px" Width="853px" 
+                &nbsp;<asp:TextBox ID="txtPregunta" runat="server" Height="98px" Width="1201px" 
                     BorderStyle="Solid"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="style31">
+            <td class="style44">
                 <asp:Button ID="btnOpcion1" runat="server" Width="201px" 
                     onclick="btnOpcion1_Click" BorderStyle="Solid" />
             </td>
-            <td class="style31">
+            <td class="style42">
                 <asp:Button ID="btnOpcion2" runat="server" Width="201px" 
                     onclick="btnOpcion2_Click" BorderStyle="Solid" />
             </td>
-            <td class="style31">
+            <td class="style41">
                 <asp:Button ID="btnOpcion3" runat="server" Width="201px" onclientclick="true" 
                     onclick="btnOpcion3_Click" BorderStyle="Solid" />
             </td>
@@ -100,10 +126,11 @@
             <td class="style35" colspan="3">
                 &nbsp;
                 <asp:Label ID="lblError" runat="server">Presiona el botón comenzar para iniciar la partida</asp:Label>
+            &nbsp;&nbsp;
             </td>
         </tr>
         <tr>
-            <td class="style35">
+            <td class="style45">
                 player:
                 <asp:TextBox ID="txtPlayer" runat="server" BorderStyle="Solid"></asp:TextBox>
             </td>

@@ -11,6 +11,10 @@
             text-align: center;
             font-size: xx-large;
         }
+        .style11
+        {
+            text-align: left;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -22,7 +26,7 @@
         <tr>
             <td class="style1">
                 CODIGO:</td>
-            <td>
+            <td class="style11">
                 &nbsp;
                 <asp:TextBox ID="txtCodigo" runat="server" Width="200px" BorderStyle="Solid"></asp:TextBox>
 &nbsp;&nbsp;
@@ -33,7 +37,7 @@
         <tr>
             <td class="style1">
                 PREGUNTA:</td>
-            <td>
+            <td class="style11">
                 &nbsp;
                 <asp:TextBox ID="txtPregunta" runat="server" Width="600px" BorderStyle="Solid"></asp:TextBox>
             </td>
@@ -41,7 +45,7 @@
         <tr>
             <td class="style1">
                 OPCION 1:</td>
-            <td>
+            <td style="text-align: left">
                 &nbsp;
                 <asp:TextBox ID="txtRespuesta1" runat="server" Width="600px" 
                     BorderStyle="Solid"></asp:TextBox>
@@ -51,7 +55,7 @@
         <tr>
             <td class="style1">
                 OPCION 2:</td>
-            <td>
+            <td style="text-align: left">
 &nbsp;&nbsp;<asp:TextBox ID="txtRespuesta2" runat="server" Width="600px" BorderStyle="Solid"></asp:TextBox>
                 <asp:RadioButton ID="rdbtnCorrecta2" runat="server" GroupName="Correcta" />
             </td>
@@ -59,15 +63,15 @@
         <tr>
             <td class="style1">
                 OPCION 3:</td>
-            <td>
-                &nbsp;&nbsp; <asp:TextBox ID="txtRespuesta3" runat="server" Width="600px" BorderStyle="Solid"></asp:TextBox>
+            <td style="text-align: left">
+                &nbsp;&nbsp;<asp:TextBox ID="txtRespuesta3" runat="server" Width="600px" BorderStyle="Solid"></asp:TextBox>
                 <asp:RadioButton ID="rdbtnCorrecta3" runat="server" GroupName="Correcta" />
             </td>
         </tr>
         <tr>
             <td class="style1">
                 PUNTAJE:</td>
-            <td>
+            <td style="text-align: left">
                 <asp:DropDownList ID="ddlPuntaje" runat="server" Height="16px" Width="200px">
                     <asp:ListItem Value="0">Elija una opcion</asp:ListItem>
                     <asp:ListItem>1</asp:ListItem>
@@ -93,7 +97,7 @@
         </tr>
         <tr>
             <td colspan="2" style="text-align: center">
-&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
         <tr>
@@ -113,6 +117,7 @@
         </tr>
         <tr>
             <td colspan="2">
+                &nbsp;&nbsp;
                 &nbsp;</td>
         </tr>
     </table>

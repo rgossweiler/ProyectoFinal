@@ -55,51 +55,7 @@ namespace Persistencias
             finally { oConexion.Close(); }
             return pJuego;
         }
-
-        public static Juegos BuscarJuegoNombre (string pNomJuego)
-        {
-            int codJuego;
-            DateTime fechaCreado;
-            string dificultad;
-            Usuarios creador;
-            List<Pregunta> preguntasJuego;
-            Juegos pJuego = null;
-
-            SqlDataReader oReader;
-            SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("BuscarNombreJuego", oConexion);
-            oComando.CommandType = CommandType.StoredProcedure;
-
-            oComando.Parameters.AddWithValue("@nomJuego", pNomJuego);
-
-            try
-            {
-                oConexion.Open();
-                oReader = oComando.ExecuteReader();
-
-                if (oReader.HasRows)
-                {
-                    if (oReader.Read())
-                    {
-                        codJuego = (int)oReader["codigoJuego"];
-                        fechaCreado = (DateTime)oReader["fechaCreado"];
-                        dificultad = oReader["dificultad"].ToString();
-                        string aux = oReader["creador"].ToString();
-                        creador = PersistenciasUsuarios.BuscarUsuario(aux);
-                        preguntasJuego = PersistenciasPreguntas.ListarPreguntasJuego(codJuego);
-
-                        pJuego = new Juegos(pNomJuego, codJuego, fechaCreado, dificultad, creador, preguntasJuego);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally { oConexion.Close(); }
-            return pJuego;
-        }
-
+        
         public static int AgregarJuego(Juegos game)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
@@ -110,7 +66,7 @@ namespace Persistencias
             oComando.Parameters.AddWithValue("@dificultad", game.Dificultad);
             oComando.Parameters.AddWithValue("@creador", game.Creador.NomUsuario);
 
-            SqlParameter oRetorno = new SqlParameter("@retorno", SqlDbType.Int);
+            SqlParameter oRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
             oRetorno.Direction = ParameterDirection.ReturnValue;
             oComando.Parameters.Add(oRetorno);
 
@@ -121,6 +77,7 @@ namespace Persistencias
                 oConexion.Open();
                 oComando.ExecuteNonQuery();
 
+                resultado = (int)oComando.Parameters["@Retorno"].Value;
                 if (resultado == -1)
                     throw new Exception("El nombre del juego ya se encuentra registrado");
                 else if (resultado == -2)

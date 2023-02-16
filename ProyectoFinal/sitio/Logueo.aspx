@@ -6,23 +6,27 @@
         {
             text-align: left;
         }
-        .style4
-        {
-            text-align: center;
-            width: 412px;
-            font-size: xx-large;
-        }
         .style5
         {
             text-align: left;
+            width: 148px;
+        }
+        .style40
+        {
+            text-align: center;
+            font-size: xx-large;
+        }
+        .style41
+        {
+            width: 148px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table border="5" 
-        style="width: 58%; height: 78px; margin-top: 0px; margin-left: 150px;">
+        style="width: 33%; height: 78px; margin-top: 0px; margin-left: 150px;">
         <tr>
-            <td class="style4" colspan="2">
+            <td class="style40" colspan="2">
                 INICIAR SESSION</td>
         </tr>
         <tr>
@@ -33,7 +37,7 @@
             </td>
         </tr>
         <tr>
-            <td style="text-align: left">
+            <td style="text-align: left" class="style41">
 &nbsp;Contraseña:&nbsp;
             </td>
             <td style="text-align: left">
@@ -53,6 +57,7 @@
         <tr>
             <td colspan="2" style="text-align: center">
                 <asp:Label ID="lblError" runat="server"></asp:Label>
+            &nbsp;
             </td>
         </tr>
     </table>

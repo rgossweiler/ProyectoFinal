@@ -16,6 +16,7 @@ public partial class Logueo : System.Web.UI.Page
         if (!IsPostBack)
             btnLimpiar_Click(sender, e);
     }
+
     protected void btnIngresar_Click(object sender, EventArgs e)
     {
         try
@@ -41,6 +42,7 @@ public partial class Logueo : System.Web.UI.Page
         }
         
     }
+
     protected void btnLimpiar_Click(object sender, EventArgs e)
     {
         txtUsuario.Text = "";

@@ -43,7 +43,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
-        <table border="4" style="width: 82%; margin-left: 150px;">
+        <table border="4" style="width: 45%; margin-left: 150px;">
             <tr>
                 <td class="style6" colspan="2">
                     <span class="style8">MANTENIMIENTO CATEGORIAS</span><br />
@@ -52,7 +52,7 @@
             <tr>
                 <td class="style12">
                     CODIGO</td>
-                <td class="style10">
+                <td class="style11">
                     <asp:TextBox ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
                 &nbsp;&nbsp;
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" 
@@ -84,6 +84,7 @@
             <tr>
                 <td class="style6" colspan="2">
                     <asp:Label ID="lblError" runat="server"></asp:Label>
+                &nbsp;&nbsp;&nbsp;
                 </td>
             </tr>
         </table>

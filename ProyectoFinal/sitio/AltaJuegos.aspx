@@ -25,14 +25,7 @@
         }
         .style6
         {
-            width: 36px;
             font-size: large;
-            text-align: left;
-        }
-        .style7
-        {
-            height: 43px;
-            width: 36px;
             text-align: left;
         }
         .style8
@@ -54,17 +47,7 @@
             <td class="style8">
                 <asp:TextBox ID="txtNombre" runat="server" BorderStyle="Solid"></asp:TextBox>
             &nbsp;&nbsp;
-                <asp:Button ID="btnBuscarNombre" runat="server" BorderStyle="Solid" 
-                    onclick="btnBuscarNombre_Click" Text="Buscar" />
-            </td>
-        </tr>
-        <tr>
-            <td class="style6">
-                CODIGO:</td>
-            <td style="text-align: left">
-                <asp:TextBox ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
-            &nbsp;&nbsp;
-            </td>
+                </td>
         </tr>
         <tr>
             <td class="style6">
@@ -79,20 +62,13 @@
             </td>
         </tr>
         <tr>
-            <td class="style6">
-                CREADOR:</td>
-            <td style="text-align: left">
-                <asp:DropDownList ID="ddlUsuarios" runat="server">
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td class="style1" colspan="2">
+            <td class="style11" colspan="2">
                 <asp:Label ID="lblError" runat="server"></asp:Label>
+            &nbsp;&nbsp;
             </td>
         </tr>
         <tr>
-            <td class="style1" colspan="2">
+            <td class="style11" colspan="2">
                 <asp:Button ID="btnAgregar" runat="server" BorderStyle="Solid" Text="Agregar" 
                     onclick="btnAgregar_Click" />
 &nbsp;
@@ -102,6 +78,7 @@
         </tr>
         <tr>
             <td class="style1" colspan="2">
+                &nbsp;&nbsp;
                 &nbsp;</td>
         </tr>
     </table>

@@ -11,6 +11,46 @@
             text-align: center;
             font-size: xx-large;
         }
+        .style12
+        {
+            width: 300px;
+            height: 46px;
+        }
+        .style13
+        {
+            width: 513px;
+            height: 46px;
+        }
+        .style14
+        {
+            width: 300px;
+            height: 27px;
+        }
+        .style15
+        {
+            width: 513px;
+            height: 27px;
+        }
+        .style16
+        {
+            width: 300px;
+            height: 35px;
+        }
+        .style17
+        {
+            width: 513px;
+            height: 35px;
+        }
+        .style18
+        {
+            width: 300px;
+            height: 34px;
+        }
+        .style19
+        {
+            width: 513px;
+            height: 34px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -20,9 +60,9 @@
                 ALTA USUARIOS&nbsp;</td>
         </tr>
         <tr>
-            <td class="style2">
+            <td class="style12">
                 USUARIO:</td>
-            <td>
+            <td class="style13" style="text-align: left">
                 <asp:TextBox ID="txtUsuario" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
 &nbsp;&nbsp;
                 <asp:Button ID="btnBuscar" runat="server" onclick="btnBuscar_Click" 
@@ -30,30 +70,30 @@
             </td>
         </tr>
         <tr>
-            <td class="style2">
+            <td class="style14">
                 CONTRASEÑA:</td>
-            <td>
+            <td class="style15" style="text-align: left">
                 <asp:TextBox ID="txtPassword" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="style2">
+            <td class="style16">
                 NOMBRE:</td>
-            <td>
+            <td class="style17" style="text-align: left">
                 <asp:TextBox ID="txtNombre" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="style2">
+            <td class="style18">
                 APELLIDO:</td>
-            <td style="text-align: left">
+            <td style="text-align: left" class="style19">
                 <asp:TextBox ID="txtApellido" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: center">
 &nbsp;&nbsp;<asp:Label ID="lblError" runat="server"></asp:Label>
-            &nbsp;</td>
+            &nbsp;&nbsp;&nbsp; </td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: center">
@@ -66,6 +106,7 @@
         </tr>
         <tr>
             <td colspan="2">
+                &nbsp;&nbsp;
                 &nbsp;</td>
         </tr>
     </table>
