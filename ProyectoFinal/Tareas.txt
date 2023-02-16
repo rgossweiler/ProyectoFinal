@@ -1,0 +1,17 @@
+Rodrigo:
+-AltaJuegos
+-AltaPreguntas
+-AltaUsuarios
+-ListadoJuegos
+-Jugar
+-
+Cesar:
+-ABMCategorias
+-Logeo
+-ManejoPreguntasJuego
+-Principal
+-
+-
+
+-
+-
