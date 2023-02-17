@@ -112,6 +112,7 @@ values
 ('Vicio123','pass789','Emilio Rana' ),
 ('Trasnochado123','pass321','Teofilo Collazo' ),
 ('Apostador123','pass654','Lucas Piriz' )
+go
 
 insert into Juegos(nombreJuego,dificultad,creador)
 values
@@ -139,7 +140,7 @@ go
 
 --Procedimientos-------------------------------------------------------------------------
 --Usuarios-------------------------------------------------------------------------------
-create procedure AgregarUsuario --funciona
+create procedure AgregarUsuario
 @nomUs varchar(20),
 @contraseña varchar(20),
 @nombreCompleto varchar(20)
@@ -155,18 +156,7 @@ begin
 end
 go
 
---declare @variable int
---exec @variable = AgregarUsuario 'rgoss', '1234', 'rodrigo gossweiler'
---if @variable = -1
---	print 'El usuario se encuentra registrado'
---else if @variable = -2
---	print 'Ocurrio un error inesperado'
---else
---	print 'Se agrego el usuario con exito'
---select * from Usuarios
-go
-
-create procedure BuscarUsuario --funciona. marcar algo en caso de no encontrarlo?
+create procedure BuscarUsuario 
 @nomUs varchar(20)
 as
 begin
@@ -176,10 +166,7 @@ begin
 end
 go
 
---exec BuscarUsuario 'rgoss'
---go
-
-create procedure LogueUsuario --funciona
+create procedure LogueUsuario 
 @nomUs varchar(20),
 @pass varchar(20)
 as
@@ -191,24 +178,9 @@ begin
 end
 go
 
---declare @retorno int
---exec @retorno = LogueUsuario 'rgoss', '1234'
---if @retorno = -1
---	print 'Usuario o contraseña incorrectos'
---else if @retorno = 1
---	print 'Inicio de session exitoso'
-go
-
-create procedure ListarUsuarios
-as
-begin
-	select * from Usuarios
-end
-go
-
 --Juegos--------------------------------------------------------------------------------
-create procedure BuscarJuego --funciona
-@codJuego int --Busco solo por el código 24Ene23
+create procedure BuscarJuego 
+@codJuego int 
 as
 begin
 	select * from Juegos
@@ -216,17 +188,7 @@ begin
 end
 go
 
-create procedure ContarJuegosExistentes
-as
-begin
-	select	* from juegos
-end
-go
-
---exec BuscarJuego null, 1
-go
-
-create Procedure AgregarJuego --funciona
+create Procedure AgregarJuego
 @nomJuego varchar(20),
 @dificultad varchar(20),
 @creador varchar(20)
@@ -242,18 +204,7 @@ begin
 end
 go
 
---declare @retorno int
---exec @retorno = AgregarJuego 'matelocas', 'medio', 'Rgoss'
---if @retorno = -1
---	print 'El nombre del juego ya esta registrado'
---else if @retorno = -2
---	print 'Ocurrio un error inesperado'
---else 
---	print 'Se agrego con exito'
---select * from Juegos
-go
-
-create procedure ListarJuegosPreguntas --funciona
+create procedure ListarJuegosPreguntas
 as
 begin
 	select nombreJuego, fechaCreado, dificultad, Juegos.codigoJuego
@@ -263,20 +214,14 @@ begin
 end
 go
 
---exec ListarJuegosPreguntas
-go
-
-create procedure ListarJuegos --funciona
+create procedure ListarJuegos
 as
 begin
 	select * from Juegos
 end
 go
 
---exec ListarJuegos
-go
-
-create procedure AgregarPreguntaJuego --funciona
+create procedure AgregarPreguntaJuego
 @codpreg varchar(5),
 @nomJuego varchar(20)
 as
@@ -293,20 +238,26 @@ begin
 end
 go
 
-----select * from Juegos
-----select * from Preguntas
-----select * from juegoPreguntas
---declare @retorno int
---exec @retorno = AgregarPreguntaJuego 'aa111', 'matelocas'
---if @retorno = -1
---	print 'El juego no existe'
---else if @retorno = -2
---	print 'Ocurrio un error inesperado'
---else
---	print 'se agrega la pregunta con exito'
+create procedure QuitarPregunta 
+@nomJuego varchar(20),
+@codPre varchar(5)
+as
+begin
+	if not exists (select * from juegos where nombreJuego = @nomJuego)
+		return -1 --El juego no existe
+	declare	@codJuego int
+	select @codjuego = codigoJuego from Juegos where nombreJuego = @nomJuego
+	delete
+	from juegoPreguntas
+	where codigoPreg = @codPre and codigoJuego = @codJuego
+	if @@ERROR != 0
+		return -2 --Ocurrio un error inesperado
+	else
+		return 1 --Se elimino la pregunta con exito.CONSULTAR
+end
 go
 
-create procedure ModificarJuego --funciona
+create procedure ModificarJuego
 @nomJuego varchar(20),
 @dificultad varchar(20),
 @codJuego int
@@ -331,53 +282,8 @@ begin
 end
 go
 
---select * from Juegos
---declare @retorno int
---exec @retorno = ModificarJuego 'matelocs', 'dificil', 4
---if @retorno = -1
---	print 'El nombre de juego ya esta registrado'
---else if @retorno = -2
---	print 'No existe el juego que quiere modificar'
---else if @retorno = -3
---	print 'Ocurrio un error inesperado'
---else
---	print 'Se modifico con exito'
---select * from Juegos
-go
-
-create procedure QuitarPregunta  --funciona - una pregunta puede estar en mas de un juego?
-@nomJuego varchar(20),
-@codPre varchar(5)
-as
-begin
-	if not exists (select * from juegos where nombreJuego = @nomJuego)
-		return -1 --El juego no existe
-	declare	@codJuego int
-	select @codjuego = codigoJuego from Juegos where nombreJuego = @nomJuego
-	delete
-	from juegoPreguntas
-	where codigoPreg = @codPre and codigoJuego = @codJuego
-	if @@ERROR != 0
-		return -2 --Ocurrio un error inesperado
-	else
-		return 1 --Se elimino la pregunta con exito.CONSULTAR
-end
-go
-
---select * from juegos
---declare @retorno int
---exec @retorno = QuitarPregunta 'matelocs', 'aa111'
---if @retorno = -1
---	print 'el juego no existe'
---else if @retorno = -2
---	print 'Ocurrio un error inesperado'
---else
---	print 'Se quito la pregunta con exito'
---select * from juegoPreguntas
-go
-
 --Categorias--------------------------------------------------------------------------
-create procedure AgregarCategoria --funciona
+create procedure AgregarCategoria
 @codCat varchar(4),
 @nomCat varchar(20)
 as
@@ -392,19 +298,6 @@ begin
 	else
 		return 1 --se agrego correctamente:CONSULTAR
 end
-go
-
---declare @retorno int
---exec @retorno = AgregarCategoria 'EFGH', 'Geografia'
---if @retorno = -1
---	print 'El codigo ya se encuentra registrado'
---else if @retorno = -2
---	print 'El nombre ya tiene un codigo asociado'
---else if @retorno = -3
---	print 'Ocurrio un error inesperado'
---else
---	print 'Se agrego correctamente'
---select * from Categorias
 go
 
 create procedure ModificarCategoria
@@ -422,17 +315,6 @@ begin
 	else
 		return 1 --CONSULTAR
 end
-go
-
---declare @retorno int
---exec @retorno = ModificarCategoria 'ABCD', 'prueba'
---if @retorno = -1
---	print 'el nombre ya tiene un codigo asociado'
---else if @retorno = -2
---	print 'Ocurrio un error inesperado'
---else
---	print 'Se modifico con exito'
---select * from Categorias
 go
 
 create procedure BuscarCategoria 
@@ -467,17 +349,6 @@ begin
 end
 go
 
---declare @retorno int
---exec @retorno = EliminarCategoria 'gggg'
---if @retorno = -1
---	print 'La categoria tiene preguntas asociadas'
---else if @retorno = -2
---	print 'Ocurrio un error inesperado'
---else
---	print 'Se elimino con exito'
---select * from Categorias
-go
-
 create procedure ListarCategorias
 as
 begin
@@ -485,7 +356,7 @@ begin
 end
 go
 
------------------------------------------------------------------
+--PREGUNTAS-----------------------------------------------------------------
 create proc AgregarPregunta
 @textoPregunta varchar(200),
 @respuesta1 varchar(200),
@@ -524,26 +395,12 @@ begin
 end
 go
 
---exec ListarPreguntasJuego 1
---go
-
 create proc ListarPreguntasSinJuego
 as
 begin
 	select * from Preguntas
 	where Preguntas.codigoPreg not in(select codigoPreg from juegoPreguntas)
 end
-go
-
---create proc ListarPreguntasLibres
---as
---begin 
---	select Preguntas.codigoPreg from PreguntasJuego left join Preguntas
---	on Preguntas.codigoPreg!=PreguntasJuego.codigoPreg
---end
---go
-
---exec ListarPreguntasSinJuego
 go
 
 --Jugadas-----------------------------------------------------------------------------
@@ -564,8 +421,6 @@ begin
 	where codigoJuego = @codJuego
 end
 go
-
---exec ListarJugadas
 
 create procedure AgregarJugadas
 @nombreJugador varchar(20),

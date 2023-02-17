@@ -24,10 +24,5 @@ namespace Logica
         {
             return PersistenciasUsuarios.LogeoUsuario(usuario, contraseña);
         }
-
-        public static List<Usuarios> ListarUsuarios()
-        {
-            return PersistenciasUsuarios.ListarUsuarios();
-        }
     }
 }

@@ -43,6 +43,16 @@
         </tr>
         <tr>
             <td class="style6">
+                CODIGO:</td>
+            <td class="style8">
+                <asp:TextBox ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
+&nbsp;&nbsp;
+                <asp:Button ID="btnBuscar" runat="server" BorderStyle="Solid" 
+                    onclick="btnBuscar_Click" Text="Buscar" />
+                </td>
+        </tr>
+        <tr>
+            <td class="style6">
                 NOMBRE:</td>
             <td class="style8">
                 <asp:TextBox ID="txtNombre" runat="server" BorderStyle="Solid"></asp:TextBox>
@@ -71,7 +81,10 @@
             <td class="style11" colspan="2">
                 <asp:Button ID="btnAgregar" runat="server" BorderStyle="Solid" Text="Agregar" 
                     onclick="btnAgregar_Click" />
-&nbsp;
+&nbsp;&nbsp;
+                <asp:Button ID="btnModificar" runat="server" BorderStyle="Solid" 
+                    onclick="btnModificar_Click" Text="Modificar" />
+&nbsp;&nbsp;
                 <asp:Button ID="btnLimpiar" runat="server" BorderStyle="Solid" Text="Limpiar" 
                     onclick="btnLimpiar_Click" />
             </td>

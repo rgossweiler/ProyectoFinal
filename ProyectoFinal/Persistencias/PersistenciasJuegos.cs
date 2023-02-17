@@ -55,7 +55,7 @@ namespace Persistencias
             finally { oConexion.Close(); }
             return pJuego;
         }
-        
+
         public static int AgregarJuego(Juegos game)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
@@ -203,43 +203,6 @@ namespace Persistencias
             return resultado;
         }
 
-        public static int ModificarJuego(Juegos pjuego)
-        {
-            SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("ModificarJuego", oConexion);
-            oComando.CommandType = CommandType.StoredProcedure;
-
-            oComando.Parameters.AddWithValue("@nomJuego", pjuego.NombreJuego);
-            oComando.Parameters.AddWithValue("@dificultad", pjuego.Dificultad);
-            oComando.Parameters.AddWithValue("@codJuego", pjuego.CodigoJuego);
-
-            SqlParameter oRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
-            oRetorno.Direction = ParameterDirection.ReturnValue;
-            oComando.Parameters.Add(oRetorno);
-
-            int resultado = 0;
-
-            try
-            {
-                oConexion.Open();
-                oComando.ExecuteNonQuery();
-
-                resultado = (int)oComando.Parameters["@Retorno"].Value;
-                if (resultado == -1)
-                    throw new Exception("El nombre del juego ya se encuentra asociado");
-                else if (resultado == -2)
-                    throw new Exception("El juego que quiere modificar no existe");
-                else if (resultado == -3)
-                    throw new Exception("Ocurrió un error inesperado");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message); 
-            }
-            finally { oConexion.Close(); }
-            return resultado;
-        }
-
         public static int QuitarPregunta(Juegos pJuego, Pregunta pPreg)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
@@ -274,17 +237,41 @@ namespace Persistencias
             return resultado;
         }
 
-        public static int ContarJuegosExistentes()
+        public static int ModificarJuego(Juegos pjuego)
         {
-            int cantidad = 1;
-            List<Juegos> juegos = ListarJuegos();
+            SqlConnection oConexion = new SqlConnection(Conexion.Con);
+            SqlCommand oComando = new SqlCommand("ModificarJuego", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
 
-            foreach (Juegos i in juegos)
+            oComando.Parameters.AddWithValue("@nomJuego", pjuego.NombreJuego);
+            oComando.Parameters.AddWithValue("@dificultad", pjuego.Dificultad);
+            oComando.Parameters.AddWithValue("@codJuego", pjuego.CodigoJuego);
+
+            SqlParameter oRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
+            oRetorno.Direction = ParameterDirection.ReturnValue;
+            oComando.Parameters.Add(oRetorno);
+
+            int resultado = 0;
+
+            try
             {
-                cantidad++;
+                oConexion.Open();
+                oComando.ExecuteNonQuery();
+
+                resultado = (int)oComando.Parameters["@Retorno"].Value;
+                if (resultado == -1)
+                    throw new Exception("El nombre del juego ya se encuentra asociado");
+                else if (resultado == -2)
+                    throw new Exception("El juego que quiere modificar no existe");
+                else if (resultado == -3)
+                    throw new Exception("Ocurrió un error inesperado");
             }
-            
-            return cantidad;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally { oConexion.Close(); }
+            return resultado;
         }
     }
 }
