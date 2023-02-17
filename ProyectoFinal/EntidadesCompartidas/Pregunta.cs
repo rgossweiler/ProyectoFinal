@@ -8,7 +8,7 @@ namespace EntidadesCompartidas
     public class Pregunta
     {
         //ATRIBUTOS
-        private string preguntas;
+        private string textoPreguntas;
         private string respuesta1;
         private string respuesta2;
         private string respuesta3;
@@ -18,16 +18,16 @@ namespace EntidadesCompartidas
         private Categorias categoria;
 
         //PROPIEDADES
-        public string Preguntas
+        public string TextoPreguntas
         {
-            get { return preguntas; }
+            get { return textoPreguntas; }
             set 
             {
                 if (value == "")
                     throw new Exception("La pregunta no puede quedar vacía ");
                 if (value.Length > 200)
                     throw new Exception("Las preguntas no pueden tener más de 200 caracteres ");
-                preguntas = value;
+                textoPreguntas = value;
             }
         }
 
@@ -115,9 +115,9 @@ namespace EntidadesCompartidas
         }
 
         //CONSTRUCTOR
-        public Pregunta(string pPreguntas, string pRespuesta1, string pRespuesta2, string pRespuesta3, int pCorrecta, string pCodPregunta, int pPuntaje, Categorias pCategoria)
+        public Pregunta(string pTextoPreguntas, string pRespuesta1, string pRespuesta2, string pRespuesta3, int pCorrecta, string pCodPregunta, int pPuntaje, Categorias pCategoria)
         {
-            Preguntas = pPreguntas;
+            TextoPreguntas = pTextoPreguntas;
             Respuesta1 = pRespuesta1;
             Respuesta2 = pRespuesta2;
             Respuesta3 = pRespuesta3;
@@ -126,7 +126,5 @@ namespace EntidadesCompartidas
             Puntaje = pPuntaje;
             Categoria = pCategoria;
         }
-
-        //OPERACIONES
     }
 }

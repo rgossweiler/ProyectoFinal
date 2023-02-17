@@ -18,7 +18,7 @@ namespace Persistencias
             SqlCommand oComando = new SqlCommand("AgregarPregunta", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
-            oComando.Parameters.AddWithValue("@textoPregunta", pPregunta.Preguntas);
+            oComando.Parameters.AddWithValue("@textoPregunta", pPregunta.TextoPreguntas);
             oComando.Parameters.AddWithValue("@respuesta1", pPregunta.Respuesta1);
             oComando.Parameters.AddWithValue("@respuesta2", pPregunta.Respuesta2);
             oComando.Parameters.AddWithValue("@respuesta3", pPregunta.Respuesta3);
@@ -99,7 +99,7 @@ namespace Persistencias
             return preguntasJuego;
         }
 
-        public static List<Pregunta> ListarPreguntasSinJuego()
+        public static List<Pregunta> ListarPreguntas()
         {
             SqlDataReader oReader;
             List<Pregunta> preguntasJuego = new List<Pregunta>();
@@ -109,7 +109,7 @@ namespace Persistencias
             Categorias categoria;
 
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("ListarPreguntasSinJuego", oConexion);
+            SqlCommand oComando = new SqlCommand("ListarPreguntas", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
 
             try

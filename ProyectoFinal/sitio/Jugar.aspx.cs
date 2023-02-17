@@ -108,7 +108,7 @@ public partial class Jugar : System.Web.UI.Page
     private void CargoDatos(Pregunta p)
     {
         Session["Pregunta"] = p;
-        txtPregunta.Text = p.Preguntas;
+        txtPregunta.Text = p.TextoPreguntas;
         btnOpcion1.Text = p.Respuesta1;
         btnOpcion2.Text = p.Respuesta2;
         btnOpcion3.Text = p.Respuesta3;

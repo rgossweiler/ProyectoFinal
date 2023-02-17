@@ -130,7 +130,7 @@ public partial class ManejoPreguntasJuegos : System.Web.UI.Page
 
             //Cargo todas las preguntas del sistema
 
-            List<Pregunta> colPreguntas = LogicaPreguntas.ListarPreguntasSinJuego();
+            List<Pregunta> colPreguntas = LogicaPreguntas.ListarPreguntas();
             Session["ListaPreguntas"] = colPreguntas;
 
             if (colPreguntas.Count > 0)

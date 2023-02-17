@@ -20,9 +20,9 @@ namespace Logica
             return PersistenciasPreguntas.ListarPreguntasJuego(codJuego);
         }
 
-        public static List<Pregunta> ListarPreguntasSinJuego()
+        public static List<Pregunta> ListarPreguntas()
         {
-            return PersistenciasPreguntas.ListarPreguntasSinJuego();
+            return PersistenciasPreguntas.ListarPreguntas();
         }
 
         public static Pregunta BuscarCodigoPregunta(string pCodPre)

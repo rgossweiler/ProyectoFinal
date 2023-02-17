@@ -28,7 +28,7 @@ public partial class AltaPreguntas : System.Web.UI.Page
         if (preg != null)
         {
             txtCodigo.Enabled = false;
-            txtPregunta.Text = preg.Preguntas;
+            txtPregunta.Text = preg.TextoPreguntas;
             txtRespuesta1.Text = preg.Respuesta1;
             txtRespuesta2.Text = preg.Respuesta2;
             txtRespuesta3.Text = preg.Respuesta3;
