@@ -27,7 +27,7 @@
         style="width: 33%; height: 78px; margin-top: 0px; margin-left: 150px;">
         <tr>
             <td class="style40" colspan="2">
-                INICIAR SESSION</td>
+                INICIAR SESIÒN</td>
         </tr>
         <tr>
             <td class="style5">
@@ -41,7 +41,8 @@
 &nbsp;Contraseña:&nbsp;
             </td>
             <td style="text-align: left">
-                <asp:TextBox ID="txtContraseña" runat="server" BorderStyle="Solid"></asp:TextBox>
+                <asp:TextBox ID="txtContraseña" runat="server" BorderStyle="Solid" 
+                    TextMode="Password"></asp:TextBox>
             </td>
         </tr>
         <tr>

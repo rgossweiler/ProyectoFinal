@@ -121,8 +121,11 @@ public partial class Jugar : System.Web.UI.Page
         txtPuntajeTotal.Enabled = false;
         txtPuntajeTotal.Text = "0";
         btnOpcion1.Text = "";
+        btnOpcion1.Enabled = false;
         btnOpcion2.Text = "";
+        btnOpcion2.Enabled = false;
         btnOpcion3.Text = "";
+        btnOpcion3.Enabled = false;
         btnSiguiente.Enabled = true;
         lblError.Text = "";
         btnSiguiente.Enabled = false;
@@ -148,6 +151,10 @@ public partial class Jugar : System.Web.UI.Page
 
     protected void btnSiguiente_Click(object sender, EventArgs e)
     {
+        btnOpcion1.Enabled = true;
+        btnOpcion2.Enabled = true;
+        btnOpcion3.Enabled = true;
+
         try
         {
             int aux = (int)Session["contador"];

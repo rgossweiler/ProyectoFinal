@@ -56,7 +56,7 @@
             <tr>
                 <td class="style1">
                     <asp:Button ID="Button1" runat="server" Height="50px" 
-                        PostBackUrl="~/Logueo.aspx" Text="Iniciar Session" Width="300px" />
+                        PostBackUrl="~/Logueo.aspx" Text="Iniciar Sesiòn" Width="300px" />
                 </td>
             </tr>
             <tr>

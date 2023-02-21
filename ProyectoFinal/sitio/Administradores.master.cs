@@ -11,10 +11,8 @@ public partial class Administradores : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        if (!IsPostBack)
+        try
         {
-            
             if (Session["Administrador"] == null)
                 Response.Redirect("Principal.aspx");
             else
@@ -23,6 +21,12 @@ public partial class Administradores : System.Web.UI.MasterPage
                 lblUsuario.Text = user.NomUsuario;
             }
         }
+        catch
+        {
+            Response.Redirect("Principal.aspx");
+        }
+        
+        
     }
     protected void btnSalir_Click(object sender, EventArgs e)
     {

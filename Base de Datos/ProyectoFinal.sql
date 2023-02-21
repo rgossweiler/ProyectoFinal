@@ -117,7 +117,6 @@ go
 insert into Juegos(nombreJuego,dificultad,creador)
 values
 ('Noche de Trivia','Facil','Ludopata123'),
-('Quien quiere ser millonario','Dificil','Gamer123'),
 ('El imbatible','Medio','Vicio123')
 go
 
@@ -395,11 +394,10 @@ begin
 end
 go
 
-create proc ListarPreguntasSinJuego
+create proc ListarPreguntas
 as
 begin
 	select * from Preguntas
-	where Preguntas.codigoPreg not in(select codigoPreg from juegoPreguntas)
 end
 go
 

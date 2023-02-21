@@ -4,6 +4,8 @@
     <style type="text/css">
         .style1
         {
+            width: 1000px;
+            text-align: center;
         }
         .style2
         {
@@ -28,7 +30,7 @@
         {}
         .style8
         {
-            width: 150px;
+            width: 167px;
             height: 46px;
         }
         .style9
@@ -39,9 +41,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="2" style="width: 60%; margin-left: 150px;">
+    <table border="2" style="width: 50%; margin-left: 150px;">
         <tr>
-            <td class="style7" colspan="2">
+            <td class="style1" colspan="2">
                 MANEJO PREGUNTAS JUEGO</td>
         </tr>
         <tr>
@@ -67,10 +69,10 @@
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
                     CellPadding="3" 
                     onselectedindexchanged="gvListaPreguntas_SelectedIndexChanged" 
-                    Width="1178px" style="margin-right: 0px" AllowPaging="True" PageSize="5">
+                    Width="1000px" style="margin-right: 0px" AllowPaging="True" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="CodPregunta" HeaderText="Código Pregunta" />
-                        <asp:BoundField DataField="Preguntas" HeaderText="Pregunta" />
+                        <asp:BoundField DataField="TextoPreguntas" HeaderText="Pregunta" />
                         <asp:BoundField DataField="Puntaje" HeaderText="Puntaje" />
                         <asp:CommandField ButtonType="Button" SelectText="Vincular Pregunta" 
                             ShowSelectButton="True" />
@@ -100,10 +102,10 @@
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
                     CellPadding="3" 
                     onselectedindexchanged="gvListaPreguntas_SelectedIndexChanged" 
-                    Width="1178px" style="margin-right: 0px" AllowPaging="True" PageSize="5">
+                    Width="1000px" style="margin-right: 0px" AllowPaging="True" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="CodPregunta" HeaderText="Código Pregunta" />
-                        <asp:BoundField DataField="Preguntas" HeaderText="Pregunta" />
+                        <asp:BoundField DataField="TextoPreguntas" HeaderText="Pregunta" />
                         <asp:BoundField DataField="Puntaje" HeaderText="Puntaje" />
                         <asp:CommandField ButtonType="Button" SelectText="Vincular Pregunta" 
                             ShowSelectButton="True" />

@@ -39,7 +39,7 @@
                 PREGUNTA:</td>
             <td class="style11">
                 &nbsp;
-                <asp:TextBox ID="txtPregunta" runat="server" Width="600px" BorderStyle="Solid"></asp:TextBox>
+                <asp:TextBox ID="txtPregunta" runat="server" Width="400px" BorderStyle="Solid"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -47,7 +47,7 @@
                 OPCION 1:</td>
             <td style="text-align: left">
                 &nbsp;
-                <asp:TextBox ID="txtRespuesta1" runat="server" Width="600px" 
+                <asp:TextBox ID="txtRespuesta1" runat="server" Width="400px" 
                     BorderStyle="Solid"></asp:TextBox>
                 <asp:RadioButton ID="rdbtnCorrecta1" runat="server" GroupName="Correcta" />
             </td>
@@ -56,7 +56,7 @@
             <td class="style1">
                 OPCION 2:</td>
             <td style="text-align: left">
-&nbsp;&nbsp;<asp:TextBox ID="txtRespuesta2" runat="server" Width="600px" BorderStyle="Solid"></asp:TextBox>
+&nbsp;&nbsp;<asp:TextBox ID="txtRespuesta2" runat="server" Width="400px" BorderStyle="Solid"></asp:TextBox>
                 <asp:RadioButton ID="rdbtnCorrecta2" runat="server" GroupName="Correcta" />
             </td>
         </tr>
@@ -64,7 +64,8 @@
             <td class="style1">
                 OPCION 3:</td>
             <td style="text-align: left">
-                &nbsp;&nbsp;<asp:TextBox ID="txtRespuesta3" runat="server" Width="600px" BorderStyle="Solid"></asp:TextBox>
+                &nbsp;&nbsp;<asp:TextBox ID="txtRespuesta3" runat="server" Width="400px" 
+                    BorderStyle="Solid"></asp:TextBox>
                 <asp:RadioButton ID="rdbtnCorrecta3" runat="server" GroupName="Correcta" />
             </td>
         </tr>

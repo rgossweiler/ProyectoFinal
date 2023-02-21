@@ -68,7 +68,8 @@ public partial class AltaJuegos : System.Web.UI.Page
         txtNombre.Text = "";
         ddlDificultad.SelectedIndex = 0;
         btnAgregar.Enabled = false;
-
+        btnModificar.Enabled = false;
+        lblError.Text = "";
     }
 
     protected void btnBuscar_Click(object sender, EventArgs e)

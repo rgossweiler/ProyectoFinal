@@ -88,6 +88,11 @@ public partial class ABM_Categorias : System.Web.UI.Page
     {
         try
         {
+            if (txtCodigo.Text.Length < 4)
+                throw new Exception("El codigo es de 4 letras");
+            else if (txtCodigo.Text.Length > 4)
+                throw new Exception("El codigo es de 4 letras");
+
             Categorias oCategoria = LogicaCategorias.BuscarCategoria(txtCodigo.Text.Trim());
 
             if (oCategoria != null)

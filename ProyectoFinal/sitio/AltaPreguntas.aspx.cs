@@ -67,6 +67,16 @@ public partial class AltaPreguntas : System.Web.UI.Page
             string respuesta1 = txtRespuesta1.Text;
             string respuesta2 = txtRespuesta1.Text;
             string respuesta3 = txtRespuesta1.Text;
+
+            if (pregunta == "")
+                throw new Exception("La pregunta no puede quedar vacio");
+            else if (respuesta1 == "")
+                throw new Exception("la respuesta 1 no puede quedar vacia");
+            else if (respuesta2 == "")
+                throw new Exception("la respuesta 2 no puede quedar vacia");
+            else if (respuesta3 == "")
+                throw new Exception("la respuesta 3 no puede quedar vacia");
+
             int correcta;
             if (rdbtnCorrecta1.Checked)
                 correcta = 1;
@@ -105,6 +115,7 @@ public partial class AltaPreguntas : System.Web.UI.Page
 
     private void LimpioFormulario()
     {
+        lblError.Text = "";
         txtPregunta.Enabled = false;
         txtRespuesta1.Enabled = false;
         txtRespuesta2.Enabled = false;

@@ -23,11 +23,6 @@
         width: 235px;
         text-align: left;
     }
-    .style10
-    {
-        width: 863px;
-        height: 43px;
-    }
     .style11
     {
         text-align: left;
@@ -56,7 +51,11 @@
                     <asp:TextBox ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
                 &nbsp;&nbsp;
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" 
-                        onclick="btnBuscar_Click1" BorderStyle="Solid" />
+                        onclick="btnBuscar_Click1" BorderStyle="Solid" ValidationGroup="Buscar" />
+                &nbsp;&nbsp;
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                        ControlToValidate="txtCodigo" ForeColor="Red" 
+                        ValidationExpression="[a-zA-Z]{4}" ValidationGroup="Buscar">codigo compuesto de 4 letras</asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -64,6 +63,10 @@
                     NOMBRE CODIGO:</td>
                 <td class="style11">
                     <asp:TextBox ID="txtNombreCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="txtNombreCodigo" ForeColor="Red" 
+                        ValidationGroup="Categorias">Campo Obligatorio</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -86,6 +89,10 @@
                     <asp:Label ID="lblError" runat="server"></asp:Label>
                 &nbsp;&nbsp;&nbsp;
                 </td>
+            </tr>
+            <tr>
+                <td class="style6" colspan="2">
+                    &nbsp;</td>
             </tr>
         </table>
     </div>

@@ -29,8 +29,6 @@ public partial class Logueo : System.Web.UI.Page
                 throw new Exception("Usuario o Contraseña incorrectas");
             else
             {
-                lblError.ForeColor = Color.Green;
-                lblError.Text = "Ingreso correctamente";
                 Session["Administrador"] = LogicaUsuarios.BuscarUsuario(txtUsuario.Text);
                 Response.Redirect("PrincipalAdmin.aspx");
             }

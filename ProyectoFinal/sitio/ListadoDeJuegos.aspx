@@ -60,7 +60,7 @@
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
                     CellPadding="3" AllowPaging="True" PageSize="5" Width="1031px">
                     <Columns>
-                        <asp:BoundField DataField="Preguntas" HeaderText="Pregunta" />
+                        <asp:BoundField DataField="TextoPreguntas" HeaderText="Pregunta" />
                         <asp:BoundField DataField="respuesta1" HeaderText="Opcion 1" />
                         <asp:BoundField DataField="respuesta2" HeaderText="Opcion 2" />
                         <asp:BoundField DataField="respuesta3" HeaderText="Opcion 3" />
