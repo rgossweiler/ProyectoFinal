@@ -107,6 +107,11 @@ public partial class Jugar : System.Web.UI.Page
 
     private void CargoDatos(Pregunta p)
     {
+
+        btnOpcion1.Enabled = true;
+        btnOpcion2.Enabled = true;
+        btnOpcion3.Enabled = true;
+
         Session["Pregunta"] = p;
         txtPregunta.Text = p.TextoPreguntas;
         btnOpcion1.Text = p.Respuesta1;
@@ -129,6 +134,7 @@ public partial class Jugar : System.Web.UI.Page
         btnSiguiente.Enabled = true;
         lblError.Text = "";
         btnSiguiente.Enabled = false;
+        btnSiguiente.Text = "Comenzar";
     }
 
     private void cargarPuntaje(Pregunta p)
@@ -151,21 +157,41 @@ public partial class Jugar : System.Web.UI.Page
 
     protected void btnSiguiente_Click(object sender, EventArgs e)
     {
-        btnOpcion1.Enabled = true;
-        btnOpcion2.Enabled = true;
-        btnOpcion3.Enabled = true;
-
+        int aux = (int)Session["contador"];
+        
         try
         {
-            int aux = (int)Session["contador"];
             lblError.Text = "";
 
             Juegos juego = (Juegos)Session["Juego"];
-            lblPreguntas.Text = (aux+1) + "/" + juego.PreguntasJuego.Count;
-            if ((aux+1) == juego.PreguntasJuego.Count)
+            lblError.Text = juego.PreguntasJuego.Count.ToString();
+            
+            if (aux < juego.PreguntasJuego.Count)
             {
-                lblError.Text = "Ultima Pregunta";
-                btnSiguiente.Text = "Terminar";
+                lblPreguntas.Text = (aux + 1) + "/" + juego.PreguntasJuego.Count;
+
+                CargoDatos(juego.PreguntasJuego[aux]);
+                btnSiguiente.Text = "Siguiente pregunta";
+                
+                aux++;
+                Session["contador"] = aux;
+
+                if (aux == juego.PreguntasJuego.Count)
+                {
+                    btnSiguiente.Text = "Finalizar";
+                    lblError.Text = "Ultima Pregunta";
+                }
+
+                btnOpcion1.Enabled = true;
+                btnOpcion1.BackColor = Color.White;
+                btnOpcion2.Enabled = true;
+                btnOpcion2.BackColor = Color.White;
+                btnOpcion3.Enabled = true;
+                btnOpcion3.BackColor = Color.White;
+
+            }
+            else
+            {
                 if (txtPlayer.Text == "")
                 {
                     throw new Exception("Debe de ingresar un nombre de jugador");
@@ -174,22 +200,10 @@ public partial class Jugar : System.Web.UI.Page
                 {
                     int puntajeTotal = Convert.ToInt32(txtPuntajeTotal.Text);
                     LogicaJugadas.AgregarJugada(txtPlayer.Text, juego, puntajeTotal);
-                    btnSiguiente.Enabled = false;
+                    LimpioFormulario();
                     throw new Exception(txtPlayer.Text + " obtuvo el puntaje " + puntajeTotal);
                 }
             }
-            CargoDatos(juego.PreguntasJuego[aux]);
-            btnSiguiente.Text = "Siguiente pregunta";
-
-            aux++;
-            Session["contador"] = aux;
-
-            btnOpcion1.Enabled = true;
-            btnOpcion1.BackColor = Color.White;
-            btnOpcion2.Enabled = true;
-            btnOpcion2.BackColor = Color.White;
-            btnOpcion3.Enabled = true;
-            btnOpcion3.BackColor = Color.White;
         }
         catch (Exception ex)
         {
