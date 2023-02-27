@@ -25,11 +25,6 @@ namespace Logica
             return PersistenciasCategorias.BuscarCategoria(codCat);
         }
 
-        public static Categorias BuscarCategoriaNombre(string nomCat)
-        {
-            return PersistenciasCategorias.BuscarCategoriaNombre(nomCat);
-        }
-
         public static int EliminarCategoria(Categorias categoria)
         {
             return PersistenciasCategorias.EliminarCategoria(categoria);

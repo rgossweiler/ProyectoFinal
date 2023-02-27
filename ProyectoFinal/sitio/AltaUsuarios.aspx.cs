@@ -45,6 +45,15 @@ public partial class AltaUsuarios : System.Web.UI.Page
     {
         try
         {
+
+            if (txtPassword.Text == "")
+                throw new Exception("la contraseña no puede quedar vacia");
+            if (txtNombre.Text == "")
+                throw new Exception("El nombre no puede quedar vacio");
+            if (txtApellido.Text == "")
+                throw new Exception("El apellido no puede quedar vacio");
+
+           
             string usuario, password, nombre, apellido, nombreCompleto;
             usuario = txtUsuario.Text;
             password = txtPassword.Text;

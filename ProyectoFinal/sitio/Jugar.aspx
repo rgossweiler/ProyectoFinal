@@ -137,6 +137,9 @@
             <td class="style40">
                 <asp:Button ID="btnSiguiente" runat="server" onclick="btnSiguiente_Click" 
                     Text="Comenzar" BorderStyle="Solid" />
+            &nbsp;&nbsp;
+                <asp:Button ID="btnJugoNuevo" runat="server" onclick="btnJugoNuevo_Click" 
+                    Text="Juego Nuevo" Visible="False" />
             </td>
             <td class="style36">
                 <asp:Label ID="lblPreguntas" runat="server"></asp:Label>

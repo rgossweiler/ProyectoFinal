@@ -70,12 +70,29 @@ public partial class AltaJuegos : System.Web.UI.Page
         btnAgregar.Enabled = false;
         btnModificar.Enabled = false;
         lblError.Text = "";
+        txtNombre.Enabled = false; ;
+        ddlDificultad.Enabled = false;
+        txtCodigo.Visible = false;
+        btnBuscar.Visible = false;
+        txtNombre.Visible = false;
+        ddlDificultad.Visible = false;
+        btnAgregar.Visible = false;
+        btnModificar.Visible = false;
+        btnLimpiar.Visible = false;
+        lblCodigo.Visible = false;
+        lblDificultad.Visible = false;
+        lblNombre.Visible = false;
+
     }
 
     protected void btnBuscar_Click(object sender, EventArgs e)
     {
         try
         {
+
+            if (txtCodigo.Text == "")
+                throw new Exception("El código no puede quedar vacio");
+
             int codigo = Convert.ToInt32(txtCodigo.Text);
             Juegos game = LogicaJuegos.BuscarJuego(codigo);
 
@@ -87,12 +104,20 @@ public partial class AltaJuegos : System.Web.UI.Page
                 btnBuscar.Enabled = false;
                 btnModificar.Enabled = true;
                 Session["game"] = game;
+                lblError.ForeColor = Color.Blue;
+                lblError.Text = "Juego registrado en el sistema";
+                txtNombre.Enabled = true; ;
+                ddlDificultad.Enabled = true;
+
             }
             else
             {
+                txtCodigo.Enabled = false;
                 lblError.ForeColor = Color.Blue;
                 lblError.Text = "Juego no registrado - ingrese los datos";
                 btnAgregar.Enabled = true;
+                txtNombre.Enabled = true; ;
+                ddlDificultad.Enabled = true;
             }
         }
         catch (Exception ex)
@@ -126,13 +151,52 @@ public partial class AltaJuegos : System.Web.UI.Page
 
                 LimpioFormulario();
                 lblError.ForeColor = Color.Green;
-                lblError.Text = "El juego se creó correctamente";
+                lblError.Text = "El juego se modificó correctamente";
             }
         }
         catch (Exception ex)
         {
             lblError.ForeColor = Color.Red;
             lblError.Text = ex.Message;
+        }
+    }
+    protected void Crear_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtnCrear.Checked == true)
+        {
+            lblCodigo.Visible = false;
+            lblNombre.Visible = true;
+            lblDificultad.Visible = true;
+
+            txtCodigo.Visible = false;
+            txtNombre.Visible = true;
+            txtNombre.Enabled = true;
+            ddlDificultad.Visible = true;
+            ddlDificultad.Enabled = true;
+            btnAgregar.Visible = true;
+            btnAgregar.Enabled = true;
+            btnModificar.Visible = false;
+            btnLimpiar.Visible = true;
+        }
+    }
+    protected void rdbtnModificar_CheckedChanged(object sender, EventArgs e)
+    {
+        if (rdbtnModificar.Checked == true)
+        {
+            lblNombre.Visible = true;
+            lblDificultad.Visible = true;
+            lblCodigo.Visible = true;
+
+            txtCodigo.Visible = true;
+            txtCodigo.Visible = true;
+            btnBuscar.Visible = true;
+            txtNombre.Visible = true;
+            txtNombre.Enabled = false;
+            ddlDificultad.Visible = true;
+            ddlDificultad.Enabled = false;
+            btnAgregar.Visible = false;
+            btnModificar.Visible = true;
+            btnLimpiar.Visible = true;
         }
     }
 }

@@ -7,3 +7,21 @@ C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\bin\Debug\Persistencias.dll
 C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\bin\Debug\EntidadesCompartidas.pdb
 C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\bin\Debug\Persistencias.pdb
 C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Logica.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Logica.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\EntidadesCompartidas.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Persistencias.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\EntidadesCompartidas.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Persistencias.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\obj\Debug\Logica.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Logica\obj\Debug\Logica.pdb
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Logica.dll
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Logica.pdb
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\EntidadesCompartidas.dll
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Persistencias.dll
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\EntidadesCompartidas.pdb
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\bin\Debug\Persistencias.pdb
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\obj\Debug\Logica.dll
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Logica\obj\Debug\Logica.pdb

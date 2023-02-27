@@ -118,46 +118,10 @@ namespace Persistencias
             return oCategoria;
         }
 
-        public static Categorias BuscarCategoriaNombre(string nomCat)
-        {
-            SqlDataReader oReader;
-            Categorias oCategoria = null;
-
-            SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("BuscarCategoriaNombre", oConexion);
-            oComando.CommandType = CommandType.StoredProcedure;
-
-            oComando.Parameters.AddWithValue("@nomCat", nomCat);
-
-            try
-            {
-                oConexion.Open();
-                oReader = oComando.ExecuteReader();
-
-                if (oReader.HasRows)
-                {
-                    if (oReader.Read())
-                    {
-                        nomCat = oReader["nombreCat"].ToString();
-                        string codCat = oReader["codigoCat"].ToString();
-
-                        oCategoria = new Categorias(codCat, nomCat);
-                    }
-                }
-                oReader.Close();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally { oConexion.Close(); }
-            return oCategoria;
-        }
-
         public static int EliminarCategoria(Categorias categoria)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.Con);
-            SqlCommand oComando = new SqlCommand("@EliminarCategoria", oConexion);
+            SqlCommand oComando = new SqlCommand("EliminarCategoria", oConexion);
             oComando.CommandType = CommandType.StoredProcedure;
             oComando.Parameters.AddWithValue("@codCat", categoria.CodCat);
 

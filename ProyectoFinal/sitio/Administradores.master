@@ -45,7 +45,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
                     <asp:Button ID="btnSalir" runat="server" onclick="btnSalir_Click" 
-                        Text="Cerrar session" />
+                        Text="Cerrar Sesión" />
 &nbsp;&nbsp;
                     </td>
             </tr>

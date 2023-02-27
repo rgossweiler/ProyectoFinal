@@ -5,3 +5,17 @@ C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Persistencias\bin\Debug\EntidadesCo
 C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Persistencias\bin\Debug\EntidadesCompartidas.pdb
 C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Persistencias\obj\Debug\Persistencias.dll
 C:\ProyectoFinal\ProyectoFinal\ProyectoFinal\Persistencias\obj\Debug\Persistencias.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\Persistencias.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\Persistencias.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\EntidadesCompartidas.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\EntidadesCompartidas.pdb
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Persistencias\obj\Debug\Persistencias.csprojResolveAssemblyReference.cache
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Persistencias\obj\Debug\Persistencias.dll
+C:\Users\ignac\OneDrive\Desktop\IGNACIO\IGNACIO\BIOS Ignacio\ProyectoFinalGIT\ProyectoFinal-main\ProyectoFinal\Persistencias\obj\Debug\Persistencias.pdb
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\Persistencias.dll
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\Persistencias.pdb
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\EntidadesCompartidas.dll
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Persistencias\bin\Debug\EntidadesCompartidas.pdb
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Persistencias\obj\Debug\Persistencias.csprojResolveAssemblyReference.cache
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Persistencias\obj\Debug\Persistencias.dll
+C:\Users\rgoss\Downloads\ProyectoFinal-rama-Cesar\ProyectoFinal-main\ProyectoFinal\Persistencias\obj\Debug\Persistencias.pdb

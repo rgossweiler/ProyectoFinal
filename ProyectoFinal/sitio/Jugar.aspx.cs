@@ -135,6 +135,9 @@ public partial class Jugar : System.Web.UI.Page
         lblError.Text = "";
         btnSiguiente.Enabled = false;
         btnSiguiente.Text = "Comenzar";
+        btnSiguiente.Visible = true;
+        btnJugoNuevo.Visible = false;
+        ddlJuegos.Enabled = true;
     }
 
     private void cargarPuntaje(Pregunta p)
@@ -164,7 +167,6 @@ public partial class Jugar : System.Web.UI.Page
             lblError.Text = "";
 
             Juegos juego = (Juegos)Session["Juego"];
-            lblError.Text = juego.PreguntasJuego.Count.ToString();
             
             if (aux < juego.PreguntasJuego.Count)
             {
@@ -200,8 +202,10 @@ public partial class Jugar : System.Web.UI.Page
                 {
                     int puntajeTotal = Convert.ToInt32(txtPuntajeTotal.Text);
                     LogicaJugadas.AgregarJugada(txtPlayer.Text, juego, puntajeTotal);
-                    LimpioFormulario();
+                    btnSiguiente.Visible = false;
+                    btnJugoNuevo.Visible = true;
                     throw new Exception(txtPlayer.Text + " obtuvo el puntaje " + puntajeTotal);
+                    
                 }
             }
         }
@@ -222,5 +226,10 @@ public partial class Jugar : System.Web.UI.Page
             Juegos game = games[ddlJuegos.SelectedIndex-1];
             Session["Juego"] = game;
         }
+    }
+
+    protected void btnJugoNuevo_Click(object sender, EventArgs e)
+    {
+        LimpioFormulario();
     }
 }

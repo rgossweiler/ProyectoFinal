@@ -65,8 +65,8 @@ public partial class AltaPreguntas : System.Web.UI.Page
             string codigo = txtCodigo.Text;
             string pregunta = txtPregunta.Text;
             string respuesta1 = txtRespuesta1.Text;
-            string respuesta2 = txtRespuesta1.Text;
-            string respuesta3 = txtRespuesta1.Text;
+            string respuesta2 = txtRespuesta2.Text;
+            string respuesta3 = txtRespuesta3.Text;
 
             if (pregunta == "")
                 throw new Exception("La pregunta no puede quedar vacio");
@@ -92,7 +92,7 @@ public partial class AltaPreguntas : System.Web.UI.Page
             string aux = ddlCategorias.SelectedValue;
             if (ddlCategorias.SelectedIndex == 0)
                 throw new Exception("Debe de elegir una categoría para la pregunta");
-            Categorias cat = LogicaCategorias.BuscarCategoriaNombre(aux);
+            Categorias cat = LogicaCategorias.BuscarCategoria(aux);
 
             Pregunta preg = new Pregunta(pregunta, respuesta1, respuesta2, respuesta3, correcta, codigo, puntaje, cat);
             LogicaPreguntas.AgregarPregunta(preg);
@@ -149,7 +149,8 @@ public partial class AltaPreguntas : System.Web.UI.Page
         if (colCategorias.Count > 0)
         {
             ddlCategorias.DataSource = colCategorias;
-            ddlCategorias.DataTextField = "nombreCat";
+            ddlCategorias.DataTextField = "NombreCat";
+            ddlCategorias.DataValueField = "CodCat";
             ddlCategorias.DataBind();
             ddlCategorias.Items.Insert(0, new ListItem("Elija una opcion"));
         }

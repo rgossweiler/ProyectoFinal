@@ -11,6 +11,7 @@
         {
             font-size: large;
             text-align: left;
+            width: 132px;
         }
         .style8
         {
@@ -31,8 +32,20 @@
                 ALTA JUEGOS</td>
         </tr>
         <tr>
+            <td colspan="2" style="text-align: center" class="style5">
+                <asp:RadioButton ID="rdbtnCrear" runat="server" AutoPostBack="True" 
+                    GroupName="CrearModificar" oncheckedchanged="Crear_CheckedChanged" 
+                    Text="Crear Juego" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:RadioButton ID="rdbtnModificar" runat="server" AutoPostBack="True" 
+                    GroupName="CrearModificar" oncheckedchanged="rdbtnModificar_CheckedChanged" 
+                    Text="Modificar Juego" />
+            </td>
+        </tr>
+        <tr>
             <td class="style6">
-                CODIGO:</td>
+                <asp:Label ID="lblCodigo" runat="server" Text="Codigo:"></asp:Label>
+            </td>
             <td class="style8">
                 <asp:TextBox ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
 &nbsp;&nbsp;
@@ -47,7 +60,8 @@
         </tr>
         <tr>
             <td class="style6">
-                NOMBRE:</td>
+                <asp:Label ID="lblNombre" runat="server" Text="Nombre:"></asp:Label>
+            </td>
             <td class="style8">
                 <asp:TextBox ID="txtNombre" runat="server" BorderStyle="Solid"></asp:TextBox>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -58,7 +72,8 @@
         </tr>
         <tr>
             <td class="style6">
-                DIFICULTAD:</td>
+                <asp:Label ID="lblDificultad" runat="server" Text="Dificultad:"></asp:Label>
+            </td>
             <td style="text-align: left" class="style9">
                 <asp:DropDownList ID="ddlDificultad" runat="server">
                     <asp:ListItem Value="0">Elegir una opcion</asp:ListItem>
