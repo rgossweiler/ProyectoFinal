@@ -13,10 +13,10 @@ public partial class Principal : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        List<Jugadas> lista = LogicaJugadas.ListarJugadas();
-        gvPuntajes.DataSource = lista;
-        gvPuntajes.DataBind();
-        Session["Administrador"] = null;
+        //List<Jugadas> lista = LogicaJugadas.ListarJugadas();
+        //gvPuntajes.DataSource = lista;
+        //gvPuntajes.DataBind();
+        //Session["Administrador"] = null;
     }
 }
 

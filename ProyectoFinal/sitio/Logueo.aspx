@@ -1,66 +1,64 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Players.master" AutoEventWireup="true" CodeFile="Logueo.aspx.cs" Inherits="Logueo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .style1
-        {
-            text-align: left;
-        }
-        .style5
-        {
-            text-align: left;
-            width: 148px;
-        }
-        .style40
-        {
-            text-align: center;
-            font-size: xx-large;
-        }
-        .style41
-        {
-            width: 148px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="5" 
-        style="width: 33%; height: 78px; margin-top: 0px; margin-left: 150px;">
-        <tr>
-            <td class="style40" colspan="2">
-                INICIAR SESIÒN</td>
-        </tr>
-        <tr>
-            <td class="style5">
-                Usuario:</td>
-            <td style="text-align: left">
-                <asp:TextBox ID="txtUsuario" runat="server" BorderStyle="Solid"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: left" class="style41">
-&nbsp;Contraseña:&nbsp;
-            </td>
-            <td style="text-align: left">
-                <asp:TextBox ID="txtContraseña" runat="server" BorderStyle="Solid" 
-                    TextMode="Password"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center">
-                <asp:Button ID="btnIngresar" runat="server" onclick="btnIngresar_Click" 
-                    Text="Ingresar" />
-&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnLimpiar" runat="server" onclick="btnLimpiar_Click" 
-                    Text="Limpiar" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center">
-                <asp:Label ID="lblError" runat="server"></asp:Label>
-            &nbsp;
-            </td>
-        </tr>
-    </table>
+    <!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <link href="Fonts/login.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+   <div class="wrapper fadeInDown">
+  <div id="formContent" align="center">
+    <!-- Tabs Titles -->
+    <h2 class="active"> 
+         <asp:Label ID="Titulo" runat="server" Text="Iniciar Sesion"></asp:Label>
+    </h2>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="Fonts/PerfilUsuario.png" id="icon" width="200" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form >
+    
+        <asp:TextBox ID="txtNombreUsuario" runat="server" class="fadeIn second" name="login" placeholder="Nombre de usuario" ></asp:TextBox>
+        <asp:TextBox ID="txtPwd" runat="server" class="fadeIn second" name="login" placeholder="Contraseña" ></asp:TextBox>
+        <asp:TextBox ID="txtNombreCompleto" runat="server" class="fadeIn second" name="login" placeholder="Nombre completo" Visible="False" ></asp:TextBox>     
+
+         <asp:Button  ID="InisiarSession"  runat="server" onclick="IniciarSesion_Click" 
+                      Text="Iniciar Sesion" />
+
+        <asp:Button type="submit" ID="Registrarse"  runat="server" onclick="Registrarse_Click" 
+                     value="Log In" Text="Registrarse" Visible="False" />
+
+        <asp:Button type="submit" ID="Limpiar"  runat="server" onclick="LimpiarFormulario_Click" 
+                     value="Log In" Text="Limpiar" Visible="False" />
+
+ <!-- Usar esta clase para animar el inicio de sesion:type="submit" value="Log In" class="fadeIn fourth"-->
+    <!-- Remind Passowrd -->
+       
+    <div id="formFooter" style="display:flex !important">
+        <asp:Label ID="lblError" runat="server" ForeColor="Red" Width="300px"></asp:Label>
+         <asp:LinkButton ID="btnRegistro" runat="server" onclick="OpcRegistro_Click" BorderColor="#333399" Visible="False" >Regisrarse</asp:LinkButton>
+        <asp:LinkButton ID="btnSesion" runat="server" onclick="OpcIinicioSesion_Click" BorderColor="#333399" Visible="False" CssClass="auto-style1" Width="142px" >Iniciar Sesion</asp:LinkButton>
+    </div>
+
+    </form>
+
+  </div>
+</div>
+    
+</body>
+</html>
 </asp:Content>
 
