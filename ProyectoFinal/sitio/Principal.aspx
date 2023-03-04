@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Players.master" AutoEventWireup="true" CodeFile="Principal.aspx.cs" Inherits="Principal" %>
 
-<%--asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div Align="center">
     <asp:GridView ID="gvPuntajes" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
-        CellPadding="0" style="text-align: center; margin-left: 150px;" 
-        Height="250px" Width="1000px" AllowPaging="True" PageSize="5">
+        CellPadding="0" style="text-align: center; margin-top: 50px;" 
+        Height="250px" Width="840px" AllowPaging="True" PageSize="5">
         <Columns>
             <asp:BoundField DataField="fechaHoraJugada" DataFormatString="{0:MM/dd/yy}" 
                 HeaderText="Fecha" />
@@ -24,7 +25,8 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-</asp:Content>--%>
+        </div>
+</asp:Content>
 
 
 

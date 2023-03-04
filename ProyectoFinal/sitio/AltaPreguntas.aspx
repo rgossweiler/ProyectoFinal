@@ -32,6 +32,7 @@
 &nbsp;&nbsp;
                 <asp:Button ID="btnBuscar" runat="server" onclick="btnBuscar_Click" 
                     Text="Buscar" />
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtCodigo" ErrorMessage="CompareValidator"></asp:CompareValidator>
             </td>
         </tr>
         <tr>
