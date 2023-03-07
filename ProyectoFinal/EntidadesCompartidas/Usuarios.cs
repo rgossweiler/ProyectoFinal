@@ -40,8 +40,8 @@ namespace EntidadesCompartidas
             get { return nombreCompleto; }
             set 
             {
-                if (value.Trim() == "")
-                    throw new Exception("el nombre completo del usuario no puede quedar vacío");
+                //if (value.Trim() == "")
+                //    throw new Exception("el nombre completo del usuario no puede quedar vacío");
                 nombreCompleto = value;
             }
         }

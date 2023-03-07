@@ -79,10 +79,14 @@
             height: 45px;
             width: 365px;
         }
+        .auto-style1 {
+            width: 73%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="5" style="width: 62%; margin-left: 150px;">
+    <div Align="center">
+    <table class="auto-style1" border="5" style="margin-left: 10px;margin-top: 60px;">
         <tr>
             <td class="style32" colspan="3">
                 JUGAR!</td>
@@ -96,29 +100,29 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td class="style20">
-                Puntaje total:</td>
+                </td>
             <td class="style28">
                 <asp:TextBox ID="txtPuntajeTotal" runat="server" BorderColor="Black" 
-                    BorderStyle="Solid" style="text-align: left">0</asp:TextBox>
+                    BorderStyle="Solid" style="text-align: left">Puntaje total: 0</asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style1" colspan="3">
-                &nbsp;<asp:TextBox ID="txtPregunta" runat="server" Height="98px" Width="1201px" 
+                &nbsp;<asp:TextBox ID="txtPregunta" runat="server" Height="98px" Width="600px" style="width:-webkit-fill-available; text-align:center" 
                     BorderStyle="Solid"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style44">
-                <asp:Button ID="btnOpcion1" runat="server" Width="201px" 
+                <asp:Button ID="btnOpcion1" runat="server" Width="146px" 
                     onclick="btnOpcion1_Click" BorderStyle="Solid" />
             </td>
             <td class="style42">
-                <asp:Button ID="btnOpcion2" runat="server" Width="201px" 
+                <asp:Button ID="btnOpcion2" runat="server" Width="146px" 
                     onclick="btnOpcion2_Click" BorderStyle="Solid" />
             </td>
             <td class="style41">
-                <asp:Button ID="btnOpcion3" runat="server" Width="201px" onclientclick="true" 
+                <asp:Button ID="btnOpcion3" runat="server" Width="146px" onclientclick="true" 
                     onclick="btnOpcion3_Click" BorderStyle="Solid" />
             </td>
         </tr>
@@ -146,5 +150,6 @@
             </td>
         </tr>
     </table>
+        </div>
 </asp:Content>
 

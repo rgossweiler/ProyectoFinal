@@ -32,6 +32,10 @@
 &nbsp;&nbsp;
                 <asp:Button ID="btnBuscar" runat="server" onclick="btnBuscar_Click" 
                     Text="Buscar" />
+                &nbsp;&nbsp;
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                    ControlToValidate="txtCodigo" ErrorMessage="debe de ser 3 letras y 2 numeros" 
+                    ForeColor="#CC0000" ValidationExpression="[a-zA-Z]{3}\d{2}"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>

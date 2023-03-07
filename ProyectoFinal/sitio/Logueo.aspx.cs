@@ -13,37 +13,64 @@ public partial class Logueo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        lblError.Text = "";
         if (!IsPostBack)
-            btnLimpiar_Click(sender, e);
+            LimpiarFormularioInicioSesion();
     }
 
-    protected void btnIngresar_Click(object sender, EventArgs e)
+    protected void LimpiarFormularioInicioSesion()
     {
+        txtNombreCompleto.Text = "";
+        txtNombreUsuario.Text = "";
+        txtPwd.Text = "";
+        InisiarSession.Visible = true;
+
+        txtNombreCompleto.Visible = false;
+        btnSesion.Visible = false;
+    }
+    protected void LimpiarFormularioRegistro()
+    {
+        InisiarSession.Attributes.Add("style", "padding: 15px 20px !important;");
+
+        txtNombreCompleto.Text = "";
+        txtNombreUsuario.Text = "";
+        txtPwd.Text = "";
+        InisiarSession.Visible = false;
+
+        txtNombreCompleto.Visible = true;
+        btnSesion.Visible = true;
+    }
+
+    protected void IniciarSesion_Click(object sender, EventArgs e)
+    {
+        lblError.Text = "";
+
         try
         {
-            if (txtUsuario.Text == "")
-                throw new Exception("Debe ingresar un usuario");
-            else if (txtContraseña.Text == "")
-                throw new Exception("Debe de ingresar una contraseña");
-            if (LogicaUsuarios.LogeoUsuario(txtUsuario.Text, txtContraseña.Text) == 0)
-                throw new Exception("Usuario o Contraseña incorrectas");
+            Usuarios usuario = new Usuarios(txtNombreUsuario.Text, txtPwd.Text, txtNombreCompleto.Text);
+            var logueo = Logica.LogicaUsuarios.LogeoUsuario(txtNombreUsuario.Text, txtPwd.Text);
+
+            if (logueo == 1)
+            {
+                Session["Administrador"] = LogicaUsuarios.BuscarUsuario(txtNombreUsuario.Text);
+                Response.Redirect("PrincipalAdmin.aspx",false);
+            }
             else
             {
-                Session["Administrador"] = LogicaUsuarios.BuscarUsuario(txtUsuario.Text);
-                Response.Redirect("PrincipalAdmin.aspx");
+
             }
         }
         catch (Exception ex)
         {
+            LimpiarFormularioInicioSesion();
             lblError.ForeColor = Color.Red;
-            lblError.Text = ex.Message; 
+            lblError.Text = ex.Message;
         }
-        
     }
 
-    protected void btnLimpiar_Click(object sender, EventArgs e)
+    protected void OpcIinicioSesion_Click(object sender, EventArgs e)
     {
-        txtUsuario.Text = "";
-        txtContraseña.Text = "";
+        Titulo.Text = "Iniciar Sesion";
+        LimpiarFormularioInicioSesion();
     }
 }

@@ -160,11 +160,16 @@ public partial class Jugar : System.Web.UI.Page
 
     protected void btnSiguiente_Click(object sender, EventArgs e)
     {
+        
+
         int aux = (int)Session["contador"];
         
         try
         {
             lblError.Text = "";
+
+            if (txtPlayer.Text == "")
+                throw new Exception("Ingrese su nombre");
 
             Juegos juego = (Juegos)Session["Juego"];
             
@@ -208,6 +213,8 @@ public partial class Jugar : System.Web.UI.Page
                     
                 }
             }
+
+         // if()
         }
         catch (Exception ex)
         {
@@ -231,5 +238,8 @@ public partial class Jugar : System.Web.UI.Page
     protected void btnJugoNuevo_Click(object sender, EventArgs e)
     {
         LimpioFormulario();
+        int aux = 0;
+        Session["Contador"] = aux;
+
     }
 }

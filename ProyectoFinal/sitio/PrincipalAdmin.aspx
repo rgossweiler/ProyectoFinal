@@ -3,10 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div Align="center" style="height: 1000px; overflow: auto;">
     <asp:GridView ID="gvPuntajes" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
-        CellPadding="3" style="text-align: center; margin-left: 150px; margin-top: 0px;" 
-        Height="250px" Width="1000px" AllowPaging="True" PageSize="5">
+        CellPadding="0" style="text-align: center; margin-top: 50px;" 
+        Height="250px" Width="840px" PageSize="5">
         <Columns>
             <asp:BoundField DataField="fechaHoraJugada" DataFormatString="{0:MM/dd/yy}" 
                 HeaderText="Fecha" />
@@ -24,5 +25,5 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
+        </div>
 </asp:Content>
-

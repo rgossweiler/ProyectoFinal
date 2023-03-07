@@ -28,26 +28,29 @@
         </tr>
         <tr>
             <td class="style50">
-                <asp:GridView ID="gvJugadas" runat="server" AutoGenerateColumns="False" 
-                    BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
-                    CellPadding="3" AllowPaging="True" PageSize="5" Width="1030px">
-                    <Columns>
-                        <asp:BoundField DataField="fechaHoraJugada" HeaderText="Fecha Jugada" />
-                        <asp:BoundField DataField="nombreJugador" HeaderText="Jugador" />
-                        <asp:BoundField DataField="puntajeTotal" HeaderText="Puntaje Total" />
-                        <asp:BoundField HeaderText="codigoJuego" DataField="codigoJuego" 
-                            Visible="False" />
-                    </Columns>
-                    <FooterStyle BackColor="White" ForeColor="#000066" />
-                    <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="center" />
-                    <RowStyle ForeColor="#000066" />
-                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                    <SortedDescendingHeaderStyle BackColor="#00547E" />
-                </asp:GridView>
+                <div  style="height: 234px; width: 1200px; overflow: auto;">
+                    <asp:GridView ID="gvJugadas" runat="server" AutoGenerateColumns="False" 
+                        BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
+                        CellPadding="1" PageSize="5" Width="1030px" 
+                        HorizontalAlign="Center">
+                        <Columns>
+                            <asp:BoundField DataField="fechaHoraJugada" HeaderText="Fecha Jugada" />
+                            <asp:BoundField DataField="nombreJugador" HeaderText="Jugador" />
+                            <asp:BoundField DataField="puntajeTotal" HeaderText="Puntaje Total" />
+                            <asp:BoundField HeaderText="codigoJuego" DataField="codigoJuego" 
+                                Visible="False" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="center" />
+                        <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#00547E" />
+                    </asp:GridView>
+                </div>
             </td>
         </tr>
         <tr>
@@ -56,27 +59,29 @@
         </tr>
         <tr>
             <td class="style5">
-                <asp:GridView ID="gvPreguntas" runat="server" AutoGenerateColumns="False" 
-                    BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
-                    CellPadding="3" AllowPaging="True" PageSize="5" Width="1031px">
-                    <Columns>
-                        <asp:BoundField DataField="TextoPreguntas" HeaderText="Pregunta" />
-                        <asp:BoundField DataField="respuesta1" HeaderText="Opcion 1" />
-                        <asp:BoundField DataField="respuesta2" HeaderText="Opcion 2" />
-                        <asp:BoundField DataField="respuesta3" HeaderText="Opcion 3" />
-                        <asp:BoundField HeaderText="codigoJuego" InsertVisible="False" 
-                            DataField="codigoJuego" Visible="False" />
-                    </Columns>
-                    <FooterStyle BackColor="White" ForeColor="#000066" />
-                    <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="center" />
-                    <RowStyle ForeColor="#000066" />
-                    <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                    <SortedAscendingHeaderStyle BackColor="#007DBB" />
-                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                    <SortedDescendingHeaderStyle BackColor="#00547E" />
-                </asp:GridView>
+                <div  style="height: 234px; width: 1200px; overflow: auto;">
+                    <asp:GridView ID="gvPreguntas" runat="server" AutoGenerateColumns="False" 
+                        BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
+                        CellPadding="3" AllowPaging="True" PageSize="5" Width="1031px">
+                        <Columns>
+                            <asp:BoundField DataField="TextoPreguntas" HeaderText="Pregunta" />
+                            <asp:BoundField DataField="respuesta1" HeaderText="Opcion 1" />
+                            <asp:BoundField DataField="respuesta2" HeaderText="Opcion 2" />
+                            <asp:BoundField DataField="respuesta3" HeaderText="Opcion 3" />
+                            <asp:BoundField HeaderText="codigoJuego" InsertVisible="False" 
+                                DataField="codigoJuego" Visible="False" />
+                        </Columns>
+                        <FooterStyle BackColor="White" ForeColor="#000066" />
+                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="center" />
+                        <RowStyle ForeColor="#000066" />
+                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#00547E" />
+                    </asp:GridView>
+                </div>
             </td>
         </tr>
         <tr>
