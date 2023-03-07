@@ -49,6 +49,7 @@ public partial class Jugar : System.Web.UI.Page
             btnOpcion3.BackColor = Color.Green;
             lblError.Text = "Respuesta incorrecta";
         }
+        btnSiguiente.Enabled = true;
     }
 
     protected void btnOpcion2_Click(object sender, EventArgs e)
@@ -76,6 +77,8 @@ public partial class Jugar : System.Web.UI.Page
             btnOpcion3.BackColor = Color.Green;
             lblError.Text = "Respuesta incorrecta";
         }
+
+        btnSiguiente.Enabled = true;
     }
 
     protected void btnOpcion3_Click(object sender, EventArgs e)
@@ -103,6 +106,7 @@ public partial class Jugar : System.Web.UI.Page
             btnOpcion2.BackColor = Color.Green;
             lblError.Text = "Respuesta incorrecta";
         }
+        btnSiguiente.Enabled = true;
     }
 
     private void CargoDatos(Pregunta p)
@@ -117,6 +121,7 @@ public partial class Jugar : System.Web.UI.Page
         btnOpcion1.Text = p.Respuesta1;
         btnOpcion2.Text = p.Respuesta2;
         btnOpcion3.Text = p.Respuesta3;
+        btnSiguiente.Enabled = false;
     }
 
     private void LimpioFormulario()
