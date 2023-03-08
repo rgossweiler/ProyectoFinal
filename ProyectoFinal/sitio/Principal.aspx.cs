@@ -16,6 +16,12 @@ public partial class Principal : System.Web.UI.Page
         List<Jugadas> lista = LogicaJugadas.ListarJugadas();
         gvPuntajes.DataSource = lista;
         gvPuntajes.DataBind();
+
+        if (lista != null)
+            logoImg.EnableViewState = true;
+        else
+            logoImg.EnableViewState = false;
+
         Session["Administrador"] = null;
     }
 }

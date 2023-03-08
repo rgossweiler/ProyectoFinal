@@ -11,7 +11,9 @@ using Logica;
 
 public partial class Jugar : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
+    bool botonPresionado = false;
+
+    public void Page_Load(object sender, EventArgs e)
     {
         if(!IsPostBack)
         {
@@ -26,6 +28,8 @@ public partial class Jugar : System.Web.UI.Page
 
     protected void btnOpcion1_Click(object sender, EventArgs e)
     {
+        botonPresionado = true;
+        BotonSeleccionado(botonPresionado);
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -35,24 +39,29 @@ public partial class Jugar : System.Web.UI.Page
         {
             btnOpcion1.BackColor = Color.Green;
             cargarPuntaje(p);
+            lblError.ForeColor = Color.Green;
             lblError.Text = "Respuesta Correcta";
         }
         else if(p.Correcta == 2)
         {
             btnOpcion1.BackColor = Color.Red;
             btnOpcion2.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
         else
         {
             btnOpcion1.BackColor = Color.Red;
             btnOpcion3.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
     }
 
     protected void btnOpcion2_Click(object sender, EventArgs e)
     {
+        botonPresionado = true;
+        BotonSeleccionado(botonPresionado);
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -62,24 +71,29 @@ public partial class Jugar : System.Web.UI.Page
         {
             btnOpcion2.BackColor = Color.Green;
             cargarPuntaje(p);
+            lblError.ForeColor = Color.Green;
             lblError.Text = "Respuesta Correcta";
         }
         else if (p.Correcta == 1)
         {
             btnOpcion2.BackColor = Color.Red;
             btnOpcion1.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
         else
         {
             btnOpcion2.BackColor = Color.Red;
             btnOpcion3.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
     }
 
     protected void btnOpcion3_Click(object sender, EventArgs e)
     {
+        botonPresionado = true;
+        BotonSeleccionado(botonPresionado);
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -89,6 +103,7 @@ public partial class Jugar : System.Web.UI.Page
         {
             btnOpcion3.BackColor = Color.Green;
             cargarPuntaje(p);
+            lblError.ForeColor = Color.Green;
             lblError.Text = "Respuesta Correcta";
         }
         else if (p.Correcta == 1)
@@ -107,7 +122,6 @@ public partial class Jugar : System.Web.UI.Page
 
     private void CargoDatos(Pregunta p)
     {
-
         btnOpcion1.Enabled = true;
         btnOpcion2.Enabled = true;
         btnOpcion3.Enabled = true;
@@ -158,6 +172,11 @@ public partial class Jugar : System.Web.UI.Page
         ddlJuegos.Items.Insert(0, new ListItem("Elija un juego"));
     }
 
+    private bool BotonSeleccionado(bool click)
+    {
+        return click;
+    }
+
     protected void btnSiguiente_Click(object sender, EventArgs e)
     {
         
@@ -179,13 +198,19 @@ public partial class Jugar : System.Web.UI.Page
 
                 CargoDatos(juego.PreguntasJuego[aux]);
                 btnSiguiente.Text = "Siguiente pregunta";
-                
+
+                if(BotonSeleccionado(botonPresionado) == false)
+                {
+                    throw new Exception("Seleccione una respuesta");
+                }
+
                 aux++;
                 Session["contador"] = aux;
 
                 if (aux == juego.PreguntasJuego.Count)
                 {
                     btnSiguiente.Text = "Finalizar";
+                    lblError.ForeColor = Color.Black;
                     lblError.Text = "Ultima Pregunta";
                 }
 

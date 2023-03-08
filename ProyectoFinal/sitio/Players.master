@@ -4,6 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+     <style>
+         .logo{
+            width: 190px;
+            margin-top: 191px;
+            margin-left: 1101px;
+            padding-left: 3;
+            transform: scaleX(-1);
+              }
+     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,15 +29,16 @@
     <!-- Style -->
    
     <link href="Fonts/css/style.css" rel="stylesheet" />
+   
 
-    <title>Confucio</title>
+	
+   <title>Confucio</title>
 
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 
   </head>
   <body>
-
  
     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
@@ -48,7 +58,7 @@
 
             <div class="col-3 ml-auto text-right order-2">
               <div class="site-logo">
-                <a href="Principal.aspx" class="font-weight-bold text-white">Confucio</a>
+                <a href="Principal.aspx" style="font-size:20px !important"; class="font-weight-bold text-white">Confucio</a>
               </div>
             </div>
 
@@ -80,7 +90,11 @@
       </header>
       
    <%--<div class="hero" style="background-image: url('Fonts/images/preguntados.jpg');"></div> --%> 
-      <div class="hero" style="background-color: #56baed"></div>
+      <div class="hero" style="background-color: #56baed">
+         <%-- <a href="" ID="logoImg" class="" target="_blank">
+      <img  class="logo" src="Fonts/images/confucio.png" alt=""> 
+	  </a>--%>
+      </div>
   
         <script src="Fonts/js/bootstrap.min.js"></script>
         <script src="Fonts/js/jquery-3.3.1.min.js"></script>

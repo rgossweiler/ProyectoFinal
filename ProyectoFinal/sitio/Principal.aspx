@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div Align="center">
+    <div id="logoImage" Align="center">
     <asp:GridView ID="gvPuntajes" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
         CellPadding="0" style="text-align: center; margin-top: 50px;" 
@@ -25,7 +25,20 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
+
+         <a href="" target="_blank">
+      <asp:Image ID="logoImg" class="logo" style="
+        width: 190px;
+        margin-top: -190px;
+        margin-bottom: -116px !important;
+        margin-left: 998px;
+        padding-left: 3;
+        transform: scaleX(-1);" src="Fonts/images/confucio.png" alt="" runat="server"/>
+	  </a>
         </div>
+       
+        </a>
+       
 </asp:Content>
 
 

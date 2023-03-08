@@ -25,9 +25,8 @@ public partial class Administradores : System.Web.UI.MasterPage
         {
             Response.Redirect("Principal.aspx");
         }
-        
-        
     }
+
     protected void btnSalir_Click(object sender, EventArgs e)
     {
         Session["Administrador"] = null;
