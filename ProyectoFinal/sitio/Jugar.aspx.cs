@@ -11,7 +11,6 @@ using Logica;
 
 public partial class Jugar : System.Web.UI.Page
 {
-    bool botonPresionado = false;
 
     public void Page_Load(object sender, EventArgs e)
     {
@@ -28,8 +27,7 @@ public partial class Jugar : System.Web.UI.Page
 
     protected void btnOpcion1_Click(object sender, EventArgs e)
     {
-        botonPresionado = true;
-        BotonSeleccionado(botonPresionado);
+        btnSiguiente.Enabled = true;
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -60,8 +58,7 @@ public partial class Jugar : System.Web.UI.Page
 
     protected void btnOpcion2_Click(object sender, EventArgs e)
     {
-        botonPresionado = true;
-        BotonSeleccionado(botonPresionado);
+        btnSiguiente.Enabled = true;
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -92,8 +89,7 @@ public partial class Jugar : System.Web.UI.Page
 
     protected void btnOpcion3_Click(object sender, EventArgs e)
     {
-        botonPresionado = true;
-        BotonSeleccionado(botonPresionado);
+        btnSiguiente.Enabled = true;
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -172,15 +168,9 @@ public partial class Jugar : System.Web.UI.Page
         ddlJuegos.Items.Insert(0, new ListItem("Elija un juego"));
     }
 
-    private bool BotonSeleccionado(bool click)
-    {
-        return click;
-    }
-
     protected void btnSiguiente_Click(object sender, EventArgs e)
     {
         
-
         int aux = (int)Session["contador"];
         
         try
@@ -198,11 +188,6 @@ public partial class Jugar : System.Web.UI.Page
 
                 CargoDatos(juego.PreguntasJuego[aux]);
                 btnSiguiente.Text = "Siguiente pregunta";
-
-                if(BotonSeleccionado(botonPresionado) == false)
-                {
-                    throw new Exception("Seleccione una respuesta");
-                }
 
                 aux++;
                 Session["contador"] = aux;
@@ -239,7 +224,7 @@ public partial class Jugar : System.Web.UI.Page
                 }
             }
 
-         // if()
+            btnSiguiente.Enabled = false;
         }
         catch (Exception ex)
         {
