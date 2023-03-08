@@ -3,33 +3,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+  <head>
+      <style>         
+         .logo{
+            width: 190px;
+            margin-top: 251px;
+            margin-left: 1101px;
+            padding-left: 3;
+            transform: scaleX(-1);
+              }
+          ul,li{
+              margin-bottom: 10px;
+          }
+      </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+    <link href="Fonts/fonts/icomoon/style.css" rel="stylesheet" />
+
+    <link href="Fonts/css/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="Fonts/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Style -->
+   
+    <link href="Fonts/css/style.css" rel="stylesheet" />
+
+    <title>Confucio</title>
+
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .style1
-        {
-            width: 300px;
-        }
-        .style2
-        {
-            width: 300px;
-            height: 97px;
-        }
-        .style3
-        {
-            height: 100px;
-            text-align: right;
-        }
-        .style4
-        {
-            font-size: large;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+
+  </head>
+  <body>
+
+ 
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+
+
+      <header class="site-navbar site-navbar-target py-4" role="banner">
+
+
+        <div class="container">
+          <form id="form1" runat="server">
+          <div class="row align-items-center position-relative">
+
+            <div class="col-3 ml-auto text-right order-2">
+              <div class="site-logo">
+                <a href="Principal.aspx" style="font-size:20px !important" class="font-weight-bold text-white">Confucio</a>
+                  <div >
+                
     <p>
         <table style="width:100%;">
             <tr>
@@ -49,100 +84,56 @@
 &nbsp;&nbsp;
                     </td>
             </tr>
-            <tr>
-                <td class="style1">
-                    <asp:Button ID="Button1" runat="server" Text="ALTA USUARIOS" Width="300px" 
-                        Height="50px" PostBackUrl="~/AltaUsuarios.aspx" />
-                    </td>
-                <td rowspan="18" colspan="2" style="text-align: center">
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            </table>
+    </p>
+                     
+            </div>
+              </div>
+            </div>
+
+            
+
+            <div class="col-9 order-1 text-left mr-auto">
+              
+
+              <span class="d-inline-block d-lg-block"><a href="#" class="text-black site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-white"></span></a></span>
+
+              
+
+              <nav class="site-navigation text-right ml-auto d-none d-lg-none" role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                  <li><a href="AltaUsuarios.aspx" style="margin-top: 20px;" class="nav-link">ALTA USUARIOS</a></li>
+                  <li><a href="ABM_Categorias.aspx" class="nav-link">CATEGORIAS DE PREGUNTAS</a></li>
+                  <li><a href="AltaPreguntas.aspx" class="nav-link">ALTA PREGUNTAS</a></li>
+                  <li><a href="AltaJuegos.aspx" class="nav-link">ALTA JUEGOS</a></li>
+                  <li><a href="ManejoPreguntasJuegos.aspx" class="nav-link">ASOCIAR PREGUNTAS</a></li>
+                  <li><a href="ListadoDeJuegos.aspx" class="nav-link">LISTADO DE JUEGOS</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            
+          </div>
+           
+                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
-                    </td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    <asp:Button ID="Button2" runat="server" style="text-align: left" 
-                        Text="ABM CATEGORIAS DE PREGUNTAS" Width="300px" Height="50px" 
-                        PostBackUrl="~/ABM_Categorias.aspx" />
-                </td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    <asp:Button ID="Button3" runat="server" Text="ALTA PREGUNTAS" Width="300px" 
-                        Height="50px" PostBackUrl="~/AltaPreguntas.aspx" />
-                </td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    <asp:Button ID="Button4" runat="server" Text="ALTA JUEGOS" Width="300px" 
-                        Height="50px" PostBackUrl="~/AltaJuegos.aspx" />
-                </td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    <asp:Button ID="Button5" runat="server" Text="ASOCIAR PREGUNTAS" 
-                        Width="300px" Height="50px" PostBackUrl="~/ManejoPreguntasJuegos.aspx" />
-                </td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    <asp:Button ID="Button6" runat="server" Text="LISTADO DE JUEGOS" 
-                        Width="300px" Height="50px" PostBackUrl="~/ListadoDeJuegos.aspx" />
-                </td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-            </tr>
-        </table>
-    </p>
-    <div>
-    </div>
-    </form>
-</body>
+                </form>
+        </div>
+
+      </header>
+      
+      <div class="hero" style="background-color: #56baed">
+      <a href="" class="" target="_blank">
+      <img class="logo" src="Fonts/images/confucio.png" alt=""> 
+	  </a>
+      </div>
+  
+        <script src="Fonts/js/bootstrap.min.js"></script>
+        <script src="Fonts/js/jquery-3.3.1.min.js"></script>
+        <script src="Fonts/js/jquery.sticky.js"></script>
+        <script src="Fonts/js/main.js"></script>
+        <script src="Fonts/js/owl.carousel.min.js"></script>
+        <script src="Fonts/js/popper.min.js"></script>
+  </body>
 </html>

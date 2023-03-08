@@ -11,21 +11,22 @@ using Logica;
 
 public partial class Jugar : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
+
+    public void Page_Load(object sender, EventArgs e)
     {
         if(!IsPostBack)
         {
             lblError.Text = "Presiona el botón comenzar para iniciar la partida";
             LimpioFormulario();
             CargarListaJuego();
-            int aux = 0, puntaje = 0;
-            Session["Contador"] = aux;
+            int puntaje = 0;
             Session["puntaje"] = puntaje;
         }
     }
 
     protected void btnOpcion1_Click(object sender, EventArgs e)
     {
+        btnSiguiente.Enabled = true;
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -35,25 +36,28 @@ public partial class Jugar : System.Web.UI.Page
         {
             btnOpcion1.BackColor = Color.Green;
             cargarPuntaje(p);
+            lblError.ForeColor = Color.Green;
             lblError.Text = "Respuesta Correcta";
         }
         else if(p.Correcta == 2)
         {
             btnOpcion1.BackColor = Color.Red;
             btnOpcion2.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
         else
         {
             btnOpcion1.BackColor = Color.Red;
             btnOpcion3.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
-        btnSiguiente.Enabled = true;
     }
 
     protected void btnOpcion2_Click(object sender, EventArgs e)
     {
+        btnSiguiente.Enabled = true;
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -63,26 +67,28 @@ public partial class Jugar : System.Web.UI.Page
         {
             btnOpcion2.BackColor = Color.Green;
             cargarPuntaje(p);
+            lblError.ForeColor = Color.Green;
             lblError.Text = "Respuesta Correcta";
         }
         else if (p.Correcta == 1)
         {
             btnOpcion2.BackColor = Color.Red;
             btnOpcion1.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
         else
         {
             btnOpcion2.BackColor = Color.Red;
             btnOpcion3.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
-
-        btnSiguiente.Enabled = true;
     }
 
     protected void btnOpcion3_Click(object sender, EventArgs e)
     {
+        btnSiguiente.Enabled = true;
         btnOpcion1.Enabled = false;
         btnOpcion2.Enabled = false;
         btnOpcion3.Enabled = false;
@@ -92,6 +98,7 @@ public partial class Jugar : System.Web.UI.Page
         {
             btnOpcion3.BackColor = Color.Green;
             cargarPuntaje(p);
+            lblError.ForeColor = Color.Green;
             lblError.Text = "Respuesta Correcta";
         }
         else if (p.Correcta == 1)
@@ -106,12 +113,10 @@ public partial class Jugar : System.Web.UI.Page
             btnOpcion2.BackColor = Color.Green;
             lblError.Text = "Respuesta incorrecta";
         }
-        btnSiguiente.Enabled = true;
     }
 
     private void CargoDatos(Pregunta p)
     {
-
         btnOpcion1.Enabled = true;
         btnOpcion2.Enabled = true;
         btnOpcion3.Enabled = true;
@@ -121,7 +126,6 @@ public partial class Jugar : System.Web.UI.Page
         btnOpcion1.Text = p.Respuesta1;
         btnOpcion2.Text = p.Respuesta2;
         btnOpcion3.Text = p.Respuesta3;
-        btnSiguiente.Enabled = false;
     }
 
     private void LimpioFormulario()
@@ -166,7 +170,6 @@ public partial class Jugar : System.Web.UI.Page
     protected void btnSiguiente_Click(object sender, EventArgs e)
     {
         
-
         int aux = (int)Session["contador"];
         
         try
@@ -184,13 +187,14 @@ public partial class Jugar : System.Web.UI.Page
 
                 CargoDatos(juego.PreguntasJuego[aux]);
                 btnSiguiente.Text = "Siguiente pregunta";
-                
+
                 aux++;
                 Session["contador"] = aux;
 
                 if (aux == juego.PreguntasJuego.Count)
                 {
                     btnSiguiente.Text = "Finalizar";
+                    lblError.ForeColor = Color.Black;
                     lblError.Text = "Ultima Pregunta";
                 }
 
@@ -218,8 +222,7 @@ public partial class Jugar : System.Web.UI.Page
                     
                 }
             }
-
-         // if()
+            btnSiguiente.Enabled = false;
         }
         catch (Exception ex)
         {
@@ -232,6 +235,8 @@ public partial class Jugar : System.Web.UI.Page
     {
         if (ddlJuegos.SelectedIndex != 0)
         {
+            int aux = 0;
+            Session["contador"] = aux;
             ddlJuegos.Enabled = false;
             btnSiguiente.Enabled = true;
             List<Juegos> games = (List<Juegos>)Session["Juegos"];
@@ -245,6 +250,5 @@ public partial class Jugar : System.Web.UI.Page
         LimpioFormulario();
         int aux = 0;
         Session["Contador"] = aux;
-
     }
 }

@@ -2,33 +2,36 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
-        .style1
-        {
+        table{
+            margin-left: 10px;
+            margin-top: 45px;
+            border-radius: 27px !important;
+            background-color:snow;
+            border-color: black;
+            border-collapse: inherit !important;
         }
-        .style2
-        {
-            width: 253px;
-            text-align: left;
+        tr,td{
+            border: none;
+            border-color: transparent;
+        }
         }
         .style3
         {
             text-align: right;
         }
-        .style20
-        {
-            text-align: right;
-            height: 13px;
-            width: 503px;
-        }
         .style32
         {
             font-size: xx-large;
             text-align: center;
+            height: 100px !important;
         }
         .style35
         {
             text-align: center;
-            height: 45px;
+            height: 71px;
+            padding-bottom: 34px !important;
+            padding-top: 55px;
+            font-size: 20px;
         }
         .style36
         {
@@ -43,12 +46,6 @@
             text-align: center;
             height: 45px;
         }
-        .style28
-        {
-            text-align: left;
-            width: 351px;
-            height: 13px;
-        }
         .style41
         {
             text-align: center;
@@ -61,12 +58,6 @@
             height: 38px;
             width: 503px;
         }
-        .style43
-        {
-            text-align: right;
-            height: 13px;
-            width: 365px;
-        }
         .style44
         {
             text-align: center;
@@ -78,6 +69,7 @@
             text-align: center;
             height: 45px;
             width: 365px;
+            font-family: cursive;
         }
         .auto-style1 {
             width: 73%;
@@ -86,43 +78,44 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div Align="center">
-    <table class="auto-style1" border="5" style="margin-left: 10px;margin-top: 60px;">
+    <table class="auto-style1" border="5">
         <tr>
             <td class="style32" colspan="3">
                 JUGAR!</td>
         </tr>
         <tr>
-            <td class="style43">
-                Elija un juego:
-                <asp:DropDownList ID="ddlJuegos" runat="server" AutoPostBack="True" 
+            <td style="text-align:center">
+               <a>
+                <asp:DropDownList ID="ddlJuegos" runat="server" style="margin-top:6px;width: 155px;" AutoPostBack="True" 
                     onselectedindexchanged="ddlJuegos_SelectedIndexChanged">
                 </asp:DropDownList>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   </a>           
             </td>
-            <td class="style20">
-                </td>
-            <td class="style28">
+            <td >
+             </td>
+            <td style="text-align:center"><a>Puntaje Total: 
                 <asp:TextBox ID="txtPuntajeTotal" runat="server" BorderColor="Black" 
-                    BorderStyle="Solid" style="text-align: left">Puntaje total: 0</asp:TextBox>
+                    BorderStyle="Solid" style="text-align: center; width:50px">0</asp:TextBox>
+                </a>
             </td>
         </tr>
         <tr>
             <td class="style1" colspan="3">
-                &nbsp;<asp:TextBox ID="txtPregunta" runat="server" Height="98px" Width="600px" style="width:-webkit-fill-available; text-align:center" 
+                &nbsp;<asp:TextBox ID="txtPregunta" runat="server" Height="98px" style="width:-webkit-fill-available; margin-top:6px; text-align:center" 
                     BorderStyle="Solid"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style44">
                 <asp:Button ID="btnOpcion1" runat="server" Width="146px" 
-                    onclick="btnOpcion1_Click" BorderStyle="Solid" />
+                    onclick="btnOpcion1_Click" style="margin-bottom: -80px;" BorderStyle="Solid" />
             </td>
             <td class="style42">
                 <asp:Button ID="btnOpcion2" runat="server" Width="146px" 
-                    onclick="btnOpcion2_Click" BorderStyle="Solid" />
+                    onclick="btnOpcion2_Click" style="margin-bottom: -80px;" BorderStyle="Solid" />
             </td>
             <td class="style41">
-                <asp:Button ID="btnOpcion3" runat="server" Width="146px" onclientclick="true" 
+                <asp:Button ID="btnOpcion3" runat="server" style="margin-bottom: -80px;" Width="146px" onclientclick="true" 
                     onclick="btnOpcion3_Click" BorderStyle="Solid" />
             </td>
         </tr>
@@ -135,8 +128,8 @@
         </tr>
         <tr>
             <td class="style45">
-                player:
-                <asp:TextBox ID="txtPlayer" runat="server" BorderStyle="Solid"></asp:TextBox>
+                Player:
+                <asp:TextBox ID="txtPlayer" runat="server" BorderStyle="Solid" style="width: 130px;"></asp:TextBox>
             </td>
             <td class="style40">
                 <asp:Button ID="btnSiguiente" runat="server" onclick="btnSiguiente_Click" 
@@ -146,7 +139,7 @@
                     Text="Juego Nuevo" Visible="False" />
             </td>
             <td class="style36">
-                <asp:Label ID="lblPreguntas" runat="server"></asp:Label>
+                <asp:Label ID="lblPreguntas" runat="server" style="margin-right: 10px;"></asp:Label>
             </td>
         </tr>
     </table>
