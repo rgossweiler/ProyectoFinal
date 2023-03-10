@@ -250,6 +250,8 @@ public partial class Jugar : System.Web.UI.Page
         LimpioFormulario();
         int aux = 0;
         Session["Contador"] = aux;
-
+        //btnOpcion1.BackColor = Color.White;
+        //btnOpcion2.BackColor = Color.White;
+        //btnOpcion3.BackColor = Color.White;
     }
 }

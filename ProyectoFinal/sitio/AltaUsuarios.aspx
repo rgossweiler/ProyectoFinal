@@ -1,114 +1,63 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administradores.master" AutoEventWireup="true" CodeFile="AltaUsuarios.aspx.cs" Inherits="AltaUsuarios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-        .style2
-        {
-            width: 145px;
-        }
-        .style10
-        {
-            text-align: center;
-            font-size: xx-large;
-        }
-        .style12
-        {
-            width: 300px;
-            height: 46px;
-        }
-        .style13
-        {
-            width: 513px;
-            height: 46px;
-        }
-        .style14
-        {
-            width: 300px;
-            height: 27px;
-        }
-        .style15
-        {
-            width: 513px;
-            height: 27px;
-        }
-        .style16
-        {
-            width: 300px;
-            height: 35px;
-        }
-        .style17
-        {
-            width: 513px;
-            height: 35px;
-        }
-        .style18
-        {
-            width: 300px;
-            height: 34px;
-        }
-        .style19
-        {
-            width: 513px;
-            height: 34px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="5" style="width: 41%; margin-left: 150px;">
-        <tr>
-            <td class="style10" colspan="2">
-                ALTA USUARIOS&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style12">
-                USUARIO:</td>
-            <td class="style13" style="text-align: left">
-                <asp:TextBox ID="txtUsuario" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
-&nbsp;&nbsp;
-                <asp:Button ID="btnBuscar" runat="server" onclick="btnBuscar_Click" 
-                    Text="Buscar" />
-            </td>
-        </tr>
-        <tr>
-            <td class="style14">
-                CONTRASEÑA:</td>
-            <td class="style15" style="text-align: left">
-                <asp:TextBox ID="txtPassword" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="style16">
-                NOMBRE:</td>
-            <td class="style17" style="text-align: left">
-                <asp:TextBox ID="txtNombre" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="style18">
-                APELLIDO:</td>
-            <td style="text-align: left" class="style19">
-                <asp:TextBox ID="txtApellido" runat="server" BorderStyle="Solid" Width="200px"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center">
-&nbsp;&nbsp;<asp:Label ID="lblError" runat="server"></asp:Label>
-            &nbsp;&nbsp;&nbsp; </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center">
-                <asp:Button ID="btnAgregar" runat="server" onclick="btnAgregar_Click" 
-                    Text="Agregar" />
-&nbsp;&nbsp;
-                <asp:Button ID="btnLimpiar" runat="server" onclick="btnLimpiar_Click" 
-                    Text="Limpiar" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                &nbsp;&nbsp;
-                &nbsp;</td>
-        </tr>
-    </table>
-</asp:Content>
+    <!DOCTYPE html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <link href="Fonts/login.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+<body>
+   <div class="wrapper fadeInDown">
+  <div id="formContent" align="center">
+    <!-- Tabs Titles -->
+    <h2 class="active"> 
+         <asp:Label ID="Titulo" runat="server" Text="Iniciar Sesion"></asp:Label>
+    </h2>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="Fonts/PerfilUsuario.png" id="icon" width="200" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form >
+    
+        <asp:TextBox ID="txtNombreUsuario" runat="server" class="fadeIn second" name="login" placeholder="Nombre de usuario" ></asp:TextBox>
+        <asp:TextBox ID="txtPwd" runat="server" class="fadeIn second" name="login" placeholder="Contraseña" ></asp:TextBox>
+        <asp:TextBox ID="txtNombreCompleto" runat="server" class="fadeIn second" name="login" placeholder="Nombre completo" Visible="true" ></asp:TextBox>     
+
+         <asp:Button  ID="InisiarSession"  runat="server" onclick="Buscar_Click" 
+                      Text="Buscar" />
+
+        <asp:Button type="submit" ID="Registrarse"  runat="server" onclick="Registrarse_Click" 
+                     value="Log In" Text="Registrarse" Visible="true" />
+
+        <asp:Button type="submit" ID="Limpiar"  runat="server" onclick="LimpiarFormulario_Click" 
+                     value="Log In" Text="Limpiar" Visible="true" />
+
+ <!-- Usar esta clase para animar el inicio de sesion:type="submit" value="Log In" class="fadeIn fourth"-->
+    <!-- Remind Passowrd -->
+       
+    <div id="formFooter" style="display:flex !important">
+        <asp:Label ID="lblError" runat="server" ForeColor="Red" Width="300px"></asp:Label>
+         <asp:LinkButton ID="btnRegistro" runat="server" onclick="OpcRegistro_Click" BorderColor="#333399" Visible="False" >Regisrarse</asp:LinkButton>
+        <asp:LinkButton ID="btnSesion" runat="server" onclick="OpcIinicioSesion_Click" BorderColor="#333399" Visible="False" CssClass="auto-style1" Width="142px" >Iniciar Sesion</asp:LinkButton>
+    </div>
+
+    </form>
+
+  </div>
+</div>
+    
+</body>
+</html>
+    </asp:Content>

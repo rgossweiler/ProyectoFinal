@@ -6,7 +6,7 @@
     <div id="logoImage" Align="center">
     <asp:GridView ID="gvPuntajes" runat="server" AutoGenerateColumns="False" 
         BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
-        CellPadding="0" style="text-align: center; margin-top: 50px;" 
+        CellPadding="0" style="text-align: center; margin-top: 50px;overflow:scroll" 
         Height="250px" Width="840px" AllowPaging="True" PageSize="5">
         <Columns>
             <asp:BoundField DataField="fechaHoraJugada" DataFormatString="{0:MM/dd/yy}" 
