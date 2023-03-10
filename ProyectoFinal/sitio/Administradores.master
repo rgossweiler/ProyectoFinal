@@ -5,6 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
       <style>         
+
+          .cerrarSession{
+              background-color:white;
+              border:none;
+              font-size:20px;
+              margin-left: 15px;
+              margin-top:10px;
+          }
          .logo{
             width: 190px;
             margin-top: 251px;
@@ -79,8 +87,7 @@
                     <asp:Label ID="lblUsuario" runat="server" style="font-size: x-large"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
-                    <asp:Button ID="btnSalir" runat="server" onclick="btnSalir_Click" 
-                        Text="Cerrar Sesión" />
+
 &nbsp;&nbsp;
                     </td>
             </tr>
@@ -108,11 +115,11 @@
                   <li><a href="AltaJuegos.aspx" class="nav-link">ALTA JUEGOS</a></li>
                   <li><a href="ManejoPreguntasJuegos.aspx" class="nav-link">ASOCIAR PREGUNTAS</a></li>
                   <li><a href="ListadoDeJuegos.aspx" class="nav-link">LISTADO DE JUEGOS</a></li>
+                  <asp:Button ID="btnSalir" class="cerrarSession" runat="server" onclick="btnSalir_Click" 
+                        Text="CERRAR SESION" />
                 </ul>
               </nav>
-            </div>
-
-            
+            </div>    
           </div>
            
                  <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
@@ -124,9 +131,9 @@
       </header>
       
       <div class="hero" style="background-color: #56baed">
-      <a href="" class="" target="_blank">
+          <%-- <a href="" class="" target="_blank">
       <img class="logo" src="Fonts/images/confucio.png" alt=""> 
-	  </a>
+	  </a>--%>
       </div>
   
         <script src="Fonts/js/bootstrap.min.js"></script>

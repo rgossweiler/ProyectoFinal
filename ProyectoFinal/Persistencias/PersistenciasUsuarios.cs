@@ -109,6 +109,8 @@ namespace Persistencias
                 resultado = (int)oComando.Parameters["@Retorno"].Value;
                 if (resultado == -1)
                     throw new Exception("Usuario o Contraseña incorrectos");
+                else if (resultado == -2)
+                    throw new Exception("Ocurrio un error inesperado");
             }
             catch (Exception ex)
             {

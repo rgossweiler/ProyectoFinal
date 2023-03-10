@@ -19,8 +19,6 @@ public partial class Jugar : System.Web.UI.Page
             lblError.Text = "Presiona el botón comenzar para iniciar la partida";
             LimpioFormulario();
             CargarListaJuego();
-            int puntaje = 0;
-            Session["puntaje"] = puntaje;
         }
     }
 
@@ -222,6 +220,7 @@ public partial class Jugar : System.Web.UI.Page
                     
                 }
             }
+
             btnSiguiente.Enabled = false;
         }
         catch (Exception ex)
@@ -235,13 +234,15 @@ public partial class Jugar : System.Web.UI.Page
     {
         if (ddlJuegos.SelectedIndex != 0)
         {
-            int aux = 0;
-            Session["contador"] = aux;
             ddlJuegos.Enabled = false;
             btnSiguiente.Enabled = true;
             List<Juegos> games = (List<Juegos>)Session["Juegos"];
             Juegos game = games[ddlJuegos.SelectedIndex-1];
             Session["Juego"] = game;
+            int aux = 0; 
+            int puntaje = 0;
+            Session["Contador"] = aux;
+            Session["Puntaje"] = puntaje;
         }
     }
 
@@ -250,5 +251,8 @@ public partial class Jugar : System.Web.UI.Page
         LimpioFormulario();
         int aux = 0;
         Session["Contador"] = aux;
+        //btnOpcion1.BackColor = Color.White;
+        //btnOpcion2.BackColor = Color.White;
+        //btnOpcion3.BackColor = Color.White;
     }
 }

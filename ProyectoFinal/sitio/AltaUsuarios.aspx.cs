@@ -12,84 +12,109 @@ using Logica;
 
 public partial class AltaUsuarios : System.Web.UI.Page
 {
+  
     protected void Page_Load(object sender, EventArgs e)
     {
+        lblError.Text = "";
         if (!IsPostBack)
-            LimpioFormulario();
+            LimpiarFormularioInicioSesion();
     }
 
-    protected void btnBuscar_Click(object sender, EventArgs e)
+    protected void LimpiarFormularioInicioSesion()
     {
-        Usuarios user = LogicaUsuarios.BuscarUsuario(txtUsuario.Text);
-        if (user == null)
-        {
-            lblError.ForeColor = Color.Blue;
-            lblError.Text = "Usuario no registrado – ingrese los datos para registrar un nuevo usuario";
+        txtNombreCompleto.Text = "";
+        txtNombreUsuario.Text = "";
+        txtPwd.Text = "";
+        InisiarSession.Visible = true;
 
-            txtPassword.Enabled = true;
-            txtNombre.Enabled = true;
-            txtApellido.Enabled = true;
-            txtUsuario.Enabled = false;
-            btnBuscar.Enabled = false;
-            btnAgregar.Enabled = true;
-        }
-        else
-        {
-            lblError.ForeColor = Color.Red;
-            lblError.Text = "Usuario registrado – elija un nuevo nombre de usuario";
-            LimpioFormulario();
-        }
+        Registrarse.Visible = true;
+        txtNombreCompleto.Visible = true;
+        btnSesion.Visible = false;
+        btnRegistro.Visible = true;
+    }
+    protected void LimpiarFormularioRegistro()
+    {
+        InisiarSession.Attributes.Add("style", "padding: 15px 20px !important;");
+        Registrarse.Attributes.Add("style", "padding: 15px 20px !important;");
+        Limpiar.Attributes.Add("style", "padding: 15px 20px !important;");
+
+        txtNombreCompleto.Text = "";
+        txtNombreUsuario.Text = "";
+        txtPwd.Text = "";
+        InisiarSession.Visible = false;
+
+        Registrarse.Visible = true;
+        txtNombreCompleto.Visible = true;
+        btnSesion.Visible = true;
+        btnRegistro.Visible = false;
     }
 
-    protected void btnAgregar_Click(object sender, EventArgs e)
+    protected void Buscar_Click(object sender, EventArgs e)
     {
+        lblError.Text = "";
+
         try
         {
+            Usuarios usuario = new Usuarios(txtNombreUsuario.Text, txtPwd.Text, txtNombreCompleto.Text);
+            var logueo = Logica.LogicaUsuarios.LogeoUsuario(txtNombreUsuario.Text, txtPwd.Text);
 
-            if (txtPassword.Text == "")
-                throw new Exception("la contraseña no puede quedar vacia");
-            if (txtNombre.Text == "")
-                throw new Exception("El nombre no puede quedar vacio");
-            if (txtApellido.Text == "")
-                throw new Exception("El apellido no puede quedar vacio");
-
-           
-            string usuario, password, nombre, apellido, nombreCompleto;
-            usuario = txtUsuario.Text;
-            password = txtPassword.Text;
-            nombre = txtNombre.Text;
-            apellido = txtApellido.Text;
-            nombreCompleto = nombre + " " + apellido;
-
-            Usuarios user = new Usuarios(usuario, password, nombreCompleto);
-            LogicaUsuarios.AgregarUsuario(user);
-            lblError.ForeColor = Color.Green;
-            lblError.Text = "Registro de usuario exitoso";
-            LimpioFormulario();
+            if (logueo == 1)
+            {
+            }
+            else
+            {
+            }
         }
         catch (Exception ex)
         {
+            LimpiarFormularioInicioSesion();
+            btnRegistro.Visible = true;
             lblError.ForeColor = Color.Red;
             lblError.Text = ex.Message;
         }
     }
-
-    protected void btnLimpiar_Click(object sender, EventArgs e)
+    protected void LimpiarFormulario_Click(object sender, EventArgs e)
     {
-        LimpioFormulario();
+        LimpiarFormularioInicioSesion();
+    }
+    protected void Registrarse_Click(object sender, EventArgs e)
+    {
+        lblError.Text = "";
+
+        try
+        {
+            if (txtNombreCompleto.Text.Trim() == "")
+            {
+                throw new Exception("El nombre no puede estar vacio.");
+            }
+
+            Usuarios nuevoUsuario = new Usuarios(txtNombreUsuario.Text, txtPwd.Text, txtNombreCompleto.Text);
+
+            var registrado = Logica.LogicaUsuarios.AgregarUsuario(nuevoUsuario);
+
+            if (registrado == 1)
+            {
+                lblError.ForeColor = Color.Green;
+                lblError.Text = "Usuario registrado exitosamente";
+            }
+        }
+        catch (Exception ex)
+        {
+            LimpiarFormularioRegistro();
+            lblError.ForeColor = Color.Red;
+            lblError.Text = ex.Message;
+        }
+
+    }
+    protected void OpcRegistro_Click(object sender, EventArgs e)
+    {
+        Titulo.Text = "Registrarse";
+        LimpiarFormularioRegistro();
+    }
+    protected void OpcIinicioSesion_Click(object sender, EventArgs e)
+    {
+        Titulo.Text = "Iniciar Sesion";
+        LimpiarFormularioInicioSesion();
     }
 
-    private void LimpioFormulario()
-    {
-        txtUsuario.Enabled = true;
-        txtUsuario.Text = "";
-        txtPassword.Enabled = false;
-        txtPassword.Text = "";
-        txtNombre.Enabled = false;
-        txtNombre.Text = "";
-        txtApellido.Enabled = false;
-        txtApellido.Text = "";
-        btnAgregar.Enabled = false;
-        btnBuscar.Enabled = true;
-    }
 }
