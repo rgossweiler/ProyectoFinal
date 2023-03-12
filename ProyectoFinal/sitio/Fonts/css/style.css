@@ -37,8 +37,8 @@ a {
   a, a:hover {
     text-decoration: none !important; }
 
-.hero {
-  height: 100vh;
+.fondo {
+  height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center center;
@@ -251,7 +251,7 @@ a {
     .site-mobile-menu .site-nav-wrap a {
       padding: 10px 20px;
       display: block;
-      position: relative;
+
       color: #212529; }
       .site-mobile-menu .site-nav-wrap a:hover {
         color: #007bff; }

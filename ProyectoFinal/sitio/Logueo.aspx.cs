@@ -20,20 +20,24 @@ public partial class Logueo : System.Web.UI.Page
 
     protected void LimpiarFormularioInicioSesion()
     {
+        txtNombreCompleto.Text = "";
         txtNombreUsuario.Text = "";
         txtPwd.Text = "";
         InisiarSession.Visible = true;
 
+        txtNombreCompleto.Visible = false;
         btnSesion.Visible = false;
     }
     protected void LimpiarFormularioRegistro()
     {
         InisiarSession.Attributes.Add("style", "padding: 15px 20px !important;");
 
+        txtNombreCompleto.Text = "";
         txtNombreUsuario.Text = "";
         txtPwd.Text = "";
         InisiarSession.Visible = false;
 
+        txtNombreCompleto.Visible = true;
         btnSesion.Visible = true;
     }
 
@@ -42,7 +46,7 @@ public partial class Logueo : System.Web.UI.Page
         lblError.Text = "";
 
         try
-        {
+        {  
             var logueo = Logica.LogicaUsuarios.LogeoUsuario(txtNombreUsuario.Text, txtPwd.Text);
 
             if (logueo == 1)

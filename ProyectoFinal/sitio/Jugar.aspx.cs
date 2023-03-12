@@ -145,6 +145,8 @@ public partial class Jugar : System.Web.UI.Page
         btnSiguiente.Visible = true;
         btnJugoNuevo.Visible = false;
         ddlJuegos.Enabled = true;
+        txtDificultad.Visible = false;
+        txtFecha.Visible = false;
     }
 
     private void cargarPuntaje(Pregunta p)
@@ -216,8 +218,7 @@ public partial class Jugar : System.Web.UI.Page
                     LogicaJugadas.AgregarJugada(txtPlayer.Text, juego, puntajeTotal);
                     btnSiguiente.Visible = false;
                     btnJugoNuevo.Visible = true;
-                    throw new Exception(txtPlayer.Text + " obtuvo el puntaje " + puntajeTotal);
-                    
+                    throw new Exception(txtPlayer.Text + " obtuvo el puntaje: " + puntajeTotal);
                 }
             }
 
@@ -239,8 +240,13 @@ public partial class Jugar : System.Web.UI.Page
             List<Juegos> games = (List<Juegos>)Session["Juegos"];
             Juegos game = games[ddlJuegos.SelectedIndex-1];
             Session["Juego"] = game;
-            int aux = 0; 
-            int puntaje = 0;
+            txtDificultad.Text = game.Dificultad;
+            txtDificultad.Visible = true;
+            txtDificultad.Enabled = false;
+            txtFecha.Text = game.FechaCreado.ToShortDateString();
+            txtFecha.Visible = true;
+            txtFecha.Enabled = false;
+            int aux = 0, puntaje = 0;
             Session["Contador"] = aux;
             Session["Puntaje"] = puntaje;
         }
@@ -249,10 +255,8 @@ public partial class Jugar : System.Web.UI.Page
     protected void btnJugoNuevo_Click(object sender, EventArgs e)
     {
         LimpioFormulario();
-        int aux = 0;
-        Session["Contador"] = aux;
-        //btnOpcion1.BackColor = Color.White;
-        //btnOpcion2.BackColor = Color.White;
-        //btnOpcion3.BackColor = Color.White;
+        btnOpcion1.BackColor = Color.White;
+        btnOpcion2.BackColor = Color.White;
+        btnOpcion3.BackColor = Color.White;
     }
 }

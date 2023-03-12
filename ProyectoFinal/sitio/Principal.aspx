@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="logoImage" Align="center">
-        <div  style="height: 234px; overflow: auto;">   
+        <div  style="height: 284px; overflow: auto;">   
             <asp:GridView ID="gvPuntajes" runat="server" AutoGenerateColumns="False" 
                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
                 CellPadding="0" style="text-align: center; margin-top: 50px;overflow:scroll" 
@@ -33,7 +33,7 @@
         margin-top: -190px;
         margin-bottom: -116px !important;
         margin-left: 998px;
-        padding-left: 3;
+        padding-left: 3px;
         transform: scaleX(-1);" src="Fonts/images/confucio.png" alt="" runat="server"/>
 	  </a>
         </div>
@@ -41,6 +41,3 @@
         </a>
        
 </asp:Content>
-
-
-

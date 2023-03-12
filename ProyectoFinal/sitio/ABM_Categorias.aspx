@@ -21,7 +21,7 @@
         .style9
         {
         width: 235px;
-        text-align: left;
+        text-align: center;
     }
     .style11
     {
@@ -31,14 +31,14 @@
     .style12
     {
         width: 235px;
-        text-align: left;
+        text-align: center;
         height: 43px;
     }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div>
-        <table border="4" style="width: 45%; margin-left: 150px;">
+        <table border="4" style="width: 45%; margin-left: 259px;">
             <tr>
                 <td class="style6" colspan="2">
                     <span class="style8">MANTENIMIENTO CATEGORIAS</span><br />
@@ -48,7 +48,7 @@
                 <td class="style12">
                     CODIGO</td>
                 <td class="style11">
-                    <asp:TextBox ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
+                    <asp:TextBox style="margin-top: 20px;margin-left: 10px;" ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
                 &nbsp;&nbsp;
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" 
                         onclick="btnBuscar_Click1" BorderStyle="Solid" ValidationGroup="Buscar" />
@@ -62,7 +62,7 @@
                 <td class="style9">
                     NOMBRE CODIGO:</td>
                 <td class="style11">
-                    <asp:TextBox ID="txtNombreCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
+                    <asp:TextBox style="margin-top: 20px;margin-left: 10px;" ID="txtNombreCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                         ControlToValidate="txtNombreCodigo" ForeColor="Red" 

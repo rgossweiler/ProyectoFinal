@@ -160,6 +160,7 @@ public partial class AltaJuegos : System.Web.UI.Page
             lblError.Text = ex.Message;
         }
     }
+
     protected void Crear_CheckedChanged(object sender, EventArgs e)
     {
         if (rdbtnCrear.Checked == true)
@@ -179,6 +180,7 @@ public partial class AltaJuegos : System.Web.UI.Page
             btnLimpiar.Visible = true;
         }
     }
+
     protected void rdbtnModificar_CheckedChanged(object sender, EventArgs e)
     {
         if (rdbtnModificar.Checked == true)

@@ -56,7 +56,7 @@ public partial class ABM_Categorias : System.Web.UI.Page
 
             lblError.ForeColor = Color.Green;
             lblError.Text = "Modificacion exitosa";
-
+            LimpioFormulario();
         }
         catch (Exception ex)
         {
@@ -75,6 +75,7 @@ public partial class ABM_Categorias : System.Web.UI.Page
             LogicaCategorias.EliminarCategoria(oCategoria);
             lblError.ForeColor = Color.Green;
             lblError.Text = "Eliminacion exitosa";
+            LimpioFormulario();
         }
         catch (Exception ex)
         {

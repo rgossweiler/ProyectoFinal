@@ -5,6 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
      <style>
+         .fondo {
+          height: 100%;
+          width: 100%;
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat; }
          .logo{
             width: 190px;
             margin-top: 191px;
@@ -46,7 +52,7 @@
             <span class="icon-close2 js-menu-toggle"></span>
           </div>
         </div>
-        <div class="site-mobile-menu-body"></div>
+        <div class="site-mobile-menu-body" style="overflow:auto;"></div>
       </div>
 
 
@@ -58,14 +64,14 @@
 
             <div class="col-3 ml-auto text-right order-2">
               <div class="site-logo">
-                <a href="Principal.aspx" style="font-size:20px !important"; class="font-weight-bold text-white">Confucio</a>
+                <a href="Principal.aspx" style="font-size:25px !important"; class="font-weight-bold text-white">Confucio</a>
               </div>
             </div>
 
             <div class="col-9 order-1 text-left mr-auto">
               
 
-              <span class="d-inline-block d-lg-block"><a href="#" class="text-black site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-white"></span></a></span>
+              <span class="d-inline-block d-lg-block"><a href="#" class="text-black site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-white" style="font-size: 40px;"></span></a></span>
 
               
 
@@ -90,7 +96,7 @@
       </header>
       
    <%--<div class="hero" style="background-image: url('Fonts/images/preguntados.jpg');"></div> --%> 
-      <div class="hero" style="background-color: #56baed">
+      <div class="fondo" style="background-color: #56baed">
          <%-- <a href="" ID="logoImg" class="" target="_blank">
       <img  class="logo" src="Fonts/images/confucio.png" alt=""> 
 	  </a>--%>

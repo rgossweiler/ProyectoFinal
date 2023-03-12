@@ -13,13 +13,13 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table align="left" border="5" style="width: 53%; margin-left: 150px;">
+    <table align="left" border="5" style="width: 53%;margin-left: 47px;margin-top: -40px;">
         <tr>
-            <td style="font-size: xx-large;" class="style5">
+            <td style="font-size: xx-large;" class="style5" id="miTable">
                 LISTADO DE JUEGOS</td>
         </tr>
         <tr>
-            <td class="style5">
+            <td class="style5" id="miTable">
                 <asp:DropDownList ID="ddlJuego" runat="server" AutoPostBack="True" 
                     onselectedindexchanged="ddlJuego_SelectedIndexChanged">
                 </asp:DropDownList>
@@ -51,11 +51,11 @@
             </td>
         </tr>
         <tr>
-            <td class="style5">
+            <td class="style5" id="miTable">
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="style5">
+            <td class="style5" id="miTable">
                 <asp:GridView ID="gvPreguntas" runat="server" AutoGenerateColumns="False" 
                     BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
                     CellPadding="3" AllowPaging="True" PageSize="5" Width="1031px">
@@ -80,7 +80,7 @@
             </td>
         </tr>
         <tr>
-            <td class="style5">
+            <td class="style5" id="miTable">
                 <asp:Label ID="lblError1" runat="server"></asp:Label>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblError2" runat="server"></asp:Label>

@@ -4,7 +4,7 @@
     <style type="text/css">
         table{
             margin-left: 10px;
-            margin-top: 45px;
+            margin-top: 23px;
             border-radius: 27px !important;
             background-color:snow;
             border-color: black;
@@ -14,10 +14,6 @@
             border: none;
             border-color: transparent;
         }
-        }
-        .style3
-        {
-            text-align: right;
         }
         .style32
         {
@@ -92,6 +88,10 @@
                    </a>           
             </td>
             <td >
+                <asp:TextBox ID="txtDificultad" runat="server" BorderStyle="Solid" 
+                    Width="100px"></asp:TextBox>
+&nbsp;&nbsp;
+                <asp:TextBox ID="txtFecha" runat="server" BorderStyle="Solid" Width="100px"></asp:TextBox>
              </td>
             <td style="text-align:center"><a>Puntaje Total: 
                 <asp:TextBox ID="txtPuntajeTotal" runat="server" BorderColor="Black" 

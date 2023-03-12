@@ -17,36 +17,31 @@ public partial class AltaUsuarios : System.Web.UI.Page
     {
         lblError.Text = "";
         if (!IsPostBack)
-            LimpiarFormularioInicioSesion();
+            LimpiarFormularioRegistro();
     }
 
-    protected void LimpiarFormularioInicioSesion()
-    {
-        txtNombreCompleto.Text = "";
-        txtNombreUsuario.Text = "";
-        txtPwd.Text = "";
-        InisiarSession.Visible = true;
-
-        Registrarse.Visible = true;
-        txtNombreCompleto.Visible = true;
-        btnSesion.Visible = false;
-        btnRegistro.Visible = true;
-    }
     protected void LimpiarFormularioRegistro()
     {
-        InisiarSession.Attributes.Add("style", "padding: 15px 20px !important;");
-        Registrarse.Attributes.Add("style", "padding: 15px 20px !important;");
-        Limpiar.Attributes.Add("style", "padding: 15px 20px !important;");
-
         txtNombreCompleto.Text = "";
+        txtNombreCompleto.Enabled = false;
         txtNombreUsuario.Text = "";
+        txtNombreUsuario.Enabled = true;
         txtPwd.Text = "";
-        InisiarSession.Visible = false;
+        txtPwd.Enabled = false;
+        btnBuscar.Enabled = true;
 
-        Registrarse.Visible = true;
+        btnAgregar.Enabled = false;
         txtNombreCompleto.Visible = true;
-        btnSesion.Visible = true;
-        btnRegistro.Visible = false;
+        btnLimpiar.Visible = true;
+    }
+
+    private void HabilitarFormulario()
+    {
+        txtNombreUsuario.Enabled = false;
+        txtNombreCompleto.Enabled = true;
+        txtPwd.Enabled = true;
+        btnBuscar.Enabled = false;
+        btnAgregar.Enabled = true;
     }
 
     protected void Buscar_Click(object sender, EventArgs e)
@@ -55,27 +50,32 @@ public partial class AltaUsuarios : System.Web.UI.Page
 
         try
         {
-            Usuarios usuario = new Usuarios(txtNombreUsuario.Text, txtPwd.Text, txtNombreCompleto.Text);
-            var logueo = Logica.LogicaUsuarios.LogeoUsuario(txtNombreUsuario.Text, txtPwd.Text);
+            if (txtNombreUsuario.Text.Trim() == "")
+                throw new Exception("El numbre de usuario no puede estar vacio.");
 
-            if (logueo == 1)
+            var usuario = Logica.LogicaUsuarios.BuscarUsuario(txtNombreUsuario.Text);
+
+            if (usuario != null)
             {
+                //txtPwd.Text = usuario.Contraseña;
+                //txtNombreCompleto.Text = usuario.NombreCompleto;
+                lblError.ForeColor = Color.Red;
+                lblError.Text = "El usuario ya existe";
+                txtNombreUsuario.Enabled = false;
+                btnBuscar.Enabled = false;
             }
             else
             {
+                lblError.Text = "El usuario no existe, desea agregarlo?";
+                HabilitarFormulario();
             }
         }
         catch (Exception ex)
         {
-            LimpiarFormularioInicioSesion();
-            btnRegistro.Visible = true;
+            LimpiarFormularioRegistro();
             lblError.ForeColor = Color.Red;
             lblError.Text = ex.Message;
         }
-    }
-    protected void LimpiarFormulario_Click(object sender, EventArgs e)
-    {
-        LimpiarFormularioInicioSesion();
     }
     protected void Registrarse_Click(object sender, EventArgs e)
     {
@@ -85,7 +85,8 @@ public partial class AltaUsuarios : System.Web.UI.Page
         {
             if (txtNombreCompleto.Text.Trim() == "")
             {
-                throw new Exception("El nombre no puede estar vacio.");
+                lblError.ForeColor = Color.Red;
+                lblError.Text = "El nombre no puede estar vacio.";
             }
 
             Usuarios nuevoUsuario = new Usuarios(txtNombreUsuario.Text, txtPwd.Text, txtNombreCompleto.Text);
@@ -96,25 +97,17 @@ public partial class AltaUsuarios : System.Web.UI.Page
             {
                 lblError.ForeColor = Color.Green;
                 lblError.Text = "Usuario registrado exitosamente";
+                btnAgregar.Enabled = false;
             }
         }
         catch (Exception ex)
         {
-            LimpiarFormularioRegistro();
             lblError.ForeColor = Color.Red;
             lblError.Text = ex.Message;
         }
-
     }
     protected void OpcRegistro_Click(object sender, EventArgs e)
     {
-        Titulo.Text = "Registrarse";
         LimpiarFormularioRegistro();
     }
-    protected void OpcIinicioSesion_Click(object sender, EventArgs e)
-    {
-        Titulo.Text = "Iniciar Sesion";
-        LimpiarFormularioInicioSesion();
-    }
-
 }

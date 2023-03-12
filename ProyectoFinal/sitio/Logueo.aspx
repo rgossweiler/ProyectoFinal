@@ -54,6 +54,7 @@
     
         <asp:TextBox ID="txtNombreUsuario" runat="server" class="fadeIn second" name="login" placeholder="Nombre de usuario" ></asp:TextBox>
         <asp:TextBox ID="txtPwd" runat="server" class="fadeIn second pwdText" name="login" TextMode="Password" placeholder="Contraseña" ></asp:TextBox>
+        <asp:TextBox ID="txtNombreCompleto" runat="server" class="fadeIn second" name="login" placeholder="Nombre completo" Visible="False" ></asp:TextBox>     
 
          <asp:Button  ID="InisiarSession"  runat="server" onclick="IniciarSesion_Click" 
                       Text="Iniciar Sesion" />

@@ -35,11 +35,11 @@
             <td colspan="2" style="text-align: center" class="style5">
                 <asp:RadioButton ID="rdbtnCrear" runat="server" AutoPostBack="True" 
                     GroupName="CrearModificar" oncheckedchanged="Crear_CheckedChanged" 
-                    Text="Crear Juego" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:RadioButton ID="rdbtnModificar" runat="server" AutoPostBack="True" 
+                    Text="Crear Juego" ForeColor="Black" 
+                    style="font-size: large; font-weight: 700" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:RadioButton ID="rdbtnModificar" runat="server" AutoPostBack="True" 
                     GroupName="CrearModificar" oncheckedchanged="rdbtnModificar_CheckedChanged" 
-                    Text="Modificar Juego" />
+                    Text="Modificar Juego" style="font-size: x-large; font-weight: 700" />
             </td>
         </tr>
         <tr>
@@ -48,11 +48,9 @@
             </td>
             <td class="style8">
                 <asp:TextBox ID="txtCodigo" runat="server" BorderStyle="Solid"></asp:TextBox>
-&nbsp;&nbsp;
-                <asp:Button ID="btnBuscar" runat="server" BorderStyle="Solid" 
+&nbsp;&nbsp;<asp:Button ID="btnBuscar" runat="server" BorderStyle="Solid" 
                     onclick="btnBuscar_Click" Text="Buscar" ValidationGroup="Buscar" />
-            &nbsp;&nbsp;
-                <asp:CompareValidator ID="CompareValidator1" runat="server" 
+            &nbsp;<asp:CompareValidator ID="CompareValidator1" runat="server" 
                     ControlToValidate="txtCodigo" ErrorMessage="El codigo es incorrecto" 
                     Operator="GreaterThan" Type="Integer" ValidationGroup="Buscar" 
                     ValueToCompare="0" ForeColor="Red">Numero entero mayor a 0</asp:CompareValidator>
@@ -64,11 +62,7 @@
             </td>
             <td class="style8">
                 <asp:TextBox ID="txtNombre" runat="server" BorderStyle="Solid"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:CompareValidator ID="CompareValidator2" runat="server" 
-                    ControlToValidate="txtNombre" ErrorMessage="CompareValidator" ForeColor="Red" 
-                    ValidationGroup="Juegos">Campo Obligatorio</asp:CompareValidator>
-                </td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
             <td class="style6">
@@ -81,11 +75,7 @@
                     <asp:ListItem>Medio</asp:ListItem>
                     <asp:ListItem>Dificil</asp:ListItem>
                 </asp:DropDownList>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:CompareValidator ID="CompareValidator3" runat="server" 
-                    ControlToValidate="ddlDificultad" ErrorMessage="CompareValidator" 
-                    ForeColor="Red" ValidationGroup="Juegos">Campo Obligatorio</asp:CompareValidator>
-            </td>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
             <td class="style11" colspan="2">
