@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style type="text/css">
+        tr{
+            height:auto !important;
+        }
         .style1
         {
             text-align: left;
@@ -18,7 +21,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="5" style="width: 59%; margin-left: 150px;">
+    <table border="5" style="width: 59%; margin-left: 214px;">
         <tr>
             <td class="style10" colspan="2">
                 ALTA PREGUNTAS</td>
@@ -28,11 +31,14 @@
                 CODIGO:</td>
             <td class="style11">
                 &nbsp;
-                <asp:TextBox ID="txtCodigo" runat="server" Width="200px" BorderStyle="Solid"></asp:TextBox>
+                <asp:TextBox style="margin-top: 20px;" ID="txtCodigo" runat="server" Width="200px" BorderStyle="Solid"></asp:TextBox>
 &nbsp;&nbsp;
                 <asp:Button ID="btnBuscar" runat="server" onclick="btnBuscar_Click" 
                     Text="Buscar" />
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtCodigo" ErrorMessage="CompareValidator"></asp:CompareValidator>
+                &nbsp;&nbsp;
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                    ControlToValidate="txtCodigo" ErrorMessage="debe de ser 3 letras y 2 numeros" 
+                    ForeColor="#CC0000" ValidationExpression="[a-zA-Z]{3}\d{2}"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr>
@@ -74,7 +80,7 @@
             <td class="style1">
                 PUNTAJE:</td>
             <td style="text-align: left">
-                <asp:DropDownList ID="ddlPuntaje" runat="server" Height="16px" Width="200px">
+                <asp:DropDownList ID="ddlPuntaje" runat="server" Width="200px">
                     <asp:ListItem Value="0">Elija una opcion</asp:ListItem>
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>

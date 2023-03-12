@@ -38,7 +38,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="2" style="width: 60%; margin-left: 150px;">
+    <table border="5" style="width: 60%; margin-left: 150px;">
         <tr>
             <td class="style7" colspan="2">
                 MANEJO PREGUNTAS JUEGO</td>

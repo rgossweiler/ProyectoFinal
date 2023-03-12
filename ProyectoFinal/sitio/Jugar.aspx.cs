@@ -219,7 +219,7 @@ public partial class Jugar : System.Web.UI.Page
                     LogicaJugadas.AgregarJugada(txtPlayer.Text, juego, puntajeTotal);
                     btnSiguiente.Visible = false;
                     btnJugoNuevo.Visible = true;
-                    throw new Exception(txtPlayer.Text + " obtuvo el puntaje " + puntajeTotal);
+                    throw new Exception(txtPlayer.Text + " obtuvo el puntaje: " + puntajeTotal);
                     
                 }
             }
@@ -250,8 +250,8 @@ public partial class Jugar : System.Web.UI.Page
         LimpioFormulario();
         int aux = 0;
         Session["Contador"] = aux;
-        //btnOpcion1.BackColor = Color.White;
-        //btnOpcion2.BackColor = Color.White;
-        //btnOpcion3.BackColor = Color.White;
+        btnOpcion1.BackColor = Color.White;
+        btnOpcion2.BackColor = Color.White;
+        btnOpcion3.BackColor = Color.White;
     }
 }

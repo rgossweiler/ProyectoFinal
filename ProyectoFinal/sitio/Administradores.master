@@ -5,13 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
       <style>         
-
+          @import url('https://fonts.cdnfonts.com/css/shaak-sans');
           .cerrarSession{
-              background-color:white;
-              border:none;
               font-size:20px;
-              margin-left: 15px;
               margin-top:10px;
+              position:unset !important;
           }
          .logo{
             width: 190px;
@@ -56,32 +54,28 @@
             <span class="icon-close2 js-menu-toggle"></span>
           </div>
         </div>
-        <div class="site-mobile-menu-body"></div>
+        <div class="site-mobile-menu-body" style="overflow: unset;margin-top: 40px;"></div>
       </div>
 
-
-
       <header class="site-navbar site-navbar-target py-4" role="banner">
-
-
         <div class="container">
           <form id="form1" runat="server">
           <div class="row align-items-center position-relative">
 
             <div class="col-3 ml-auto text-right order-2">
               <div class="site-logo">
-                <a href="Principal.aspx" style="font-size:20px !important" class="font-weight-bold text-white">Confucio</a>
+                <a href="Principal.aspx" style="font-size:25px !important;" class="font-weight-bold text-white">Confucio</a>
                   <div >
                 
     <p>
-        <table style="width:100%;">
+        <table style="width:293px;">
             <tr>
                 <td class="style2">
                     </td>
                 <td class="style3">
                     </td>
                 <td class="style3">
-                    <span class="style4">bienvenido:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="style4">Bienvenido:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </span>
                     <br class="style4" />
                     <asp:Label ID="lblUsuario" runat="server" style="font-size: x-large"></asp:Label>
@@ -103,7 +97,7 @@
             <div class="col-9 order-1 text-left mr-auto">
               
 
-              <span class="d-inline-block d-lg-block"><a href="#" class="text-black site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-white"></span></a></span>
+              <span class="d-inline-block d-lg-block" style="margin-top:-75px;"><a href="#" class="text-black site-menu-toggle js-menu-toggle py-5"><span class="icon-menu h3 text-white"style="font-size: 40px;"></span></a></span>
 
               
 
@@ -114,10 +108,9 @@
                   <li><a href="AltaPreguntas.aspx" class="nav-link">ALTA PREGUNTAS</a></li>
                   <li><a href="AltaJuegos.aspx" class="nav-link">ALTA JUEGOS</a></li>
                   <li><a href="ManejoPreguntasJuegos.aspx" class="nav-link">ASOCIAR PREGUNTAS</a></li>
-                  <li><a href="ListadoDeJuegos.aspx" class="nav-link">LISTADO DE JUEGOS</a></li>
-                  <asp:Button ID="Button1" class="cerrarSession" runat="server" onclick="btnSalir_Click" 
-                        Text="CERRAR SESION" />
-                </ul>
+                  <li><a href="ListadoDeJuegos.aspx" class="nav-link" style="margin-bottom:8px;">LISTADO DE JUEGOS</a></li>
+                  <asp:LinkButton CssClass="cerrarSession" ID="LinkButton1" runat="server" onclick="btnSalir_Click">CERRAR SESION</asp:LinkButton>
+                </ul>              
               </nav>
             </div>    
           </div>
@@ -130,10 +123,8 @@
 
       </header>
       
-      <div class="hero" style="background-color: #56baed">
-     <%-- <a href="" class="" target="_blank">
-      <img class="logo" src="Fonts/images/confucio.png" alt=""> 
-	  </a>--%>
+      <div class="hero" style="background-color: #56baed;height:100%">
+
       </div>
   
         <script src="Fonts/js/bootstrap.min.js"></script>

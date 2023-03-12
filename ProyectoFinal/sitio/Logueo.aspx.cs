@@ -46,18 +46,13 @@ public partial class Logueo : System.Web.UI.Page
         lblError.Text = "";
 
         try
-        {
-            Usuarios usuario = new Usuarios(txtNombreUsuario.Text, txtPwd.Text, txtNombreCompleto.Text);
+        {  
             var logueo = Logica.LogicaUsuarios.LogeoUsuario(txtNombreUsuario.Text, txtPwd.Text);
 
             if (logueo == 1)
             {
                 Session["Administrador"] = LogicaUsuarios.BuscarUsuario(txtNombreUsuario.Text);
                 Response.Redirect("PrincipalAdmin.aspx",false);
-            }
-            else
-            {
-
             }
         }
         catch (Exception ex)
