@@ -30,10 +30,10 @@
      <a href="" target="_blank">
       <asp:Image ID="logoImg" class="logo" style="
         width: 190px;
-        margin-top: -190px;
+        margin-top: -11em;
         margin-bottom: -116px !important;
-        margin-left: 998px;
-        padding-left: 3;
+        margin-left: 1086px;
+        padding-left: 3px;
         transform: scaleX(-1);" src="Fonts/images/confucio.png" alt="" runat="server"/>
 	  </a>
 </asp:Content>

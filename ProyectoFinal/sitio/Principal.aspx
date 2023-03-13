@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="logoImage" Align="center">
-        <div  style="height: 284px; overflow: auto;">   
+        <div  style="height: 316px; overflow: auto;">   
             <asp:GridView ID="gvPuntajes" runat="server" AutoGenerateColumns="False" 
                 BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
-                CellPadding="0" style="text-align: center; margin-top: 50px;overflow:scroll" 
+                CellPadding="0" style="text-align: center; margin-top: 50px;" 
                 Height="250px" Width="840px" PageSize="5">
                 <Columns>
                     <asp:BoundField DataField="fechaHoraJugada" DataFormatString="{0:MM/dd/yy}" 

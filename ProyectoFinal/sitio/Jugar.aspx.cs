@@ -103,12 +103,14 @@ public partial class Jugar : System.Web.UI.Page
         {
             btnOpcion3.BackColor = Color.Red;
             btnOpcion1.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
         else
         {
             btnOpcion3.BackColor = Color.Red;
             btnOpcion2.BackColor = Color.Green;
+            lblError.ForeColor = Color.Red;
             lblError.Text = "Respuesta incorrecta";
         }
     }

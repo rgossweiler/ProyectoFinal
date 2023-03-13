@@ -26,7 +26,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <table border="5" style="width: 51%; margin-left: 150px;">
+    <table border="5" style="width: 51%; margin-left: 241px;">
         <tr>
             <td colspan="2" style="text-align: center" class="style5">
                 ALTA JUEGOS</td>

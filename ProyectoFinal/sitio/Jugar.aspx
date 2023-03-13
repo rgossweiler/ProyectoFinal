@@ -75,12 +75,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div Align="center">
     <table class="auto-style1" border="5">
-        <tr>
+        <tr style="height: 90px;">
             <td class="style32" colspan="3">
-                JUGAR!</td>
+               <a style="font-size: 30px;margin-left: 11.4em;font-family: cursive;">JUGAR!</a></td>
         </tr>
-        <tr>
-            <td style="text-align:center">
+        <tr style="height: 50px;">
+            <td style="text-align:center;">
                <a>
                 <asp:DropDownList ID="ddlJuegos" runat="server" style="margin-top:6px;width: 155px;" AutoPostBack="True" 
                     onselectedindexchanged="ddlJuegos_SelectedIndexChanged">
@@ -88,9 +88,7 @@
                    </a>           
             </td>
             <td >
-                <asp:TextBox ID="txtDificultad" runat="server" BorderStyle="Solid" 
-                    Width="100px"></asp:TextBox>
-&nbsp;&nbsp;
+                <asp:TextBox ID="txtDificultad" style="margin-top: 8px;margin-left: 40px;" runat="server" BorderStyle="Solid" Width="100px"></asp:TextBox>&nbsp;&nbsp;
                 <asp:TextBox ID="txtFecha" runat="server" BorderStyle="Solid" Width="100px"></asp:TextBox>
              </td>
             <td style="text-align:center"><a>Puntaje Total: 
@@ -128,7 +126,7 @@
         </tr>
         <tr>
             <td class="style45">
-                Player:
+               <a style="font-size:20px"> Player:</a>
                 <asp:TextBox ID="txtPlayer" runat="server" BorderStyle="Solid" style="width: 130px;"></asp:TextBox>
             </td>
             <td class="style40">

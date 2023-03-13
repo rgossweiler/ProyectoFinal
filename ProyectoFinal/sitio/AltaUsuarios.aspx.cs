@@ -57,8 +57,6 @@ public partial class AltaUsuarios : System.Web.UI.Page
 
             if (usuario != null)
             {
-                //txtPwd.Text = usuario.Contraseña;
-                //txtNombreCompleto.Text = usuario.NombreCompleto;
                 lblError.ForeColor = Color.Red;
                 lblError.Text = "El usuario ya existe";
                 txtNombreUsuario.Enabled = false;
@@ -66,6 +64,7 @@ public partial class AltaUsuarios : System.Web.UI.Page
             }
             else
             {
+                lblError.ForeColor = Color.Black;
                 lblError.Text = "El usuario no existe, desea agregarlo?";
                 HabilitarFormulario();
             }
